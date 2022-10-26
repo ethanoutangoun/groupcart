@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import groupForm from './groupForm';
+import Table from './Table';
 
 
 
@@ -9,8 +9,8 @@ function Profile() {
     return ( 
         
        <div className="container">
-            hello
-            <groupForm />
+            <h1>Group list</h1>
+            <Table />
 
        </div>
 

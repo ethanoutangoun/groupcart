@@ -1,15 +1,19 @@
 import React from 'react';
 
-function groupForm() { 
-    return (
-      /*
-      <table>
+function TableHeader(){
+    return(
         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Job</th>
-          </tr>
-        </thead>
+        <tr>
+          <th>Name</th>
+          <th>Job</th>
+        </tr>
+      </thead>
+
+    )
+}
+
+function  TableBody(){
+    return(
         <tbody>
           <tr>
             <td>Charlie</td>
@@ -28,10 +32,16 @@ function groupForm() {
             <td>Bartender</td>
           </tr>
         </tbody>
+    )
+
+}
+function Table() { 
+    return (
+      <table>
+        <TableHeader/>
+        <TableBody/>
       </table>
-      */
-     <p>hellop</p>
     );
 }
 
-export default groupForm;
+export default Table;
