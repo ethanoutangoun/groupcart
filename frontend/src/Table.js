@@ -5,41 +5,34 @@ function TableHeader(){
         <thead>
         <tr>
           <th>Name</th>
-          <th>Job</th>
+          <th>Size</th>
         </tr>
       </thead>
 
     )
 }
 
-function  TableBody(){
-    return(
-        <tbody>
-          <tr>
-            <td>Charlie</td>
-            <td>Janitor</td>
-          </tr>
-          <tr>
-            <td>Mac</td>
-            <td>Bouncer</td>
-          </tr>
-          <tr>
-            <td>Dee</td>
-            <td>Aspiring actress</td>
-          </tr>
-          <tr>
-            <td>Dennis</td>
-            <td>Bartender</td>
-          </tr>
-        </tbody>
-    )
+function  TableBody(props){
+  const rows = props.groupData.map((row, index) => {
+    return (
+      <tr key={index}>
+        <td>{row.name}</td>
+        <td>{row.size}</td>
+      </tr>
+    );
+  });
+  return (
+      <tbody>
+         {rows}
+      </tbody>
+   );
 
 }
-function Table() { 
+function Table(props) { 
     return (
       <table>
         <TableHeader/>
-        <TableBody/>
+        <TableBody groupData = {props.groupData}/>
       </table>
     );
 }
