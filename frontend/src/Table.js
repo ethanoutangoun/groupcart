@@ -18,6 +18,9 @@ function  TableBody(props){
       <tr key={index}>
         <td>{row.name}</td>
         <td>{row.size}</td>
+        <td>
+          <button onClick = {()=> props.removeGroup(index)}> x </button>
+        </td>
       </tr>
     );
   });
@@ -32,7 +35,7 @@ function Table(props) {
     return (
       <table>
         <TableHeader/>
-        <TableBody groupData = {props.groupData}/>
+        <TableBody groupData = {props.groupData} removeGroup = {props.removeGroup}/>
       </table>
     );
 }
