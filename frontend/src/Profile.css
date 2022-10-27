@@ -2,13 +2,13 @@ h1{
     color: black;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: medium;
+    font-size: 20px;
     
 }
 
 .header{
     
-    padding: 0.5em;
+    padding: 0.2em;
     background: white;
    
    
@@ -18,8 +18,35 @@ h1{
 }
 
 
-.group-container{
+.column {
+    float: left;
+    width: 50%;
+  }
+  
+
+
+.left{
+  
+    width: 35%;
     
+}
+.right{
+    
+    width: 65%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+.list-container{
+    margin: 1.5em;
+    padding: 1em;
+    background: gray;
     
     
 }

@@ -30,7 +30,7 @@ function Profile() {
 
     function removeOneGroup(index){
 
-
+        
         const updatedList = groupInfo.filter((group,i) =>{
             return i!=index
         })
@@ -43,16 +43,47 @@ function Profile() {
         <body>
 
         <div className='header'>
-            <h1>GroupCart</h1>
+                <h1>GroupCart</h1>
 
 
         </div>
+        <div class="row">
+
+        <div class="column left">
+
+        Stuff
+
+        </div>
+
         
-        <div className="group-container">
+        <div class="column right">
+            
+
+
+            <div className='group-container'>
                 <h2>GroupCarts</h2>
-                <Table groupData = {groupInfo} removeGroup = {removeOneGroup}/>
-                <h2>Find Group</h2>
+                <div className="list-container">
+                        
+                        <Table groupData = {groupInfo} removeGroup = {removeOneGroup}/>
+                        
+                </div>
+
+                <div className = "find-container">
+                    <h2>Find Group</h2>
+
+
+                </div>
+
+            </div>
+
         </div>
+        </div>
+
+
+
+
+
+
 
        </body>
 
