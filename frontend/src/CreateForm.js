@@ -5,7 +5,7 @@ import React, {useState} from 'react';
 
 
 
-function CreateForm() {   
+function CreateForm(props) {   
 
 
     function handleChange(event) {
@@ -20,6 +20,14 @@ function CreateForm() {
         );   
     }
 
+    function submitFormCreate() {
+        props.handleSubmit(group);
+        setGroup({name: '', password: ''});
+      }
+
+    function submitFormJoin(){
+
+    }
 
 
 
@@ -28,26 +36,39 @@ function CreateForm() {
       {  
          name: '',
          password: '',
+         
       }
    );
 
 
    return (
     <form>
+    
+    <div >
       <label htmlFor="name"> Group Name</label>
-      <input
+        <div>
+        <input
         type="text"
         name="name"
         id="name"
         value={group.name}
         onChange={handleChange} />
+        </div>
+    </div>
+
+    <div>
       <label htmlFor="password">Password</label>
-      <input
+        <div>
+        <input
         type="text"
         name="password"
         id="password"
         value={group.password}
         onChange={handleChange} />
+        </div>
+    </div>
+    <input type="button" value="Create Group" onClick={submitFormCreate} />
+    <input type="button" value="Join Group" onSubmit={submitFormJoin} />
     </form>
 ); 
 

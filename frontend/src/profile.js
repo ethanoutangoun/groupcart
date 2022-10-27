@@ -6,8 +6,6 @@ import './Profile.css'
 
 
 
-
-
 function Profile() {
     const [groupInfo,setGroupInfo] = useState([
         {
@@ -33,6 +31,11 @@ function Profile() {
     ]);
 
 
+    function updateList(group) {
+        setGroupInfo([...groupInfo, group]);
+    }
+
+
     function removeOneGroup(index){
 
         
@@ -42,6 +45,11 @@ function Profile() {
         setGroupInfo(updatedList)
     }
     
+
+
+
+
+
 
     return ( 
 
@@ -77,8 +85,10 @@ function Profile() {
 
                 <div className = "find-container">
                     <h2>Find Group</h2>
-                    <CreateForm/>
+                    <CreateForm handleSubmit = {updateList}/>
+                    
 
+                    
 
                 </div>
 
