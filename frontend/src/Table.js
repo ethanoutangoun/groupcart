@@ -6,6 +6,7 @@ function TableHeader(){
         <tr>
           <th>Name</th>
           <th>Size</th>
+          <th>Password</th>
         </tr>
       </thead>
 
@@ -18,6 +19,7 @@ function  TableBody(props){
       <tr key={index}>
         <td>{row.name}</td>
         <td>{row.size}</td>
+        <td>{row.password}</td>
         <td>
           <button onClick = {()=> props.removeGroup(index)}> x </button>
         </td>

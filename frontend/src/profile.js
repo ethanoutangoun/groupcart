@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Table from './Table';
+import CreateForm from './CreateForm';
 import './Profile.css'
 
 
@@ -12,18 +13,22 @@ function Profile() {
         {
           name: 'Room 307',
           size: '4',
+          password: "1234",
         },
         {
           name: 'TestGroup',
           size: '1',
+          password: "5678",
         },
         {
           name: 'Best Group',
           size: '2',
+          password: "9",
         },
         {
           name: 'Family',
           size: '4',
+          password: "10",
         },
     ]);
 
@@ -58,7 +63,9 @@ function Profile() {
         
         <div class="column right">
             
-
+            <div className='overview-container'>
+                <h3>Overview Order History</h3>
+            </div>
 
             <div className='group-container'>
                 <h2>GroupCarts</h2>
@@ -70,6 +77,7 @@ function Profile() {
 
                 <div className = "find-container">
                     <h2>Find Group</h2>
+                    <CreateForm/>
 
 
                 </div>
