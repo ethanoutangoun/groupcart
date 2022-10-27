@@ -1,0 +1,25 @@
+h1{
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: medium;
+    
+}
+
+.header{
+    
+    padding: 0.5em;
+    background: white;
+   
+   
+    text-align: center;
+   
+    border-bottom: 1px solid rgb(200,200,200) ;
+}
+
+
+.group-container{
+    
+    
+    
+}
