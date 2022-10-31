@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Profile from './Profile';
-import './index.css';
+import './index.css'
 
+import Profile from "./ProfilePage/Profile";
 
 ReactDOM.render(<Profile />, document.getElementById('root'));
