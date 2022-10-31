@@ -14,7 +14,7 @@ function TableHeader(){
     )
 }
 
-function  TableBody(props){
+function TableBody(props){
   const rows = props.groupData.map((row, index) => {
     return (
       <tr key={index}>
@@ -22,7 +22,7 @@ function  TableBody(props){
         <td>{row.size}</td>
         <td>{row.password}</td>
         <td>
-          <button onClick = {()=> props.removeGroup(index)}> x </button>
+          <button class="btn-delete" onClick = {()=> props.removeGroup(index)}>Delete ×</button>
         </td>
       </tr>
     );
@@ -37,8 +37,8 @@ function  TableBody(props){
 function Table(props) { 
     return (
       <table>
-        {/* <TableHeader/>
-        <TableBody groupData = {props.groupData} removeGroup = {props.removeGroup}/> */}
+        <TableHeader/>
+        <TableBody groupData = {props.groupData} removeGroup = {props.removeGroup}/>
       </table>
     );
 }
