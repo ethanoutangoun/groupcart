@@ -8,6 +8,9 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import Item from './schemas/Item.js'
 import itemService from './schemas/item-service.js'
+import itemroute from './routes/itemroute.js'
+import userroute from './routes/userroute.js'
+import grouproute from './routes/grouproute.js'
 
 const app = express();
 
@@ -56,44 +59,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-//getting all items
-app.get('/items', async (req, res) => {
-  try{
-    const result = await itemService.getItems();
-    console.log(result)
-    res.send(result)
-  }catch(error){
-    console.log(error)
-    res.status(500).send('An error occured in the server.')
-  }
-})
 
-//deleting items
-app.delete('/items/:id', async (req, res) => {
-  const id = req.params['id'];
-  console.log(id);
-  const result = await itemService.deleteItems(id);
-  console.log(result)
-  if(result){
-    res.status(202).end();
-  }
-  else{
-    res.status(500).end();
-  }
-})
-
-//posting items
-app.post('/items', async (req, res) => {
-  const item = req.body;
-  const savedItem = await itemService.addItems(item);
-  if(savedItem){
-    res.status(201).send(savedItem);
-  }
-  else{
-    res.status(500).end();
-  }
-})
-
+app.use('/', userroute)
+app.use('/', grouproute)
+app.use('/', itemroute)
 
 
 app.listen(port, () => {
