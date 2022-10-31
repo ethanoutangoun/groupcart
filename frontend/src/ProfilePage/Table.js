@@ -1,4 +1,5 @@
 import React from 'react';
+import './Table.css'
 
 function TableHeader(){
     return(
@@ -36,8 +37,8 @@ function  TableBody(props){
 function Table(props) { 
     return (
       <table>
-        <TableHeader/>
-        <TableBody groupData = {props.groupData} removeGroup = {props.removeGroup}/>
+        {/* <TableHeader/>
+        <TableBody groupData = {props.groupData} removeGroup = {props.removeGroup}/> */}
       </table>
     );
 }

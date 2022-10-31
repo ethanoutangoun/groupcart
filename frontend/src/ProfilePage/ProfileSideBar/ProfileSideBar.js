@@ -10,8 +10,8 @@ const ProfileSideBar = () => {
             <div class="profile-container">
                 <div class="image-container">E</div>
                 <img 
-                    src={require("../icons/icons8-macos-maximize-90.png")} 
-                    alt="change-image-icon"
+                    src={require("../../icons/icons8-macos-maximize-90.png")} 
+                    alt="change-profile-pic"
                     class="hover-icon"
                 />
             </div>
