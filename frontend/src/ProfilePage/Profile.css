@@ -4,7 +4,7 @@
 
 .main-content {
     display: grid;
-    grid-template-columns: 35em 1fr;
+    grid-template-columns: 24em 1fr;
     height: 100%;
 }
 
