@@ -36,7 +36,6 @@ h1{
 
 .bar-button {
     margin-right: 8px;
-    color: #7d7d7d;
     display: inline-block;
     cursor: pointer;
     font-weight: 700;
@@ -51,6 +50,15 @@ h1{
     transition: 0.1s;
     color: #04A5FF;
     background-color:rgba(215,236,255,255);
+}
+
+.active {
+    color: #04A5FF;
+    background-color:rgba(215,236,255,255);
+}
+
+.inactive {
+    color: #7d7d7d;
 }
 
 .bar-button h3 {

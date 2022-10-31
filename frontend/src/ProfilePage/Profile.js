@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Table from './Table';
 import CreateForm from './CreateForm/CreateForm';
 import ProfileSideBar from "./ProfileSideBar/ProfileSideBar"
@@ -27,7 +27,7 @@ function Profile() {
             password: "10",
         },
     ]);
-
+    const [isOverview, setOverview] = useState(true);
 
     function updateList(group) {
         setGroupInfo([...groupInfo, group]);
@@ -35,10 +35,8 @@ function Profile() {
 
 
     function removeOneGroup(index) {
-
-
         const updatedList = groupInfo.filter((group, i) => {
-            return i != index
+            return i !== index
         })
         setGroupInfo(updatedList)
     }
@@ -53,10 +51,16 @@ function Profile() {
                 <ProfileSideBar />
                 <div class="border-left">
                     <div className='top-bar'>
-                        <div className='bar-button'>
+                        <div 
+                            className={"bar-button " + (isOverview ? "active" : "inactive")}
+                            onClick={() => setOverview(true)}
+                        >
                             <h3>Overview</h3>
                         </div>
-                        <div className='bar-button'>
+                        <div 
+                            className={"bar-button " + (isOverview ? "inactive" : "active")} 
+                            onClick={() => setOverview(false)}
+                        >
                             <h3>Order History</h3>
                         </div>
                     </div>
