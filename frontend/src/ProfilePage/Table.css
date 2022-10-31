@@ -27,3 +27,7 @@ tr .btn-delete {
 
     cursor: pointer;
 }
+
+tr .btn-delete:hover {
+    opacity: 0.8;
+}
