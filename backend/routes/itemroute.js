@@ -5,7 +5,7 @@ import mongoose from 'mongoose'
 const router = express.Router();
 
 //getting all items
-router.get('/:group/items', async (req, res) => {
+router.get('/items/:group', async (req, res) => {
   try{
     const group = req.params.group;
     const result = await itemService.getItems(group);
@@ -32,7 +32,7 @@ router.delete('/items/:id', async (req, res) => {
 })
 
 //posting items
-router.post('/:id/:group/items', async (req, res) => {
+router.post('items/:id/:group', async (req, res) => {
   const item = req.body;
   const group = req.params.group;
   const id = req.params.id;

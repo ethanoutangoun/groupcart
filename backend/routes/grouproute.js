@@ -4,7 +4,9 @@ import express from 'express'
 import mongoose from 'mongoose'
 const router = express.Router();
 
-router.post('/:id/group', async(req,res) => {
+
+//making a group
+router.post('/group/:id', async(req,res) => {
   const body = req.body;
   const id = req.params.id;
   const savedgroup = await groupService.createGroup(body, id)
@@ -15,7 +17,8 @@ router.post('/:id/group', async(req,res) => {
   }
 })
 
-router.post('/:id/:name/group', async(req, res) => {
+//joining a group
+router.post('/group/:id/:name', async(req, res) => {
   const id = req.params.id;
   const name = req.params.name;
   const joinedgroup = await groupService.joinGroup(name, id)
