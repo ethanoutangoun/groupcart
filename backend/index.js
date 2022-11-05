@@ -6,6 +6,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
+import cookieSession from 'cookie-session';
 import Item from './schemas/Item.js'
 import itemService from './schemas/item-service.js'
 import itemroute from './routes/itemroute.js'
@@ -22,7 +23,18 @@ let URI = process.env.ATLAS_URI
 let dbconnection = mongoose.connect(URI)
 
 app.use(express.json());
+app.use(cors());
 
+//cookie session stores the session data on the client within a cookie without requiring database/resources
+//on server side
+// app.use(
+//   cookieSession({
+//     name: "userlogin-session",
+//     //keys: ['key1', 'key2'],
+//     secret: "COOKIE_SECRET",
+//     httpOnly: true
+//   })
+// )
 
 //bogus items to check work
 let items = [

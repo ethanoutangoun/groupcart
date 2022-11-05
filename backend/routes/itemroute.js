@@ -2,47 +2,16 @@ import Item from '../schemas/Item.js'
 import itemService from '../schemas/item-service.js'
 import express from 'express'
 import mongoose from 'mongoose'
+import controller from '../controllers/item.controller.js'
 const router = express.Router();
 
 //getting all items
-router.get('/items/:group', async (req, res) => {
-  try{
-    const group = req.params.group;
-    const result = await itemService.getItems(group);
-    console.log(result)
-    res.send(result)
-  }catch(error){
-    console.log(error)
-    res.status(500).send('An error occured in the server.')
-  }
-})
+router.get('/items/:group', controller.getItems)
 
 //deleting items
-router.delete('/items/:id', async (req, res) => {
-  const id = req.params['id'];
-  console.log(id);
-  const result = await itemService.deleteItems(id);
-  console.log(result)
-  if(result){
-    res.status(202).end();
-  }
-  else{
-    res.status(500).end();
-  }
-})
+router.delete('/items/:id', controller.deleteItems)
 
 //posting items
-router.post('items/:id/:group', async (req, res) => {
-  const item = req.body;
-  const group = req.params.group;
-  const id = req.params.id;
-  const savedItem = await itemService.addItems(item, group, id);
-  if(savedItem){
-    res.status(201).send(savedItem);
-  }
-  else{
-    res.status(500).end();
-  }
-})
+router.post('items/:id/:group', controller.addItems)
 
 export default router;
