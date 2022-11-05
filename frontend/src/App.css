@@ -1,3 +1,245 @@
+
+.app-block{
+  position: absolute;
+  width: 1440px;
+  height: 445px;
+  left: 0px;
+  top: 84px;
+
+  background: #AFBF73;
+}
+
+.app-header-block{
+  position: absolute;
+  width: 1440px;
+  height: 84px;
+  left: 0px;
+  top: 0px;
+
+  background: #FFFFFF;
+}
+
+.app-sign-in-text{
+  /* Sign In btn */
+  position: absolute;
+  width: 72px;
+  height: 21px;
+  left: 1141px;
+  top: 35px;
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: #000000;
+}
+
+.app-sign-up-button{
+  /* Sign Up btn */
+  position: absolute;
+  width: 143px;
+  height: 47px;
+  left: 1245px;
+  top: 24px;
+}
+
+.app-sign-up-text{
+  /* Sign Up */
+  position: absolute;
+  width: 104px;
+  height: 36px;
+  left: 1277px;
+  top: 35px;
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: #FFFFFF;
+}
+
+.app-title-text{
+  /* Title */
+  position: absolute;
+  width: 158px;
+  height: 44px;
+  left: 636px;
+  top: 27px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+
+  color: #000000;
+}
+
+.app-menu-button{
+  /* Menu btn */
+  position: absolute;
+  width: 23px;
+  height: 20px;
+  left: 29px;
+  top: 29px;
+}
+
+.app-slogan-text{
+  /* Group shopping made easy */
+  position: absolute;
+  width: 670px;
+  height: 65px;
+  left: 389px;
+  top: 199px;
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 56px;
+
+  color: #FFFFFF;
+}
+
+.app-learn-more-button{
+  /* Create Account btn */
+  position: absolute;
+  width: 294px;
+  height: 63px;
+  left: 573px;
+  top: 301px;
+}
+
+.app-learn-more-text{
+  /* Learn More */
+  position: absolute;
+  width: 149px;
+  height: 27px;
+  left: 650px;
+  top: 319px;
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 31px;
+
+  color: #538C51;
+}
+
+.app-background{
+  background: #F5F5F5;
+}
+
+.app-how-it-works-text{
+  /* How it works */
+  position: absolute;
+  width: 249px;
+  height: 77px;
+  left: 600px;
+  top: 566px;
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 47px;
+
+  color: #538C51;
+}
+
+.app-how-it-works-subtext1{
+  /* Sign Up */
+  position: absolute;
+  width: 123px;
+  height: 44px;
+  left: 266px;
+  top: 735px;
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 29px;
+
+  color: #000000;
+}
+
+.app-how-it-works-arrow1{
+  /* Arrow 1 */
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 144px;
+  height: 0px;
+  left: 411px;
+  top: 751px;
+
+  border: 3px solid #000000;
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.app-how-it-works-subtext2{
+  /* Create a GroupCart */
+  position: absolute;
+  width: 321px;
+  height: 44px;
+  left: 607px;
+  top: 737px;
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 29px;
+
+  color: #000000;
+}
+
+.app-how-it-works-arrow2{
+  /* Arrow 2 */
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 113px;
+  height: 0px;
+  left: 871px;
+  top: 751px;
+
+  border: 3px solid #000000;
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.app-how-it-works-subtext3{
+  /* Start Shopping! */
+  position: absolute;
+  width: 203px;
+  height: 44px;
+  left: 1030px;
+  top: 736px;
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 29px;
+
+  color: #D95E32;
+}
+
+
+
+
+
+
+
+
+
+
 .App {
   text-align: center;
 }
