@@ -3,9 +3,14 @@ import User from "./User.js"
 
 async function createUser(body){
   try{
-    const usertoadd = new User(body)
-    const addresponse = await usertoadd.save()
-    return addresponse
+    if(checkDuplicateUsername(body.username)){
+      return false
+    }
+    else{
+      const usertoadd = new User(body)
+      const addresponse = await usertoadd.save()
+      return addresponse
+    }
   }catch(error){
     console.log(error)
     return false
@@ -24,6 +29,22 @@ async function createUser(body){
 //     return false
 //   }
 // }
+
+async function checkDuplicateUsername(username){
+  try{
+    const prevuser = await User.findOne({
+      username: username
+    })
+    if(prevuser === undefined){
+      return true
+    }else{
+      return false
+    }
+  }catch(error){
+    console.log(error)
+    return false
+  }
+}
 
 export default {
   createUser
