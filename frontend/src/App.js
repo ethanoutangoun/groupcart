@@ -2,9 +2,10 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
 import { Link, NavLink, Route, Routes, useNavigate } from 'react-router-dom'
-import signIn from "./components/sign-in";
-import signUp from "./components/sign-up";
-import learnMore from "./components/learn-more";
+import SignIn from "./components/sign-in.js";
+import SignUp from "./components/sign-up";
+import LearnMore from "./components/learn-more";
+import Splashpage from './components/splashpage';
 //import styled from "styled-components";
 
 
@@ -60,58 +61,22 @@ function App() {
         </div>
       </div>
 
-      <div class="app-block">
-        <div class='app-block-slogan-wrapper'>
-          <h2>Group shopping made easy</h2>
-        </div>
-        <nav>
-          <ul className='learn-more'>
-            <li><NavLink className='learn-more-style' to='/learn-more'>Learn More</NavLink></li>
-          </ul>
-        </nav>
-        <div className="app-learn-more-button">
-        </div>
-      </div>
-
-      <div class="app-bottom-block">
-        <div className="app-how-it-works-text">
-          <h6>Get Started</h6>
-        </div>
-        <div className="app-how-it-works-subtext1">
-          <h7>Sign Up</h7>
-        </div>
-        <div className="app-how-it-works-arrow1">
-        </div>
-        <div className="arrow">
-        </div>
-        <div className="app-how-it-works-subtext2">
-          <h7>Create a GroupCart</h7>
-        </div>
-        <div className="app-how-it-works-arrow2">
-        </div>
-        <div className="arrow2">
-        </div>
-        <div className="app-how-it-works-subtext3">
-          <h8>Start Shopping!</h8>
-        </div>
-      </div>
-
 
     </div>
       <div>
         <Routes>
           <Route
             path='/'
-            element={<h1>GroupCart</h1>} />
+            element={<Splashpage/>} />
           <Route
             path='/sign-in'
-            component={signIn} />
+            element={<SignIn />} />
           <Route
             path='/sign-up'
-            component={signUp} />
+            element={<SignUp />} />
           <Route
             path='/learn-more'
-            component={learnMore} />
+            element={<LearnMore/>} />
         </Routes>
       </div></>
     
