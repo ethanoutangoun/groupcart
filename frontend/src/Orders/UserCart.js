@@ -27,6 +27,9 @@ function CartBody(props) {
           <tr key={index}>
             <td>{row.item}</td>
             <td>{row.quantity}</td>
+            <td>
+                <button onClick={() => props.removeItems(index)}>Delete</button>
+            </td>
           </tr>
         );
       });
@@ -42,7 +45,7 @@ function CartList(props) {
     return (
       <table>
         <CartHeader />
-        <CartBody cartItems = {props.cartItems}/>
+        <CartBody cartItems = {props.cartItems}  removeItems = {props.removeItems}/>
       </table>
     );
 }
@@ -76,7 +79,7 @@ function UserCart(props) {
 
 
         <div className = "CartTable">
-          <CartList cartItems = {props.cartItems}/>
+          <CartList cartItems = {props.cartItems}  removeItems = {props.removeItems}/>
       
       
       
