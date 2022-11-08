@@ -6,7 +6,7 @@ import "./UserCart.css"
 
 
 
-
+const id = "Ethan Outangoun";
 
 
 function CartHeader(){
@@ -72,7 +72,7 @@ function UserCart(props) {
         aria-expanded={open}
       >
         <div className='CartName'>
-            Ethan Outangoun
+            {id}
         </div>
       </Button>
       <Collapse in={open}>

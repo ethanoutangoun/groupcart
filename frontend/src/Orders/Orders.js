@@ -10,7 +10,7 @@ import Col from 'react-bootstrap/Col';
 import UserCart from './UserCart';
 import { useState } from 'react';
 
-//Mock backend for items in primary cart
+
 
 
 
@@ -19,6 +19,7 @@ import { useState } from 'react';
 
 function Orders(){
 
+    //Mock backend for the first cart
     const [items,setItems] = useState([
         {
             item: 'Carrots',
@@ -69,8 +70,9 @@ function Orders(){
 
 
 
-                    <div className='Dropdown'>
+                    <div className='carts-container'>
                         <UserCart cartItems = {items} removeItems = {removeOneItem}/>
+                       
                     </div>
                     
                     </Col>
