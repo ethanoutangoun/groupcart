@@ -9,6 +9,25 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import UserCart from './UserCart';
 
+//Mock backend for items in primary cart
+const items = [
+    {
+        item: 'Carrots',
+        quantity: 1,
+      },
+      {
+        item: 'Avocados',
+        quantity: 2,
+      },
+      {
+        item: 'Potatoes',
+        quantity: 3,
+      },
+      {
+        item: 'Steak',
+        quantity: 2,
+      },
+]
 
 
 
@@ -36,14 +55,14 @@ function Orders(){
             <Container>
                 <Row>
                     <Col>
-                    <div className='GroupName'>
+                    <div className='groupName'>
                         <h2> Room 307</h2>
                     </div>
 
 
 
                     <div className='Dropdown'>
-                        <UserCart/>
+                        <UserCart cartItems = {items} />
                     </div>
                     
                     </Col>

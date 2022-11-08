@@ -31,6 +31,19 @@ h2{
 }
 
 
+table{
+  border-collapse: collapse;
+  border: 1px solid;
+}
+
+tr{
+  border-bottom: 1px solid black;
+}
+
+table, th, td {
+  
+  width:100%;
+}
 
 .header{
     
@@ -41,4 +54,8 @@ h2{
     text-align: center;
    
      border-bottom: 1.5px solid rgb(200,200,200) ;
+}
+
+.groupName{
+  padding: 1em;
 }
