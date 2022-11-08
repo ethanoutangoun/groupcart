@@ -16,28 +16,28 @@ function Form(props) {
    function handleChange(event) {
       const { name, value } = event.target;
       if (name === "quantity")
-         setItem(
-            {name: item['name'], quantity: value}
+         setFood(
+            {item: food['item'], quantity: value}
          );
       else
-        setItem(
-            {name: value, quantity: item['quantity']}
+        setFood(
+            {item: value, quantity: food['quantity']}
          );   
     }
 
 
     function submitForm() {
-      props.handleSubmit(item);
-      setItem({name: '', quantity: ''});
+      props.handleSubmit(food);
+      setFood({item: '', quantity: ''});
     }
 
 
 
 
 
-    const [item, setItem] = useState(
+    const [food, setFood] = useState(
       {  
-         name: '',
+         item: '',
          quantity: '',
       }
    );
@@ -52,14 +52,14 @@ function Form(props) {
         type="text"
         name="name"
         id="name"
-        value={item.name}
+        value={food.item}
         onChange={handleChange} />
       <label htmlFor="quantity">Quantity: </label>
       <input
         type="text"
         name="quantity"
         id="quantity"
-        value={item.quantity}
+        value={food.quantity}
         onChange={handleChange} />
 
       <input type="button" value="Submit" onClick={submitForm} />
