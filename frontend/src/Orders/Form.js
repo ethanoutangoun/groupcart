@@ -14,21 +14,21 @@ function Form() {
 
 
    function handleChange(event) {
-      const { item, value } = event.target;
-      if (item === "quantity")
-         setItems(
-            {item: items['item'], quantity: value}
+      const { name, value } = event.target;
+      if (name === "qty")
+         setItem(
+            {name: item['name'], qty: value}
          );
       else
-        setItems(
-            {item: value, quantity: items['quantity']}
+        setItem(
+            {name: value, qty: item['qty']}
          );   
     }
 
-   const [items, setItems] = useState(
+    const [item, setItem] = useState(
       {  
-         item: '',
-         quantity: '',
+         name: '',
+         qty: '',
       }
    );
 
@@ -36,23 +36,23 @@ function Form() {
 
 
    return (
-      <form>
-        <label htmlFor="item">Item: </label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={items.item}
-          onChange={handleChange} />
-        <label htmlFor="quantity">Quantity</label>
-        <input
-          type="text"
-          name="job"
-          id="job"
-          value={items.quantity}
-          onChange={handleChange} />
-      </form>
-  ); 
+    <form>
+      <label htmlFor="name">Item: </label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        value={item.name}
+        onChange={handleChange} />
+      <label htmlFor="qty">Quantity: </label>
+      <input
+        type="text"
+        name="qty"
+        id="qty"
+        value={item.qty}
+        onChange={handleChange} />
+    </form>
+); 
 
 }
 export default Form;
