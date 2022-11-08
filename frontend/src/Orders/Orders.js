@@ -44,6 +44,45 @@ function Orders(){
         ]);
 
 
+    const users = [
+        {
+            name: "Ethan Outangoun"
+        },
+        {
+            name: "Masato Nandate"
+        },
+        {
+            name: "George Washington"
+        },
+
+    ];
+
+
+
+    function DropdownUsers() {
+        return (
+            
+    
+            
+          <Dropdown>
+            
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Ethan Outangoun
+            </Dropdown.Toggle>
+      
+            <Dropdown.Menu>
+                
+              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+    
+        );
+      }
+
+
+
 
     function deleteQuantity(index)
     {
