@@ -93,6 +93,15 @@ function Orders(){
 
 
     function updateList(item) {
+        
+
+        var newQty = parseInt(item.quantity)
+       
+        if (isNaN(newQty)){
+            alert("not a valid integer")
+            return //Don't let list update with invalid quantity
+        }
+        
         setItems([...items, item]);
       }
 

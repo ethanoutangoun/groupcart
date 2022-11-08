@@ -16,9 +16,14 @@ function Form(props) {
    function handleChange(event) {
       const { name, value } = event.target;
       if (name === "quantity")
+      {
          setFood(
             {item: food['item'], quantity: value}
+            
          );
+         
+      }
+          
       else
         setFood(
             {item: value, quantity: food['quantity']}
@@ -28,7 +33,10 @@ function Form(props) {
 
     function submitForm() {
       props.handleSubmit(food);
-      setFood({item: '', quantity: ''});
+      setFood({item: '', quantity: ''}); //Reset input to blank
+
+      
+     
     }
 
 
