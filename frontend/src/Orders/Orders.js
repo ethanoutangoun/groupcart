@@ -45,6 +45,44 @@ function Orders(){
 
 
 
+    function deleteQuantity(index)
+    {
+        const updated = items.map((item, i) => {
+            if (index === i){
+                item.quantity-=1;
+                return item
+            }
+            else
+            {
+                return item
+            }
+        });
+      
+        setItems(updated);
+
+    }
+    
+
+    function addQuantity(index)
+    {
+        const updated = items.map((item, i) => {
+            if (index === i){
+                item.quantity+=1;
+                return item
+            }
+            else
+            {
+                return item
+            }
+        });
+      
+        setItems(updated);
+
+       
+       
+
+    }
+
     function removeOneItem (index)
     {
         const updated = items.filter((item, i) => {
@@ -52,6 +90,7 @@ function Orders(){
         });
         setItems(updated);
     }
+
 
     function updateList(item) {
         setItems([...items, item]);
@@ -87,7 +126,7 @@ function Orders(){
 
 
                     <div className='carts-container'>
-                        <UserCart cartItems = {items} removeItems = {removeOneItem}/>
+                        <UserCart cartItems = {items} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} />
                        
                     </div>
                     
