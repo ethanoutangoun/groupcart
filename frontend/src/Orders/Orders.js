@@ -53,6 +53,10 @@ function Orders(){
         setItems(updated);
     }
 
+    function updateList(item) {
+        setItems([...items, item]);
+      }
+
 
 
     return(
@@ -92,7 +96,7 @@ function Orders(){
                     
                         <div className='form-container'>
                             Select User:
-                            <Form />
+                            <Form handleSubmit = {updateList}/>
 
                         </div>
                         

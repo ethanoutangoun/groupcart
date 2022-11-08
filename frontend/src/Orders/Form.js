@@ -10,25 +10,35 @@ import React, {useState} from 'react';
 
 
 
-function Form() {   
+function Form(props) {   
 
 
    function handleChange(event) {
       const { name, value } = event.target;
-      if (name === "qty")
+      if (name === "quantity")
          setItem(
-            {name: item['name'], qty: value}
+            {name: item['name'], quantity: value}
          );
       else
         setItem(
-            {name: value, qty: item['qty']}
+            {name: value, quantity: item['quantity']}
          );   
     }
+
+
+    function submitForm() {
+      props.handleSubmit(item);
+      setItem({name: '', quantity: ''});
+    }
+
+
+
+
 
     const [item, setItem] = useState(
       {  
          name: '',
-         qty: '',
+         quantity: '',
       }
    );
 
@@ -44,13 +54,16 @@ function Form() {
         id="name"
         value={item.name}
         onChange={handleChange} />
-      <label htmlFor="qty">Quantity: </label>
+      <label htmlFor="quantity">Quantity: </label>
       <input
         type="text"
-        name="qty"
-        id="qty"
-        value={item.qty}
+        name="quantity"
+        id="quantity"
+        value={item.quantity}
         onChange={handleChange} />
+
+      <input type="button" value="Submit" onClick={submitForm} />
+
     </form>
 ); 
 
