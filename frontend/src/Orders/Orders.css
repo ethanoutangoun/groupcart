@@ -80,6 +80,21 @@ table, th, td {
 
 }
 
+.selectRow{
+  
+  text-align: left;
+
+}
+
+.selectUser{
+  padding-bottom: 1em;
+}
+
 .form-container{
+  padding: 1em;
+  padding-top: 1.5em;
+  border: solid 1px gray;
+  padding-bottom: 5em;
+  border-radius: 1em;
  
 }

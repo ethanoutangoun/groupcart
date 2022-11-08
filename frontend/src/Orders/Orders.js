@@ -8,6 +8,9 @@ import './Orders.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Dropdown from 'react-bootstrap/Dropdown';
+
+
 import UserCart from './UserCart';
 import Form from './Form';
 
@@ -71,10 +74,10 @@ function Orders(){
             </Dropdown.Toggle>
       
             <Dropdown.Menu>
-                
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+               
+              <Dropdown.Item href="#/action-1">Masato Nandate</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Name 3</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Name 4</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
     
@@ -193,7 +196,24 @@ function Orders(){
                     
                     
                         <div className='form-container'>
-                            Select User:
+
+                            <div className='selectUser'>
+                                <Container>
+                                <Row className='selectRow'>
+                                    <Col>
+                                    Select User 
+                                    </Col>
+                                    <Col>
+                                    <DropdownUsers/>
+                                    </Col>
+                                    
+                                    
+                                </Row>
+
+                                </Container>
+                             </div>
+
+
                             <Form handleSubmit = {updateList}/>
 
                         </div>

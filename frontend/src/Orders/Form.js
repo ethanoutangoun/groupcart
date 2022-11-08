@@ -1,7 +1,7 @@
 //Form to add items
 
 import React, {useState} from 'react';
-
+import './Form.css'
 
 
 
@@ -55,22 +55,27 @@ function Form(props) {
 
    return (
     <form>
+      <div className='info-container'>
       <label htmlFor="name">Item: </label>
       <input
         type="text"
         name="name"
+        className='nameInput'
         id="name"
         value={food.item}
         onChange={handleChange} />
-      <label htmlFor="quantity">Quantity: </label>
+
+      
+      <label  htmlFor="quantity">Qty: </label>
       <input
         type="text"
         name="quantity"
+        className='qtyInput'
         id="quantity"
         value={food.quantity}
         onChange={handleChange} />
-
-      <input type="button" value="Submit" onClick={submitForm} />
+      </div>
+      <input type="button" value="Add" onClick={submitForm} />
 
     </form>
 ); 

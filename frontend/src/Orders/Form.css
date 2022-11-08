@@ -1,0 +1,19 @@
+
+.info-container{
+    padding: 1em;
+    
+}
+
+input{
+    
+}
+
+.nameInput{
+    margin-left: 0.5em;
+    margin-right: 4em;
+}
+
+.qtyInput{
+    margin-left: 0.5em;;
+    width: 10%;
+}
