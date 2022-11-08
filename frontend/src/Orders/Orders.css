@@ -91,6 +91,7 @@ table, th, td {
 }
 
 .form-container{
+  font-weight: 550;
   padding: 1em;
   padding-top: 1.5em;
   border: solid 1px gray;

@@ -1,19 +1,51 @@
 
+
+
+
+
 .info-container{
     padding: 1em;
+    padding-right: 1.5em;
     
 }
 
 input{
+    border-radius: 0.2em;
+    border: 1px solid gray;
     
 }
 
 .nameInput{
     margin-left: 0.5em;
-    margin-right: 4em;
+    margin-right: 5em;
 }
 
 .qtyInput{
-    margin-left: 0.5em;;
+    float: right;
     width: 10%;
+   
+   
+}
+
+.addBtn{
+    padding: 1.2em;
+    float:right;
+    
+}
+
+input[type = button]
+{   
+    border-radius: 1em;
+    border: none;
+    background-color: green;
+    padding: 0.4em;
+    padding-left: 1em;
+    padding-right: 1em;
+    color: white;
+    font-weight: 600;
+    
+}
+
+input[type = button]:hover{
+    background-color: darkgreen;
 }

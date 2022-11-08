@@ -74,8 +74,19 @@ function Form(props) {
         id="quantity"
         value={food.quantity}
         onChange={handleChange} />
+
+
+      <div className='addBtn'>
+      <input type="button"   value="Add" onClick={submitForm} />
       </div>
-      <input type="button" value="Add" onClick={submitForm} />
+
+
+
+
+
+      </div>
+
+      
 
     </form>
 ); 
