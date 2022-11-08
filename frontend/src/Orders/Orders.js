@@ -49,7 +49,9 @@ function Orders(){
     {
         const updated = items.map((item, i) => {
             if (index === i){
-                item.quantity-=1;
+
+                if(item.quantity>0)
+                    item.quantity-=1;
                 return item
             }
             else
@@ -92,6 +94,7 @@ function Orders(){
     }
 
 
+    //For form
     function updateList(item) {
         
 
@@ -107,6 +110,8 @@ function Orders(){
             item.quantity = newQty //Replace qty with an integer
             setItems([...items, item]);
         }
+
+        
       }
 
 
