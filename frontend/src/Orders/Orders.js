@@ -192,7 +192,7 @@ function Orders(){
                     
                     </Col>
 
-                    <Col>
+                    <Col sm={5}>
                     
                     
                         <div className='form-container'>

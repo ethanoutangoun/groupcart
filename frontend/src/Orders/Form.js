@@ -56,6 +56,8 @@ function Form(props) {
    return (
     <form>
       <div className='info-container'>
+
+        <div className='item-container'>
       <label htmlFor="name">Item: </label>
       <input
         type="text"
@@ -65,7 +67,8 @@ function Form(props) {
         value={food.item}
         onChange={handleChange} />
 
-      
+        <Col className='qty-container'>
+        <div>
       <label  htmlFor="quantity">Qty: </label>
       <input
         type="text"
