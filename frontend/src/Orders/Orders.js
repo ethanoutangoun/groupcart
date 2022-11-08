@@ -168,17 +168,20 @@ function Orders(){
                 
             </div>
            
-            <Container>
 
+            
+
+            <Container>
             <div className='groupName'>
                         <h2> Room 307</h2>
 
-                    </div>
-                    <div className='changeGroupBtn'>
+            </div>
+            <div className='changeGroupBtn'>
                         <button >Change Group</button>
-                </div>
+            </div>
+            
                 <Row>
-                    <Col>
+                    <Col sm={7}>
 
                     
                     
@@ -200,8 +203,8 @@ function Orders(){
                             <div className='selectUser'>
                                 <Container>
                                 <Row className='selectRow'>
-                                    <Col>
-                                    Select User 
+                                    <Col sm ={3}>
+                                    <h4></h4> Select User:
                                     </Col>
                                     <Col>
                                     <DropdownUsers/>

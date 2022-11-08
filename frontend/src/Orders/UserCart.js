@@ -10,14 +10,15 @@ const id = "Ethan Outangoun";
 
 
 function CartHeader(){
-    return (
+    return /*(
         <thead>
           <tr>
             <th>Item</th>
             <th>Quantity</th>
+            <th> del</th>
           </tr>
         </thead>
-      );
+      );*/
 
 }
 
@@ -62,7 +63,7 @@ function CartList(props) {
 
 
 function UserCart(props) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <>

@@ -4,6 +4,7 @@
 
 
 .info-container{
+   
     padding: 1em;
     padding-right: 1.5em;
     
@@ -15,21 +16,12 @@ input{
     
 }
 
-.nameInput{
-    margin-left: 0.5em;
-    margin-right: 5em;
-}
 
-.qtyInput{
-    float: right;
-    width: 10%;
-   
-   
-}
 
 .addBtn{
-    padding: 1.2em;
-    float:right;
+    padding-top: 1.4em;
+    
+
     
 }
 
@@ -43,9 +35,20 @@ input[type = button]
     padding-right: 1em;
     color: white;
     font-weight: 600;
+    float:right
     
 }
 
 input[type = button]:hover{
     background-color: darkgreen;
+}
+
+
+
+
+
+input[type = text]
+{
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
 }

@@ -1,9 +1,12 @@
 //Form to add items
 
 import React, {useState} from 'react';
+
 import './Form.css'
 
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 
@@ -55,9 +58,11 @@ function Form(props) {
 
    return (
     <form>
-      <div className='info-container'>
-
-        <div className='item-container'>
+      <Container className='info-container'>
+        <Row >
+     
+        <Col  className='item-container'>
+        <div>
       <label htmlFor="name">Item: </label>
       <input
         type="text"
@@ -66,7 +71,9 @@ function Form(props) {
         id="name"
         value={food.item}
         onChange={handleChange} />
-
+        </div>
+        </Col>
+      
         <Col className='qty-container'>
         <div>
       <label  htmlFor="quantity">Qty: </label>
@@ -78,18 +85,21 @@ function Form(props) {
         value={food.quantity}
         onChange={handleChange} />
 
+        </div>
+        </Col>
 
+
+     
+
+
+      </Row>
+
+      <Row>
       <div className='addBtn'>
       <input type="button"   value="Add" onClick={submitForm} />
       </div>
-
-
-
-
-
-      </div>
-
-      
+      </Row>
+      </Container>
 
     </form>
 ); 
