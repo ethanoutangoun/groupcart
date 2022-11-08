@@ -53,6 +53,7 @@ const joinGroup = async(req, res) => {
     }
     //get group to find id
     const group = await Group.findOne({name: name})
+    console.log(group)
     //add groupid to the user
     const user = await User.updateOne(
       {_id: mongoose.Types.ObjectId(id)},
