@@ -1,0 +1,53 @@
+label{
+    font-weight: 600;
+    font-size: 0.9em;
+    line-height: 24px;
+}
+
+input[type=text]{
+    background-color: rgba(230,230,230,255);
+    border: 0;
+    height: 2em;
+    width: 90%;
+    padding: 0.5em;
+    border-radius: 1em;
+    margin-top: 0.5em;
+}
+
+.groupname-container {
+    margin-bottom: 1.5em;
+}
+
+.password-container {
+    margin-bottom: 1em;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+}
+
+.btn {
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 23.48px;
+    border-radius: 10px;
+    margin-left: 20px;
+    padding: 10px;
+    border: 0px;
+}
+
+.btn-create:hover {
+    transition: 0.2s;
+    color: white;
+    background-color: #538C51;
+}
+
+.btn-join:hover {
+    transition: 0.2s;
+    color: white;
+    background-color: #D95E32;
+}

@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Profile from './Profile';
-import Orders from './Orders/Orders';
-import './index.css';
+import './index.css'
+import { BrowserRouter } from 'react-router-dom'
 
+//import Profile from "./ProfilePage/Profile";
+import App from "./App";
+//ReactDOM.render(<Profile />, document.getElementById('root'));
 
-ReactDOM.render(<Orders />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+)

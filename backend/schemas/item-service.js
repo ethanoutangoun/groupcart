@@ -1,15 +1,19 @@
 import mongoose from "mongoose"
 import Item from './Item.js'
 
-async function getItems(){
+async function getItems(group){
   let result;
-  result = await Item.find();
+  result = await Item.find({group: mongoose.Types.ObjectId(group)});
   return result;
 }
 
-async function addItems(item){
+async function addItems(item, group, id){
   try{
-    const itemtoadd = new Item(item);
+    const itemtoadd = new Item({
+      item: item.item,
+      quantity : item.quantity,
+      user: mongoose.Types.ObjectId(id),
+      group: mongoose.Types.ObjectId(group)});
     const savedItem = await itemtoadd.save();
     return savedItem
   }catch(error){
