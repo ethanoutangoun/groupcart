@@ -26,10 +26,11 @@ function CartBody(props) {
         return (
           <tr key={index}>
             <td>{row.item}</td>
+
+            <td> <button> - </button></td>
             <td>{row.quantity}</td>
-            <td>
-                <button onClick={() => props.removeItems(index)}>Delete</button>
-            </td>
+            <td> <button> + </button> </td>
+            <td> <button onClick={() => props.removeItems(index)}>Delete</button> </td>
           </tr>
         );
       });

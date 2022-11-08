@@ -1,4 +1,5 @@
-
+//Page for adding to order
+import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Orders.css'
 
@@ -8,6 +9,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import UserCart from './UserCart';
+import Form from './Form';
+
+
 import { useState } from 'react';
 
 
@@ -64,9 +68,15 @@ function Orders(){
             <Container>
                 <Row>
                     <Col>
+
                     <div className='groupName'>
                         <h2> Room 307</h2>
+
                     </div>
+                    <div className='changeGroupBtn'>
+                        <button >Change Group</button>
+                        </div>
+                    
 
 
 
@@ -79,7 +89,13 @@ function Orders(){
 
                     <Col>
                     
-                    Second Column
+                    
+                        <div className='form-container'>
+                            Select User:
+                            <Form />
+
+                        </div>
+                        
                     
                     </Col>
 

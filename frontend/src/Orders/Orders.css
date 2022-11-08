@@ -47,9 +47,9 @@ table, th, td {
 
 .header{
     
-    padding: 0.2em;
+    padding: 0.4em;
     background: white;
-
+    padding-top: 1em;
   
     text-align: center;
    
@@ -57,5 +57,29 @@ table, th, td {
 }
 
 .groupName{
-  padding: 1em;
+  
+
+  padding-top: 2em;
+}
+
+.groupName h2{
+  color: green;
+  font-size: 1.7rem;
+  
+}
+
+.changeGroupBtn button{
+  border: none;
+  color: gray;
+  background: white;
+  text-decoration: underline;
+  margin: 0;
+
+  padding-bottom: 2em;
+
+
+}
+
+.form-container{
+  padding-top: 2em;
 }
