@@ -1,6 +1,7 @@
 import React from "react";
   
-const learnMore = () => {
+const LearnMore = () => {
+  console.log('inlearnmore')
   return (
     <div>
       <h1>Learn More</h1>
@@ -8,4 +9,4 @@ const learnMore = () => {
   );
 };
   
-export default learnMore;
+export default LearnMore;
