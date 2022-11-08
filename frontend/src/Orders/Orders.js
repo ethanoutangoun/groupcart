@@ -1,21 +1,12 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Orders.css'
-
-
-
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import UserCart from './UserCart';
 import { useState } from 'react';
-
-
-
-
-
-
-
 
 function Orders(){
 
