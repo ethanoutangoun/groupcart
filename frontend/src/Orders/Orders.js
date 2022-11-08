@@ -70,16 +70,18 @@ function Orders(){
             </div>
            
             <Container>
-                <Row>
-                    <Col>
 
-                    <div className='groupName'>
+            <div className='groupName'>
                         <h2> Room 307</h2>
 
                     </div>
                     <div className='changeGroupBtn'>
                         <button >Change Group</button>
-                        </div>
+                </div>
+                <Row>
+                    <Col>
+
+                    
                     
 
 
