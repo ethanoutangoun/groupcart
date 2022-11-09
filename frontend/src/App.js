@@ -1,9 +1,20 @@
+<<<<<<< HEAD
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, Route, Routes, useNavigate } from "react-router-dom";
 import signIn from "./components/sign-in";
 import signUp from "./components/sign-up";
 import learnMore from "./components/learn-more";
+=======
+
+import './App.css';
+import React, { useState, useEffect } from 'react'
+import { Link, NavLink, Route, Routes, useNavigate } from 'react-router-dom'
+import SignIn from "./components/sign-in.js";
+import SignUp from "./components/sign-up";
+import LearnMore from "./components/learn-more";
+import Splashpage from './components/splashpage';
+>>>>>>> main
 //import styled from "styled-components";
 
 function App() {
@@ -66,6 +77,7 @@ function App() {
           <div className="app-sign-up-button"></div>
         </div>
 
+<<<<<<< HEAD
         <div class="app-block">
           <div class="app-block-slogan-wrapper">
             <h2>Group shopping made easy</h2>
@@ -107,6 +119,24 @@ function App() {
           <Route path="/sign-in" element={<signIn />} />
           <Route path="/sign-up" element={<signUp/>} />
           <Route path="/learn-more" element={<learnMore/>} />
+=======
+
+    </div>
+      <div>
+        <Routes>
+          <Route
+            path='/'
+            element={<Splashpage/>} />
+          <Route
+            path='/sign-in'
+            element={<SignIn />} />
+          <Route
+            path='/sign-up'
+            element={<SignUp />} />
+          <Route
+            path='/learn-more'
+            element={<LearnMore/>} />
+>>>>>>> main
         </Routes>
       </div>
     </>

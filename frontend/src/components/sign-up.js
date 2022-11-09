@@ -1,7 +1,12 @@
 import React from "react";
+<<<<<<< HEAD
 import "./sign-up.css";
 
 function signUp() {
+=======
+  
+const SignUp = () => {
+>>>>>>> main
   return (
     <div class="page">
       <div className="header-block">
@@ -45,5 +50,10 @@ function signUp() {
     </div>
   );
 };
+<<<<<<< HEAD
 
 export default signUp;
+=======
+  
+export default SignUp;
+>>>>>>> main

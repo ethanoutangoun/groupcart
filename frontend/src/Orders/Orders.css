@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Raleway:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Raleway:wght@500;600;700&display=swap');
+
+
+
+
+body{
+  font-family: 'Raleway', sans-serif ;
+  margin: 0;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+h1{
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    
+}
+
+h2{
+    font-size: 1.2em;
+}
+
+
+table{
+  border-collapse: collapse;
+  border: 1px solid;
+}
+
+tr{
+  border-bottom: 1px solid black;
+}
+
+table, th, td {
+  
+  width:100%;
+}
+
+.header{
+    
+    padding: 0.2em;
+    background: white;
+
+  
+    text-align: center;
+   
+     border-bottom: 1.5px solid rgb(200,200,200) ;
+}
+
+.groupName{
+  padding: 1em;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import "./sign-in.css";
 
 function signIn() {
@@ -29,8 +30,24 @@ function signIn() {
           <h6>Sign In</h6>
         </div>
       </div>
+=======
+import "../styles/signin.css"
+  
+const SignIn = () => {
+  console.log('signin')
+  return (
+    <>
+    <div>
+      <h1>Sign In</h1>
+>>>>>>> main
     </div>
+    </>
   );
 };
+<<<<<<< HEAD
 
 export default signIn;
+=======
+  
+export default SignIn;
+>>>>>>> main
