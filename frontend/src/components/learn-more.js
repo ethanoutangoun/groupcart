@@ -1,13 +1,7 @@
 import React from "react";
-<<<<<<< HEAD
 import "./learn-more.css"
 
 function learnMore() {
-=======
-  
-const LearnMore = () => {
-  console.log('inlearnmore')
->>>>>>> main
   return (
     <div class="page">
       <div className="header-block">
@@ -27,10 +21,5 @@ const LearnMore = () => {
     </div>
   );
 };
-<<<<<<< HEAD
 
 export default learnMore;
-=======
-  
-export default LearnMore;
->>>>>>> main
