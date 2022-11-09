@@ -2,7 +2,7 @@
 
 table{
     font-size: 1rem;
-    
+    font-weight: 500;
     
     
 }
@@ -32,10 +32,10 @@ button{
 .CartHeader
 {
     background: white;
-    width: 100%;
+    width: 90%;
     color: black;
     font-size: 1.2rem;
-    font-weight: 400;
+    font-weight: 500;
     padding: 0.4em;
 
     border: solid 1px gray;
@@ -58,4 +58,6 @@ button{
   border: solid 1px gray;
   border-radius: 0 0  0.8em 0.8em;
   border-top: none;
+  width: 90%;
 }
+

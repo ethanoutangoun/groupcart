@@ -31,7 +31,8 @@ function CartBody(props) {
             <td> <button onClick={() => props.deleteQuantity(index)}> - </button> </td>
             <td>{row.quantity}</td>
             <td> <button onClick={() => props.addQuantity(index)}> + </button> </td>
-            <td> <button onClick={() => props.removeItems(index)}>Delete</button> </td>
+          
+            <td> <button className='delbutton' onClick={() => props.removeItems(index)}> Delete </button> </td>
           </tr>
         );
       });

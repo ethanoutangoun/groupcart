@@ -63,6 +63,9 @@ function Orders(){
 
 
     function DropdownUsers() {
+
+        var index = 0;
+
         return (
             
     
@@ -70,7 +73,7 @@ function Orders(){
           <Dropdown>
             
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Ethan Outangoun
+              {users[index].name}
             </Dropdown.Toggle>
       
             <Dropdown.Menu>
