@@ -1,7 +1,7 @@
 import React from "react";
-import "./learn-more.css"
+import "../styles/learn-more.css"
 
-function learnMore() {
+function LearnMore() {
   return (
     <div class="page">
       <div className="header-block">
@@ -22,4 +22,4 @@ function learnMore() {
   );
 };
 
-export default learnMore;
+export default LearnMore;

@@ -1,4 +1,4 @@
-.page {
+/* .page {
     height: 100vh;
 }
 
@@ -159,4 +159,17 @@ h6 {
     margin-left: 35%;
     background: #538C51;
     border-radius: 69px;
+} */
+
+.form-parent {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin: 10vmin;
 }
+
+.form-child{
+    width: 50vmin;
+    /* align-self: center; */
+}
+

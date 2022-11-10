@@ -4,13 +4,13 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
 //import SignUp from "./components/sign-up";
-import LearnMore from "./components/learn-more";
-//import App from "./App";
+import LearnMore from "./components/LearnMore";
+import App from "./App";
 //ReactDOM.render(<Profile />, document.getElementById('root'));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  //<BrowserRouter>
-    <LearnMore />
-  //</BrowserRouter>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
