@@ -31,25 +31,13 @@ h2{
 }
 
 
-table{
-  border-collapse: collapse;
-  border: 1px solid;
-}
 
-tr{
-  border-bottom: 1px solid black;
-}
-
-table, th, td {
-  
-  width:100%;
-}
 
 .header{
     
-    padding: 0.2em;
+    padding: 0.4em;
     background: white;
-
+    padding-top: 1em;
   
     text-align: center;
    
@@ -57,5 +45,47 @@ table, th, td {
 }
 
 .groupName{
-  padding: 1em;
+  
+
+  padding-top: 2em;
 }
+
+.groupName h2{
+  color: green;
+  font-size: 1.7rem;
+  
+}
+
+.changeGroupBtn button{
+  border: none;
+  color: gray;
+  background: white;
+  text-decoration: underline;
+  margin: 0;
+
+  padding-bottom: 1.3em;
+
+
+}
+
+.selectRow{
+  
+  
+
+}
+
+.selectUser{
+  padding-bottom: 1em;
+}
+
+.form-container{
+  font-weight: 550;
+  padding: 1em;
+  padding-top: 1.5em;
+  border: solid 1px gray;
+  padding-bottom: 3em;
+  border-radius: 1em;
+ 
+}
+
+
