@@ -7,10 +7,10 @@ import { BrowserRouter } from "react-router-dom";
 import LearnMore from "./components/learn-more";
 //import App from "./App";
 //ReactDOM.render(<Profile />, document.getElementById('root'));
-
+import Orders from "./Orders/Orders";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   //<BrowserRouter>
-    <LearnMore />
+    <Orders />
   //</BrowserRouter>
 );
