@@ -1,8 +1,13 @@
 import React from "react";
 import { Link, NavLink} from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogout } from "../hooks/useLogout";
 import "../styles/splash-page.css"
 
 const SplashPage = () => {
+  const {user} = useAuthContext()
+  const {logout} = useLogout()
+  console.log(user)
   return(
           <div class="page">
         <div className="app-header-block">
@@ -11,16 +16,27 @@ const SplashPage = () => {
           </li>
           <nav>
             <ul className="sign-in-up">
-              <li>
-                <Link className="sign-in-style" to="/sign-in">
-                  Sign In
-                </Link>
-              </li>
-              <li>
-                <NavLink className="sign-up-style" to="/sign-up">
-                  Sign Up
-                </NavLink>
-              </li>
+              {user && (
+                <div>
+                  <li>{user.data.username}</li>
+                  <button onClick = {() => logout()}> Log Out</button>
+                </div>
+              )}
+              {!user && (
+                <>
+                <li>
+                  <Link className="sign-in-style" to="/sign-in">
+                    Sign In
+                  </Link>
+                </li>
+                <li>
+                  <NavLink className="sign-up-style" to="/sign-up">
+                    Sign Up
+                  </NavLink>
+                </li>
+                </>
+              )
+              }
             </ul>
           </nav>
           <div className="app-sign-up-button"></div>

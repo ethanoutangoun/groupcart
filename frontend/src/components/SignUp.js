@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form'
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row"
 import "../styles/sign-up.css";
+import { useSignup } from "../hooks/useSignup"
 
 
 
@@ -15,23 +16,15 @@ function SignUp() {
   const [last, setLast] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-
-
-  //the hook that calls the signin API
-
-  const signup = async(first, last, username, password) => {
-    
-    axios.post('http://localhost:3001/signup', ())
-  }
-
-
-
+  const {signup, error, isLoading} = useSignup()
 
 
   // function that actually submits the data to the backend
   const handleSubmit = async (e) => {
+    //prevent default to prevent default refresh
     e.preventDefault()
     console.log(first, last, username, password)
+    await signup(username, password)
 
   }
 
@@ -66,7 +59,7 @@ function SignUp() {
 
           {/* this div just makes the submit button wider */}
           <div className = "d-grid gap-2">
-            <Button variant="success" type="submit" onClick = {(e) => handleSubmit(e)}>
+            <Button variant="success" type="submit" disabled = {isLoading} onClick = {(e) => handleSubmit(e)}>
               Sign Up
             </Button>
           </div>

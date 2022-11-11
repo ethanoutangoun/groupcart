@@ -7,10 +7,13 @@ import { BrowserRouter } from "react-router-dom";
 import LearnMore from "./components/LearnMore";
 import App from "./App";
 //ReactDOM.render(<Profile />, document.getElementById('root'));
+import { AuthContextProvider } from "./context/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <AuthContextProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </AuthContextProvider>
 );
