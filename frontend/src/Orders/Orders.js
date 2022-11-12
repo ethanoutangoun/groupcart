@@ -1,11 +1,18 @@
-
+//Page for adding to order
+import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Orders.css'
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Dropdown from 'react-bootstrap/Dropdown';
+
+
 import UserCart from './UserCart';
+import Form from './Form';
+
+
 import { useState } from 'react';
 
 function Orders(){
@@ -31,6 +38,88 @@ function Orders(){
         ]);
 
 
+    const users = [
+        {
+            name: "Ethan Outangoun"
+        },
+        {
+            name: "Masato Nandate"
+        },
+        {
+            name: "George Washington"
+        },
+
+    ];
+
+
+
+    function DropdownUsers() {
+
+        var index = 0;
+
+        return (
+            
+    
+            
+          <Dropdown>
+            
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              {users[index].name}
+            </Dropdown.Toggle>
+      
+            <Dropdown.Menu>
+               
+              <Dropdown.Item href="#/action-1">Masato Nandate</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Name 3</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Name 4</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+    
+        );
+      }
+
+
+
+
+    function deleteQuantity(index)
+    {
+        const updated = items.map((item, i) => {
+            if (index === i){
+
+                if(item.quantity>0)
+                    item.quantity-=1;
+                return item
+            }
+            else
+            {
+                return item
+            }
+        });
+      
+        setItems(updated);
+
+    }
+    
+
+    function addQuantity(index)
+    {
+        const updated = items.map((item, i) => {
+            if (index === i){
+                item.quantity+=1;
+                return item
+            }
+            else
+            {
+                return item
+            }
+        });
+      
+        setItems(updated);
+
+       
+       
+
+    }
 
     function removeOneItem (index)
     {
@@ -39,6 +128,27 @@ function Orders(){
         });
         setItems(updated);
     }
+
+
+    //For form
+    function updateList(item) {
+        
+
+        var newQty = parseInt(item.quantity)
+       
+        //Don't let list update with invalid quantity
+        if (isNaN(newQty)){
+            alert("not a valid integer")
+            
+        }
+        else{
+
+            item.quantity = newQty //Replace qty with an integer
+            setItems([...items, item]);
+        }
+
+        
+      }
 
 
 
@@ -52,25 +162,59 @@ function Orders(){
                 
             </div>
            
+
+            
+
             <Container>
-                <Row>
-                    <Col>
-                    <div className='groupName'>
+            <div className='groupName'>
                         <h2> Room 307</h2>
-                    </div>
+
+            </div>
+            <div className='changeGroupBtn'>
+                        <button >Change Group</button>
+            </div>
+            
+                <Row>
+                    <Col sm={7}>
+
+                    
+                    
 
 
 
                     <div className='carts-container'>
-                        <UserCart cartItems = {items} removeItems = {removeOneItem}/>
+                        <UserCart cartItems = {items} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} />
                        
                     </div>
                     
                     </Col>
 
-                    <Col>
+                    <Col sm={5}>
                     
-                    Second Column
+                    
+                        <div className='form-container'>
+
+                            <div className='selectUser'>
+                                <Container>
+                                <Row className='selectRow'>
+                                    <Col sm ={3}>
+                                    <h4></h4> Select User:
+                                    </Col>
+                                    <Col>
+                                    <DropdownUsers/>
+                                    </Col>
+                                    
+                                    
+                                </Row>
+
+                                </Container>
+                             </div>
+
+
+                            <Form handleSubmit = {updateList}/>
+
+                        </div>
+                        
                     
                     </Col>
 

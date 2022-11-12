@@ -10,14 +10,15 @@ const id = "Ethan Outangoun";
 
 
 function CartHeader(){
-    return (
+    return /*(
         <thead>
           <tr>
             <th>Item</th>
             <th>Quantity</th>
+            <th> del</th>
           </tr>
         </thead>
-      );
+      );*/
 
 }
 
@@ -26,10 +27,12 @@ function CartBody(props) {
         return (
           <tr key={index}>
             <td>{row.item}</td>
+
+            <td> <button onClick={() => props.deleteQuantity(index)}> - </button> </td>
             <td>{row.quantity}</td>
-            <td>
-                <button onClick={() => props.removeItems(index)}>Delete</button>
-            </td>
+            <td> <button onClick={() => props.addQuantity(index)}> + </button> </td>
+          
+            <td> <button className='delbutton' onClick={() => props.removeItems(index)}> Delete </button> </td>
           </tr>
         );
       });
@@ -45,7 +48,7 @@ function CartList(props) {
     return (
       <table>
         <CartHeader />
-        <CartBody cartItems = {props.cartItems}  removeItems = {props.removeItems}/>
+        <CartBody cartItems = {props.cartItems}  removeItems = {props.removeItems} addQuantity = {props.addQuantity} deleteQuantity = {props.deleteQuantity}/>
       </table>
     );
 }
@@ -61,7 +64,7 @@ function CartList(props) {
 
 
 function UserCart(props) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <>
@@ -79,7 +82,7 @@ function UserCart(props) {
 
 
         <div className = "CartTable">
-          <CartList cartItems = {props.cartItems}  removeItems = {props.removeItems}/>
+          <CartList cartItems = {props.cartItems}  removeItems = {props.removeItems}  addQuantity = {props.addQuantity}  deleteQuantity = {props.deleteQuantity} />
       
       
       

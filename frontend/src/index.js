@@ -17,3 +17,7 @@ root.render(
     </BrowserRouter>
   </AuthContextProvider>
 );
+  //<BrowserRouter>
+    // <LearnMore />
+  //</BrowserRouter>
+// );

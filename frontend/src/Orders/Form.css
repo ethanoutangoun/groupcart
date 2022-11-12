@@ -1,0 +1,54 @@
+
+
+
+
+
+.info-container{
+   
+    padding: 1em;
+    padding-right: 1.5em;
+    
+}
+
+input{
+    border-radius: 0.2em;
+    border: 1px solid gray;
+    
+}
+
+
+
+.addBtn{
+    padding-top: 1.4em;
+    
+
+    
+}
+
+input[type = button]
+{   
+    border-radius: 1em;
+    border: none;
+    background-color: green;
+    padding: 0.4em;
+    padding-left: 1em;
+    padding-right: 1em;
+    color: white;
+    font-weight: 600;
+    float:right
+    
+}
+
+input[type = button]:hover{
+    background-color: darkgreen;
+}
+
+
+
+
+
+input[type = text]
+{
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
