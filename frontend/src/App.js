@@ -5,6 +5,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import LearnMore from "./components/LearnMore";
 import SplashPage from "./components/SplashPage"
+import Profile from "./ProfilePage/Profile"
 
 //import styled from "styled-components";
 
@@ -52,6 +53,7 @@ function App() {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp/>} />
           <Route path="/learn-more" element={<LearnMore/>} />
+          <Route path = "/profile-page" element = {< Profile/>}/>
         </Routes>
       </div>
     </>

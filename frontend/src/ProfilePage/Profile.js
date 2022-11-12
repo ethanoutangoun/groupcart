@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Table from "./Table";
 import CreateForm from "./CreateForm/CreateForm";
 import ProfileSideBar from "./ProfileSideBar/ProfileSideBar";
+import { useAuthContext } from "../hooks/useAuthContext";
 import "./Profile.css";
 
-function Profile() {
+const Profile = () => {
+  //get auth context
+  const {user} = useAuthContext()
+  console.log(user)
   const [groupInfo, setGroupInfo] = useState([
     {
       name: "Room 307",
@@ -28,6 +32,8 @@ function Profile() {
     },
   ]);
   const [isOverview, setOverview] = useState(true);
+  const [userName, setUsername] = useState('')
+
 
   function updateList(group) {
     setGroupInfo([...groupInfo, group]);
@@ -41,14 +47,15 @@ function Profile() {
   }
 
   return (
-    <div class="page">
+    <div className="page">
       <div className="header">
         <h1>GroupCart</h1>
       </div>
-
-      <div class="main-content">
-        <ProfileSideBar />
-        <div class="border-left">
+    
+      {user && (
+        <div className="main-content">
+        <ProfileSideBar user = {user.data}/>
+        <div className="border-left">
           <div className="top-bar">
             <div
               className={"bar-button " + (isOverview ? "active" : "inactive")}
@@ -75,6 +82,7 @@ function Profile() {
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 }

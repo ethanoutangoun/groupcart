@@ -21,7 +21,7 @@ function TableBody(props) {
         <td>{row.size}</td>
         <td>{row.password}</td>
         <td>
-          <button class="btn-delete" onClick={() => props.removeGroup(index)}>
+          <button className="btn-delete" onClick={() => props.removeGroup(index)}>
             Delete ×
           </button>
         </td>

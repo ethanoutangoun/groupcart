@@ -18,7 +18,9 @@ const SplashPage = () => {
             <ul className="sign-in-up">
               {user && (
                 <div>
-                  <li>{user.data.username}</li>
+                  <NavLink className = "sign-in-style" to = "/profile-page">
+                    {user.data.username}
+                  </NavLink>
                   <button onClick = {() => logout()}> Log Out</button>
                 </div>
               )}

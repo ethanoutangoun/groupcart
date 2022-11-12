@@ -1,0 +1,26 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+#testfolder
+./testfrontend
+
+# dependencies
+./backend/node_modules
+./backend/pnp
+./backend/pnp.js
+
+# testing
+./backend/coverage
+
+# production
+./backend/build
+
+# misc
+./backend/DS_Store
+./backend/env.local
+./backend/env.development.local
+./backend/env.test.local
+./backend/env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -46,16 +46,16 @@ function CreateForm(props) {
           />
         </div>
       </div>
-      <div class="buttons-container">
+      <div className="buttons-container">
         <input
           type="button"
-          class="btn btn-create"
+          className="btn btn-create"
           value="Create Group"
           onClick={submitFormCreate}
         />
         <input
           type="button"
-          class="btn btn-join"
+          className="btn btn-join"
           value="Join Group"
           onSubmit={submitFormJoin}
         />

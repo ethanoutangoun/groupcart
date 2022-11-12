@@ -3,6 +3,12 @@ import bcrypt from "bcrypt"
 const {Schema, model} = mongoose
 
 const userSchema = new Schema({
+  first: {
+    type: String
+    },
+  last: {
+    type: String
+    },
   username: {
     type: String,
     required: true,
@@ -17,13 +23,13 @@ const userSchema = new Schema({
 
 // static sign-up method
 // if we try to do () => syntax this. will not work
-userSchema.statics.signup = async function(username, password){
-  if(!username || !password){
+userSchema.statics.signup = async function(first , last, username, password){
+  if(!first || !last || !username || !password){
     throw Error("all fields must be filled")
   }
   const exists = await this.findOne({username})
   if(exists) {
-    throw Error('Email already in use')
+    throw Error('username already in use')
   }
 
   //a salt is a way of making sure that identical passwords
@@ -33,7 +39,7 @@ userSchema.statics.signup = async function(username, password){
 
 
   //this creates the user
-  const user = await this.create({username, password: hash})
+  const user = await this.create({first, last, username, password: hash})
 
   return user
 }

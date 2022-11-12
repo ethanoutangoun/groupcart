@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row"
 import "../styles/sign-up.css";
 import { useSignup } from "../hooks/useSignup"
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -17,6 +18,7 @@ function SignUp() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const {signup, error, isLoading} = useSignup()
+  const navigate = useNavigate()
 
 
   // function that actually submits the data to the backend
@@ -24,8 +26,8 @@ function SignUp() {
     //prevent default to prevent default refresh
     e.preventDefault()
     console.log(first, last, username, password)
-    await signup(username, password)
-
+    await signup(first, last, username, password)
+    navigate('/')
   }
 
   return (

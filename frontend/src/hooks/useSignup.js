@@ -7,12 +7,12 @@ export const useSignup = () => {
   const [isLoading, setIsLoading] = useState(null)
   const {dispatch} = useAuthContext()
 
-  const signup = async(username, password) => {
+  const signup = async(first, last, username, password) => {
     setIsLoading(true)
     setError(null)
 
     await axios
-    .post('http://localhost:5001/signup', {username: username, password: password})
+    .post('http://localhost:5001/signup', {first: first, last: last, username: username, password: password})
     .then(response => {
       //save the user to local storage
       localStorage.setItem('user', JSON.stringify(response))
