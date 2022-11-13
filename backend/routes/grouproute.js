@@ -3,13 +3,22 @@ import Group from "../schemas/Group.js";
 import express from 'express'
 import mongoose from 'mongoose'
 import controller from '../controllers/group.controller.js'
+import  { requireAuth } from '../middleware/authJwt.js'
 const router = express.Router();
 
+router.use(requireAuth)
 
-//making a group
-router.post('/group/:id', controller.createGroup)
+//getting all groups
+router.get('/group/user', controller.getGroup)
+
+//create a group
+router.post('/group', controller.createGroup)
 
 //joining a group
-router.post('/group/:id/:name', controller.joinGroup)
+router.post('/group/join/:name', controller.joinGroup)
+
+//removing user from group
+router.delete('/group/:id', controller.deleteGroup)
+
 
 export default router;

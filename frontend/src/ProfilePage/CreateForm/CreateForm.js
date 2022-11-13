@@ -13,7 +13,10 @@ function CreateForm(props) {
     setGroup({ name: "", password: "" });
   }
 
-  function submitFormJoin() {}
+  function submitFormJoin() {
+    props.handleJoin(group);
+    setGroup({ name: "", password: "" });
+  }
 
   const [group, setGroup] = useState({
     name: "",
@@ -57,7 +60,7 @@ function CreateForm(props) {
           type="button"
           className="btn btn-join"
           value="Join Group"
-          onSubmit={submitFormJoin}
+          onClick={submitFormJoin}
         />
       </div>
     </form>

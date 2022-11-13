@@ -3,7 +3,7 @@ import "./ProfileSideBar.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useState, useEffect} from 'react'
 
-const ProfileSideBar = ({user}) => {
+const ProfileSideBar = ({user, grouplength}) => {
   let name = user.username;
   console.log(name)
   let fullName = `${user.first} ${user.last}`
@@ -44,7 +44,7 @@ const ProfileSideBar = ({user}) => {
           <div className="box right-rounded" id="active-groups">
             <div className="inner-text">
               <span className="inner-header">Active Groups</span>
-              <span className="inner-value">5</span>
+              <span className="inner-value">{grouplength}</span>
             </div>
           </div>
         </div>

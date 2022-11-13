@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt"
+import Group from "./Group.js";
 const {Schema, model} = mongoose
 
 const userSchema = new Schema({
@@ -18,8 +19,8 @@ const userSchema = new Schema({
     type: String,
     required: true
     },
-  groups: [{type: mongoose.Types.ObjectId, ref: 'Group'}]
-}, {collection: 'user-list'});
+  groups: [{ type: Schema.Types.ObjectId, ref: 'Group' }]
+});
 
 // static sign-up method
 // if we try to do () => syntax this. will not work

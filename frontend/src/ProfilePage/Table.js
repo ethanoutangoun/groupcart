@@ -14,21 +14,25 @@ function TableHeader() {
 }
 
 function TableBody(props) {
-  const rows = props.groupData.map((row, index) => {
-    return (
-      <tr key={index}>
-        <td>{row.name}</td>
-        <td>{row.size}</td>
-        <td>{row.password}</td>
-        <td>
-          <button className="btn-delete" onClick={() => props.removeGroup(index)}>
-            Delete ×
-          </button>
-        </td>
-      </tr>
-    );
-  });
-  return <tbody>{rows}</tbody>;
+  console.log(props)
+  if(props.groupData.length > 0)
+  {
+    const rows = props.groupData.map((row, index) => {
+      return (
+        <tr key={index}>
+          <td>{row.name}</td>
+          <td>{row.people.length}</td>
+          <td>{row.password}</td>
+          <td>
+            <button className="btn-delete" onClick={() => props.removeGroup(row)}>
+              Delete ×
+            </button>
+          </td>
+        </tr>
+      );
+    });
+    return <tbody>{rows}</tbody>;
+  }
 }
 function Table(props) {
   return (
