@@ -2,7 +2,7 @@ import React from "react";
 import "./learn-more.css";
 import NavbarWrapper from './NavbarWrapper';
 
-function learnMore() {
+function LearnMore() {
   return (
     <div class="page">
       <NavbarWrapper />
@@ -21,4 +21,4 @@ function learnMore() {
   );
 };
 
-export default learnMore;
+export default LearnMore;

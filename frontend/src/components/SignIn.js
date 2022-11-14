@@ -1,7 +1,7 @@
 import React from "react";
-import "./sign-in.css";
+import "../styles/sign-in.css";
 
-function signIn() {
+function SignIn() {
   return (
     <div class="page">
       <div className="header-block">
@@ -33,4 +33,4 @@ function signIn() {
   );
 };
 
-export default signIn;
+export default SignIn;

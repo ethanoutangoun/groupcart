@@ -1,15 +1,16 @@
 import React from "react";
 
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
+import Nav from 'react-bootstrap/Nav';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './NavbarWrapper.css';
 
 const NavbarWrapper = () => {
-    return <Navbar expand="lg">
+    return (
+      <Navbar expand="lg">
         <Container>
           <Navbar.Brand>GroupCart</Navbar.Brand>
           <Navbar.Collapse id="basic-navbar-nav">
@@ -27,7 +28,8 @@ const NavbarWrapper = () => {
             </div>
           </Nav>
         </Container>
-    </Navbar>
+      </Navbar>
+    );
 }
 
 export default NavbarWrapper;

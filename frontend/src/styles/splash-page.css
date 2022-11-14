@@ -2,7 +2,7 @@
   height: 100vh;
 }
 
-h1 {
+.title-header {
   text-align: center;
   color: black;
   font-family: "Inter", sans-serif;
@@ -10,47 +10,18 @@ h1 {
   font-size: 20px;
 }
 
-h2 {
+.main-title {
   color: white;
   font-family: "Raleway";
   font-weight: 600;
   font-size: 35px;
 }
 
-h3 {
-  color: #afbf73;
-  font-family: "Raleway";
-  font-weight: 600;
-  font-size: 16px;
-  padding-top: 0.05em;
-}
-
-h4 {
-  color: white;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-h5 {
-  color: black;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-h6 {
+.get-started {
   color: #538c51;
   font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 25px;
-}
-
-h8 {
-  color: #d95e32;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 18px;
 }
 
 .app-block {
@@ -91,7 +62,7 @@ h8 {
   background: white;
 }
 
-/* .sign-in-up {
+.sign-in-up {
   margin-top: -35px;
   margin-left: 70%;
 }
@@ -116,29 +87,29 @@ h8 {
   font-size: 16px;
   color: white;
   text-decoration: none;
-} */
+}
 
-/* .app-sign-in-text { */
+.app-sign-in-text {
   /* Sign In btn */
-  /* margin-left: 58%;
+  margin-left: 58%;
   margin-top: -1.2em;
   font-family: "Raleway";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   color: #000000;
-} */
+}
 
-/* .app-sign-up-button {
+.app-sign-up-button {
   /* Sign Up btn */
-  /* width: 5em;
+  width: 5em;
   height: 1.2em;
   margin-left: 88.15%;
   margin-top: -2.1em;
 
   background: #538c51;
   border-radius: 25px;
-} */
+}
 
 .app-slogan-text {
   /* Group shopping made easy */

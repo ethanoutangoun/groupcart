@@ -1,19 +1,18 @@
-import mongoose from "mongoose"
-import User from "./User.js"
+import mongoose from "mongoose";
+import User from "./User.js";
 
-async function createUser(body){
-  try{
-    if(checkDuplicateUsername(body.username)){
-      return false
+async function createUser(body) {
+  try {
+    if (checkDuplicateUsername(body.username)) {
+      return false;
+    } else {
+      const usertoadd = new User(body);
+      const addresponse = await usertoadd.save();
+      return addresponse;
     }
-    else{
-      const usertoadd = new User(body)
-      const addresponse = await usertoadd.save()
-      return addresponse
-    }
-  }catch(error){
-    console.log(error)
-    return false
+  } catch (error) {
+    console.log(error);
+    return false;
   }
 }
 
@@ -30,22 +29,22 @@ async function createUser(body){
 //   }
 // }
 
-async function checkDuplicateUsername(username){
-  try{
+async function checkDuplicateUsername(username) {
+  try {
     const prevuser = await User.findOne({
-      username: username
-    })
-    if(prevuser === undefined){
-      return true
-    }else{
-      return false
+      username: username,
+    });
+    if (prevuser === undefined) {
+      return true;
+    } else {
+      return false;
     }
-  }catch(error){
-    console.log(error)
-    return false
+  } catch (error) {
+    console.log(error);
+    return false;
   }
 }
 
 export default {
-  createUser
-}
+  createUser,
+};

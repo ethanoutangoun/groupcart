@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
-const {Schema, model} = mongoose
+import User from "./User.js";
+const { Schema, model } = mongoose;
 
 const groupSchema = new Schema({
   name: String,
-  people: [{type: mongoose.Types.ObjectId, ref : 'User'}],
+  password: String,
+  people: [{ type: Schema.Types.ObjectId, ref: "User" }],
+});
 
-}, {collection: 'group_list'});
-
-const Group = model('Group', groupSchema)
+const Group = model("Group", groupSchema);
 export default Group;

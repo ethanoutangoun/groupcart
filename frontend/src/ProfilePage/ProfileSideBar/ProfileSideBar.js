@@ -1,23 +1,26 @@
 import React from "react";
 import "./ProfileSideBar.css";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useState, useEffect } from "react";
 
-const ProfileSideBar = () => {
-  const fullName = "Ethan James";
-  const userName = "Username123";
+const ProfileSideBar = ({ user, grouplength }) => {
+  let name = user.username;
+  console.log(name);
+  let fullName = `${user.first} ${user.last}`;
 
   return (
-    <div class="container">
-      <div class="profile-container">
-        <div class="image-container">E</div>
+    <div className="page-container">
+      <div className="profile-container">
+        <div className="image-container">E</div>
         <img
           src={require("../../icons/icons8-macos-maximize-90.png")}
           alt="change-profile-pic"
-          class="hover-icon"
+          className="hover-icon"
         />
       </div>
-      <div class="user-info">
+      <div className="user-info">
         <h1 id="full-name">{fullName}</h1>
-        <p id="user-name">{userName}</p>
+        <p id="user-name">{name}</p>
         {/* <table>
                     <tr>
                         <td>Spent</td>
@@ -25,23 +28,23 @@ const ProfileSideBar = () => {
                         <td>Active Groups</td>
                     </tr>
                 </table> */}
-        <div class="user-stats">
-          <div class="box left-rounded" id="spent">
-            <div class="inner-text">
-              <span class="inner-header">Spent</span>
-              <span class="inner-value">$50</span>
+        <div className="user-stats">
+          <div className="box left-rounded" id="spent">
+            <div className="inner-text">
+              <span className="inner-header">Spent</span>
+              <span className="inner-value">$50</span>
             </div>
           </div>
-          <div class="box" id="since">
-            <div class="inner-text">
-              <span class="inner-header">Since</span>
-              <span class="inner-value">Oct 2022</span>
+          <div className="box" id="since">
+            <div className="inner-text">
+              <span className="inner-header">Since</span>
+              <span className="inner-value">Oct 2022</span>
             </div>
           </div>
-          <div class="box right-rounded" id="active-groups">
-            <div class="inner-text">
-              <span class="inner-header">Active Groups</span>
-              <span class="inner-value">5</span>
+          <div className="box right-rounded" id="active-groups">
+            <div className="inner-text">
+              <span className="inner-header">Active Groups</span>
+              <span className="inner-value">{grouplength}</span>
             </div>
           </div>
         </div>

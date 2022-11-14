@@ -1,4 +1,4 @@
-.page {
+/* .page {
     height: 100vh;
 }
 
@@ -74,18 +74,55 @@ h6 {
     background: white;
 }
 
-.sign-in-text {
+.sign-up-text {
     text-align: center;
 }
 
-.sign-up-option-prompt {
+.sign-in-option-prompt {
     text-align: center;
     margin-top: -2.4em;
 }
 
-.sign-up-option-prompt li {
+.sign-in-option-prompt li {
     display: inline-block;
     padding: .5em;
+}
+
+.firstname-text {
+    width: 24%;
+    margin-left: 25%;
+    margin-bottom: -2.5em;
+    text-align: left;
+    background: white;
+    border-radius: 14px;
+}
+
+.lastname-text {
+    width: 24%;
+    margin-left: 51%;
+    margin-top: -2em;
+    text-align: left;
+    background: white;
+    border-radius: 14px;
+}
+
+.firstname-input {
+    width: 24%;
+    height: 2em;
+    margin-left: 25%;
+    margin-top: -1em;
+
+    background: rgba(217, 217, 217, 0.67);
+    border-radius: 14px;
+}
+
+.lastname-input {
+    width: 24%;
+    height: 2em;
+    margin-left: 51%;
+    margin-top: -2em;
+    background: rgba(217, 217, 217, 0.67);
+    border-radius: 14px;
 }
 
 .username-text {
@@ -116,11 +153,22 @@ h6 {
     border-radius: 14px;
 }
 
-.sign-in-btn {
+.sign-up-btn {
     width: 30%;
     height: 2em;
     margin-left: 35%;
     background: #538C51;
     border-radius: 69px;
+} */
+
+.form-parent {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  margin: 10vmin;
 }
 
+.form-child {
+  width: 50vmin;
+  /* align-self: center; */
+}

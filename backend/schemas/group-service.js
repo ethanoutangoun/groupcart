@@ -1,6 +1,6 @@
-import mongoose from "mongoose"
-import Group from "./Group.js"
-import User from "./User.js"
+import mongoose from "mongoose";
+import Group from "./Group.js";
+import User from "./User.js";
 
 // async function createGroup(body, userid){
 //   try{
@@ -22,11 +22,10 @@ import User from "./User.js"
 //   }
 // }
 
-
 // async function joinGroup(name, userid){
 //   try{
 //     const grouptojoin = await Group.findOneAndUpdate(
-//       {name: name}, 
+//       {name: name},
 //       {$push: {"people": mongoose.Types.ObjectId(userid)}})
 //     const group = await Group.findOne({name: name})
 //     const user = await User.updateOne(
