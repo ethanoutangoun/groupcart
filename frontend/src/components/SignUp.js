@@ -23,7 +23,9 @@ function SignUp() {
     //prevent default to prevent default refresh
     e.preventDefault();
     console.log(first, last, username, password);
+    //signup function is defined in directory hooks
     await signup(first, last, username, password);
+    // this navigate returns user back to the home page
     navigate("/");
   };
 
