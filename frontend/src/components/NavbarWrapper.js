@@ -39,7 +39,7 @@ const NavbarWrapper = () => {
         user &&
         <Nav>
           <div className="btn-wrapper">
-            <Button variant="warning">Logout</Button>
+            <Button variant="warning" onClick={logout}>Logout</Button>
           </div>
         </Nav>
         }
