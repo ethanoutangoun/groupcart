@@ -9,7 +9,7 @@ const ProfileSideBar = ({ user, grouplength }) => {
   let fullName = `${user.first} ${user.last}`;
 
   return (
-    <div className="container">
+    <div className="page-container">
       <div className="profile-container">
         <div className="image-container">E</div>
         <img

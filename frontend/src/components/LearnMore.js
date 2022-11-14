@@ -1,12 +1,11 @@
 import React from "react";
-import "../styles/learn-more.css"
+import "./learn-more.css";
+import NavbarWrapper from './NavbarWrapper';
 
 function LearnMore() {
   return (
     <div class="page">
-      <div className="header-block">
-        <h1>GroupCart</h1>
-      </div>
+      <NavbarWrapper />
       <div className="bottom-block">
         <div className="line">
         </div>
