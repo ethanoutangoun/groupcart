@@ -28,7 +28,7 @@ input[type="text"] {
   width: 90%;
 }
 
-.btn {
+.profile-btn {
   cursor: pointer;
   font-family: inherit;
   font-weight: 600;
