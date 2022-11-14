@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
+import NavbarWrapper from './NavbarWrapper';
 import "../styles/splash-page.css";
 
 const SplashPage = () => {
@@ -11,36 +12,7 @@ const SplashPage = () => {
   return (
     <div class="page">
       <div className="app-header-block">
-        <li>
-          <h1 className="title-header">GroupCart</h1>
-        </li>
-        <nav>
-          <ul className="sign-in-up">
-            {user && (
-              <div>
-                <NavLink className="sign-in-style" to="/profile-page">
-                  {user.data.username}
-                </NavLink>
-                <button onClick={() => logout()}> Log Out</button>
-              </div>
-            )}
-            {!user && (
-              <>
-                <li>
-                  <Link className="sign-in-style" to="/sign-in">
-                    Sign In
-                  </Link>
-                </li>
-                <li>
-                  <NavLink className="sign-up-style" to="/sign-up">
-                    Sign Up
-                  </NavLink>
-                </li>
-              </>
-            )}
-          </ul>
-        </nav>
-        <div className="app-sign-up-button"></div>
+        <NavbarWrapper />
       </div>
 
       <div class="app-block">

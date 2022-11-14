@@ -4,6 +4,7 @@ import CreateForm from "./CreateForm/CreateForm";
 import ProfileSideBar from "./ProfileSideBar/ProfileSideBar";
 import axios from "axios";
 import { useAuthContext } from "../hooks/useAuthContext";
+import NavbarWrapper from "../components/NavbarWrapper";
 import "./Profile.css";
 
 const Profile = () => {
@@ -95,9 +96,7 @@ const Profile = () => {
 
   return (
     <div className="page">
-      <div className="header">
-        <h1>GroupCart</h1>
-      </div>
+      <NavbarWrapper />
 
       {user && (
         <div className="main-content">
