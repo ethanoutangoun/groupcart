@@ -162,14 +162,13 @@ h6 {
 } */
 
 .form-parent {
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    margin: 10vmin;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  margin: 10vmin;
 }
 
-.form-child{
-    width: 50vmin;
-    /* align-self: center; */
+.form-child {
+  width: 50vmin;
+  /* align-self: center; */
 }
-

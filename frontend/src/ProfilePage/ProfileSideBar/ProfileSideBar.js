@@ -1,12 +1,12 @@
 import React from "react";
 import "./ProfileSideBar.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 
-const ProfileSideBar = ({user, grouplength}) => {
+const ProfileSideBar = ({ user, grouplength }) => {
   let name = user.username;
-  console.log(name)
-  let fullName = `${user.first} ${user.last}`
+  console.log(name);
+  let fullName = `${user.first} ${user.last}`;
 
   return (
     <div className="container">

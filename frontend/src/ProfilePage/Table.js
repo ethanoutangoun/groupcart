@@ -14,9 +14,8 @@ function TableHeader() {
 }
 
 function TableBody(props) {
-  console.log(props)
-  if(props.groupData.length > 0)
-  {
+  console.log(props);
+  if (props.groupData.length > 0) {
     const rows = props.groupData.map((row, index) => {
       return (
         <tr key={index}>
@@ -24,7 +23,10 @@ function TableBody(props) {
           <td>{row.people.length}</td>
           <td>{row.password}</td>
           <td>
-            <button className="btn-delete" onClick={() => props.removeGroup(row)}>
+            <button
+              className="btn-delete"
+              onClick={() => props.removeGroup(row)}
+            >
               Delete ×
             </button>
           </td>
