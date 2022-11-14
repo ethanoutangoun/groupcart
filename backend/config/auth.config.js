@@ -1,3 +1,3 @@
 module.exports = {
-  secret: "groupcart-secret-key"
+  secret: "groupcart-secret-key",
 };
