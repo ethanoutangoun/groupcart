@@ -17,6 +17,8 @@ import { useState } from 'react';
 
 function Orders(){
 
+    var mode = false; //False when in order mode, true when in buy mode
+
     //Mock backend for the first cart
     const [items,setItems] = useState([
         {
@@ -55,7 +57,7 @@ function Orders(){
 
     function DropdownUsers() {
 
-        var index = 0;
+        var index = 0; //For indexing into user group
 
         return (
             
@@ -152,6 +154,9 @@ function Orders(){
 
 
 
+      
+
+
     return(
         <div className="page">
             
@@ -173,21 +178,26 @@ function Orders(){
             <div className='changeGroupBtn'>
                         <button >Change Group</button>
             </div>
-            
+
                 <Row>
                     <Col sm={7}>
-
+                      
                     </Col>
 
                     <Col sm={5}>
-
+                      
                       <Row>
                         
                       </Row>
-                    <div className='selector-container'>
-                        <h3> Mode:</h3>
+                    <Row className='selector-container'>
+                        
+                        <button> Switch to Buy Mode</button> 
+                        
+                        
+                        
+                        
 
-                    </div>
+                    </Row>
 
 
                     </Col>
@@ -212,6 +222,7 @@ function Orders(){
 
                     <Col sm={5}>
                     
+                        
                     
                         <div className='form-container'>
 
@@ -236,7 +247,11 @@ function Orders(){
 
                         </div>
                         
-                    
+
+
+
+
+
                     </Col>
 
                 </Row>

@@ -1,0 +1,1 @@
+//Element to show the items purchased in buy mode

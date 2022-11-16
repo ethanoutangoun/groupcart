@@ -53,6 +53,8 @@ h2{
 .groupName h2{
   color: green;
   font-size: 1.7rem;
+  text-align: left;
+  font-weight: 500;
   
 }
 
@@ -87,5 +89,33 @@ h2{
   border-radius: 1em;
  
 }
+
+.selector-container button{
+
+  text-align: left;
+  color: gray;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  border: none;
+  background: none;
+
+
+}
+
+.selector-container{
+  
+
+
+  padding-bottom: 0.1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  
+}
+
+
+
+
+
 
 

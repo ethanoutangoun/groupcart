@@ -8,12 +8,13 @@ import LearnMore from "./components/LearnMore";
 import App from "./App";
 //ReactDOM.render(<Profile />, document.getElementById('root'));
 import { AuthContextProvider } from "./context/AuthContext";
+import Orders from "./Orders/Orders"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthContextProvider>
     <BrowserRouter>
-      <App />
+      <Orders />
     </BrowserRouter>
   </AuthContextProvider>
 );
