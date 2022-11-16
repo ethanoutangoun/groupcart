@@ -177,6 +177,27 @@ function Orders(){
                 <Row>
                     <Col sm={7}>
 
+                    </Col>
+
+                    <Col sm={5}>
+
+                      <Row>
+                        
+                      </Row>
+                    <div className='selector-container'>
+                        <h3> Mode:</h3>
+
+                    </div>
+
+
+                    </Col>
+                    
+                  
+                </Row>
+            
+                <Row>
+                    <Col sm={7}>
+
                     
                     
 
