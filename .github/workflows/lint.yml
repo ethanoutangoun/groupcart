@@ -1,0 +1,11 @@
+name: Lint Check
+on: [push]
+
+jobs:
+  build:
+    name: Lint check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Prettier Check
+        uses: rutajdash/prettier-cli-action@v1.0.0
