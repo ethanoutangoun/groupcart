@@ -4,5 +4,7 @@
 - To make changes to Prettier, edit the ``.prettierrc.json`` file located in the repository
 
 ### How to run:
-- To run Prettier, use the command: ``npx prettier --write <directory or file>``
-  - Example: ``npx prettier --write frontend/``
+- To run a check using Prettier, use the command:
+    - ``npm run check``
+- To format all files in the frontend folder, use the command:
+    - ``npm run format``
