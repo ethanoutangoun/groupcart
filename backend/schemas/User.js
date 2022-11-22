@@ -52,7 +52,7 @@ userSchema.statics.login = async function (username, password) {
   }
 
   //if user DNE throw error
-  const user = await this.findOne({ username });
+  const user = await this.findOne({ username: username});
   if (!user) {
     throw Error("incorrect user");
   }
@@ -63,6 +63,8 @@ userSchema.statics.login = async function (username, password) {
     throw Error("incorrect password");
   }
 
+
+  console.log('static User', user)
   return user;
 };
 

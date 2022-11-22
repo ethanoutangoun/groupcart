@@ -5,8 +5,9 @@ import { useState, useEffect } from "react";
 
 const ProfileSideBar = ({ user, grouplength }) => {
   let name = user.username;
-  console.log(name);
-  let fullName = `${user.first} ${user.last}`;
+  // console.log(name);
+  console.log('profileside', user)
+  let fullName = `${user.user.first} ${user.user.last}`;
 
   return (
     <div className="page-container">
@@ -29,7 +30,7 @@ const ProfileSideBar = ({ user, grouplength }) => {
                     </tr>
                 </table> */}
         <div className="user-stats">
-          <div className="box left-rounded" id="spent">
+          {/* <div className="box left-rounded" id="spent">
             <div className="inner-text">
               <span className="inner-header">Spent</span>
               <span className="inner-value">$50</span>
@@ -40,7 +41,7 @@ const ProfileSideBar = ({ user, grouplength }) => {
               <span className="inner-header">Since</span>
               <span className="inner-value">Oct 2022</span>
             </div>
-          </div>
+          </div> */}
           <div className="box right-rounded" id="active-groups">
             <div className="inner-text">
               <span className="inner-header">Active Groups</span>

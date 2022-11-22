@@ -10,7 +10,7 @@ import "./Profile.css";
 const Profile = () => {
   //get auth context
   const { user } = useAuthContext();
-  console.log(user);
+  console.log('profile', user);
 
   //connecting profile page to backend, getting groups
   useEffect(() => {
@@ -63,7 +63,7 @@ const Profile = () => {
     };
     console.log(config);
     await axios
-      .post(`http://localhost:5001/group/join/${group.name}`, config)
+      .post(`http://localhost:5001/group/join/${group.name}`, group, config)
       .then((response) => {
         console.log(response.data);
         setGroupInfo([...groupInfo, response.data]);
