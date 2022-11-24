@@ -14,8 +14,6 @@ import Col from 'react-bootstrap/Col';
 
 
 function Form(props) {   
-
-
    function handleChange(event) {
       const { name, value } = event.target;
       if (name === "quantity")
@@ -41,11 +39,6 @@ function Form(props) {
       
      
     }
-
-
-
-
-
     const [food, setFood] = useState(
       {  
          item: '',
@@ -60,7 +53,6 @@ function Form(props) {
     <form>
       <Container className='info-container'>
         <Row >
-     
         <Col  className='item-container'>
         <div>
       <label htmlFor="name">Item: </label>
@@ -73,7 +65,6 @@ function Form(props) {
         onChange={handleChange} />
         </div>
         </Col>
-      
         <Col className='qty-container'>
         <div>
       <label  htmlFor="quantity">Qty: </label>
@@ -84,23 +75,15 @@ function Form(props) {
         id="quantity"
         value={food.quantity}
         onChange={handleChange} />
-
         </div>
         </Col>
-
-
-     
-
-
       </Row>
-
       <Row>
       <div className='addBtn'>
       <input type="button"   value="Add" onClick={submitForm} />
       </div>
       </Row>
       </Container>
-
     </form>
 ); 
 

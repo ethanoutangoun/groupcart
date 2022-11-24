@@ -5,10 +5,9 @@ const itemSchema = new Schema(
   {
     item: String,
     quantity: String,
-    user: { type: mongoose.Types.ObjectId, ref: "People" },
+    user: { type: mongoose.Types.ObjectId, ref: "User" },
     group: { type: mongoose.Types.ObjectId, ref: "Group" },
-  },
-  { collection: "grocery_list" }
+  }
 );
 
 const Item = model("Item", itemSchema);
