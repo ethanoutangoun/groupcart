@@ -33,6 +33,7 @@ function SignUp() {
     <>
       <div className="form-parent">
         <div className="form-child">
+          <h1 id="register-header">Register</h1>
           {/* This is all from react-bootstrap */}
           <Form>
             <Row className="mb-3">

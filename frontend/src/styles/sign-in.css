@@ -2,29 +2,17 @@
   height: 100vh;
 }
 
-h2 {
-  font-family: "Raleway";
-  font-style: normal;
+#login-header {
+  font-family: "Satoshi", sans-serif;
   font-weight: 700;
-  font-size: 30px;
-  line-height: 47px;
+  font-size: 20px;
 }
 
-h5 {
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 10px;
-  line-height: 23px;
-}
-
-h6 {
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 30px;
-  color: #ffffff;
+.form-parent {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-block {
