@@ -1,4 +1,3 @@
-//Page for adding to order
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Orders.css'
@@ -9,18 +8,17 @@ import Col from 'react-bootstrap/Col';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 
-import UserCart from './UserCart';
+import BuyTable from './BuyTable';
 import Form from './Form';
 
 
 import { useState } from 'react';
 
-function Orders(){
 
-    
+function BuyPage(){
 
-    //Mock backend for the first cart
-    const [items,setItems] = useState([
+     //Mock backend for the first cart
+     const [items,setItems] = useState([
         {
             item: 'Carrots',
             quantity: 1,
@@ -214,7 +212,7 @@ function Orders(){
 
 
                     <div className='carts-container'>
-                        <UserCart cartItems = {items} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} />
+                        <BuyTable cartItems = {items} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} />
                        
                     </div>
                     
@@ -223,31 +221,7 @@ function Orders(){
                     <Col sm={5}>
                     
                         
-                    
-                        <div className='form-container'>
-
-                            <div className='selectUser'>
-                                <Container>
-                                <Row className='selectRow'>
-                                    <Col sm ={3}>
-                                    <h4></h4> Select User:
-                                    </Col>
-                                    <Col>
-                                    <DropdownUsers/>
-                                    </Col>
-                                    
-                                    
-                                </Row>
-
-                                </Container>
-                             </div>
-
-
-                            <Form handleSubmit = {updateList}/>
-
-                        </div>
-                        
-
+                    Add items here
 
 
 
@@ -269,7 +243,7 @@ function Orders(){
 
     )
 
-
 }
 
-export default Orders;
+
+export default BuyPage;
