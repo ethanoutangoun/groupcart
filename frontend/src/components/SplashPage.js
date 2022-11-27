@@ -24,9 +24,17 @@ const SplashPage = () => {
         <div class="app-block-slogan-wrapper">
           <h2 className="main-title">Group Shopping Made <em>Easy</em>.</h2>
         </div>
-        <NavLink className="learn-more-style" to="/learn-more">
-          Learn More
-        </NavLink>
+        <div className="block-links">
+          <NavLink className="block-btn" to="/sign-in">
+            Check your carts
+          </NavLink>
+          <NavLink className="block-btn" to="/sign-up">
+            Create an account
+          </NavLink>
+          <NavLink className="block-btn" to="/learn-more">
+            Learn more
+          </NavLink>
+        </div>
       </div>
 
       <div class="app-bottom-block">
