@@ -17,7 +17,7 @@ const NavbarWrapper = () => {
   return (
     <Navbar expand="lg">
       <Container>
-        <Navbar.Brand>GroupCart</Navbar.Brand>
+        <Navbar.Brand>GroupCart 🛒</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>

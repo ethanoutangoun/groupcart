@@ -4,6 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
 import NavbarWrapper from './NavbarWrapper';
 import "../styles/splash-page.css";
+import cart from "../images/store_9.jpg";
 
 const SplashPage = () => {
   const { user } = useAuthContext();
@@ -17,18 +18,11 @@ const SplashPage = () => {
 
       <div class="app-block">
         <div class="app-block-slogan-wrapper">
-          <h2 className="main-title">Group shopping made easy</h2>
+          <h2 className="main-title">Group shopping made <em>easy</em>.</h2>
         </div>
-        <nav>
-          <ul className="learn-more">
-            <li>
-              <NavLink className="learn-more-style" to="/learn-more">
-                Learn More
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-        <div className="app-learn-more-button"></div>
+        <NavLink className="learn-more-style" to="/learn-more">
+          Learn More
+        </NavLink>
       </div>
 
       <div class="app-bottom-block">
