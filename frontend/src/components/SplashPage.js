@@ -17,6 +17,7 @@ const SplashPage = () => {
       </div>
 
       <div class="app-block">
+        <img className="block-img" src={cart}></img>
         <div class="app-block-slogan-wrapper">
           <h2 className="main-title">Group shopping made <em>easy</em>.</h2>
         </div>
