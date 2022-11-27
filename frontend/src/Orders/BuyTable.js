@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
-import "./UserCart.css"
+import "./BuyTable.css"
 
 
 
@@ -30,11 +30,12 @@ function CartBody(props) {
           <tr key={index}>
             <td>{row.item}</td>
 
+            <td> Quantity: {row.quantity} </td>
             <td> <button onClick={() => props.deleteQuantity(index)}> - </button> </td>
-            <td>{row.quantity}</td>
+            <td>{row.curAmt}</td>
             <td> <button onClick={() => props.addQuantity(index)}> + </button> </td>
-          
-            <td> <button className='delbutton' onClick={() => props.removeItems(index)}> Delete </button> </td>
+            <td> <button className='delbutton' onClick={() => props.removeItems(index)}> Buy </button> </td>
+            <td> <button className='delbutton' onClick={() => props.removeItems(index)}> BuyAll </button> </td>
           </tr>
         );
       });

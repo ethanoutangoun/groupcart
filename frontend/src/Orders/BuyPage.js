@@ -22,21 +22,26 @@ function BuyPage(){
         {
             item: 'Carrots',
             quantity: 1,
+            curAmt: 0
           },
           {
             item: 'Avocados',
             quantity: 2,
+            curAmt: 0
           },
           {
             item: 'Potatoes',
             quantity: 3,
+            curAmt: 0
           },
           {
             item: 'Steak',
             quantity: 2,
+            curAmt: 0
           },
         ]);
 
+       
 
     const users = [
         {
@@ -87,7 +92,7 @@ function BuyPage(){
             if (index === i){
 
                 if(item.quantity>0)
-                    item.quantity-=1;
+                    item.curAmt-=1;
                 return item
             }
             else
@@ -105,7 +110,7 @@ function BuyPage(){
     {
         const updated = items.map((item, i) => {
             if (index === i){
-                item.quantity+=1;
+                item.curAmt+=1;
                 return item
             }
             else
@@ -189,7 +194,7 @@ function BuyPage(){
                       </Row>
                     <Row className='selector-container'>
                         
-                        <button> Switch to Buy Mode</button> 
+                        <button> Switch to Order Mode</button> 
                         
                         
                         
