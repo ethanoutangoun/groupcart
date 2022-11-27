@@ -2,76 +2,23 @@
   height: 100vh;
 }
 
-h1 {
-  text-align: center;
-  color: black;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
+#login-header {
+  font-family: "Satoshi", sans-serif;
+  font-weight: 700;
   font-size: 20px;
 }
 
-h2 {
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 47px;
-}
-
-h3 {
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 23px;
-  color: rgba(0, 0, 0, 0.4);
-}
-
-h4 {
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 23px;
-  color: #d95e32;
-}
-
-h5 {
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 10px;
-  line-height: 23px;
-}
-
-h6 {
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 30px;
-  color: #ffffff;
+.form-parent {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-block {
   margin-bottom: 1em;
   width: 100%;
   text-align: center;
-}
-
-.line {
-  box-sizing: border-box;
-  margin-top: -1.2em;
-  margin-left: -33%;
-  border: 0.3px solid rgba(0, 0, 0, 0.4);
-  transform: matrix(100%, 0, 0, -1, 0, 0);
-}
-
-.bottom-block {
-  margin-top: 2em;
-  width: 100%;
-  text-align: center;
-  background: white;
 }
 
 .sign-in-text {

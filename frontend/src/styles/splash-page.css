@@ -1,5 +1,7 @@
 .page {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .title-header {
@@ -11,43 +13,52 @@
 }
 
 .main-title {
-  color: white;
-  font-family: "Raleway";
-  font-weight: 600;
+  color: rgb(0,38,21);
+  font-family: "Satoshi", sans-serif;
+  font-weight: 700;
   font-size: 35px;
+  letter-spacing: -1px;
 }
 
 .get-started {
-  color: #538c51;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 25px;
+  color: black;
+  font-family: "Satoshi", sans-serif;
+  font-weight: 700;
+  font-size: 46px;
 }
 
 .app-block {
-  margin-top: 0.2em;
   width: 100%;
-  height: 20em;
-  text-align: center;
-  background: #afbf73;
+  background: #d0f454;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.block-img {
+  height: 500px;
+  width: auto;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.learn-btn:hover {
+  cursor: pointer;
+}
+
+.btn-text {
+  font-weight: 600;
+  color: white;
 }
 
 .app-block-slogan-wrapper {
-  margin-top: 0.2em;
-  padding-top: 5em;
-  width: 100%;
-  text-align: center;
-  background: #afbf73;
-}
-
-.app-header-block {
-  margin-bottom: 1em;
   width: 100%;
   text-align: center;
 }
 
 .app-header-block {
-  margin-bottom: 1em;
   width: 100%;
 }
 
@@ -56,16 +67,61 @@
 }
 
 .app-bottom-block {
-  margin-top: 17em;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  background: white;
+  padding-top: 50px;
+}
+
+.instructions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.bottom-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 10px;
+  border-radius: 30px;
+  margin-right: 80px;
+}
+
+.bottom-card:last-child {
+  margin-right: 0px;
+}
+
+.bottom-header {
+  font-family: "Satoshi", sans-serif;
+  font-weight: 900;
+  font-size: 42px;
+  color: black;
+  text-align: center;
+}
+
+.bottom-card-header {
+  font-family: "Satoshi", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.80);
+  margin-bottom: 0px;
+  letter-spacing: -1px;
+}
+
+.card-img {
+  border-radius: 20px;
+  height: 300px;
+  width: 300px;
 }
 
 .sign-in-up {
   margin-top: -35px;
   margin-left: 70%;
 }
+
 .sign-in-up li {
   display: inline-block;
   padding-left: 10%;
@@ -80,146 +136,58 @@
   text-decoration: none;
 }
 
-.sign-up-style {
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  color: white;
-  text-decoration: none;
-}
-
-.app-sign-in-text {
-  /* Sign In btn */
-  margin-left: 58%;
-  margin-top: -1.2em;
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  color: #000000;
-}
-
-.app-sign-up-button {
-  /* Sign Up btn */
-  width: 5em;
-  height: 1.2em;
-  margin-left: 88.15%;
-  margin-top: -2.1em;
-
-  background: #538c51;
-  border-radius: 25px;
-}
-
-.app-slogan-text {
-  /* Group shopping made easy */
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 56px;
-  color: #ffffff;
-}
-
-.learn-more {
-  text-align: center;
-  margin-right: 40px;
-}
-
-.learn-more li {
-  display: inline-block;
-}
-
 .learn-more-style {
-  color: #afbf73;
-  font-family: "Raleway";
-  font-weight: 600;
+  padding: 5px 20px;
+  border-radius: 25px;
+  margin-top: 5px;
+
+  background-color: rgb(0, 38, 21);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+
+  font-family: "Satoshi", sans-serif;
+  font-weight: 700;
   font-size: 16px;
   text-decoration: none;
-}
-
-.app-learn-more-button {
-  /* Learn More */
-  width: 20%;
-  height: 7%;
-  margin-left: 40%;
-  margin-top: -36px;
-
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 50px;
-}
-
-.app-background {
-  background: #f5f5f5;
-}
-
-.app-how-it-works-text {
-  /* How it works */
-  margin-top: -13em;
   text-align: center;
+  line-height: 27px;;
+  color: white;
+  transition: 0.2s;
 }
 
-.app-how-it-works-subtext1 {
-  /* Sign Up */
-  margin-top: 1em;
-  text-align: left;
-  margin-left: 20%;
+.learn-more-style:hover {
+  color: white;
+  background-color: rgba(0, 38, 21, 0.95);
+  transition: 0.2s;
 }
 
-.app-how-it-works-arrow1 {
-  /* Arrow 1 */
-  box-sizing: border-box;
-  margin-top: -0.5em;
-  margin-left: -33%;
-
-  border: 1px solid #000000;
-  transform: matrix(0.05, 0, 0, -1, 0, 0);
+footer {
+  margin-top: 60px;
 }
 
-.arrow {
-  /* Arrow Head */
-  margin-bottom: 5em;
-  margin-left: -26%;
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(-45deg) translate(0, -1em);
-  -webkit-transform: rotate(-45deg) translate(0, -0.5em);
+.footer-line {
+  width: 80%;
+  margin: auto;
 }
 
-.app-how-it-works-subtext2 {
-  /* Create a GroupCart */
-  margin-top: -6.5em;
-  margin-left: 0%;
-}
+@media (max-width: 810px) {
+  .block-img {
+    height: 150px;
+    width: auto;
+  }
 
-.app-how-it-works-arrow2 {
-  /* Arrow 1 */
-  box-sizing: border-box;
-  margin-top: -0.5em;
-  margin-left: 30.5%;
-  padding-left: 0.3em;
-  border: 1px solid #000000;
-  transform: matrix(0.1, 0, 0, -1, 0, 0);
-}
+  .instructions {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-.arrow2 {
-  /* Arrow Head */
-  margin-bottom: 5em;
-  margin-left: 38%;
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(-45deg) translate(0, -1em);
-  -webkit-transform: rotate(-45deg) translate(0, -0.5em);
-}
+  .bottom-card {
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
 
-.app-how-it-works-subtext3 {
-  /* Start Shopping! */
-  margin-top: -6.6em;
-  text-align: left;
-  margin-left: 73.5%;
+  footer {
+    margin-top: 30px;
+    padding-bottom: 20px;
+  }
 }
