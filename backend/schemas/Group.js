@@ -3,7 +3,10 @@ import User from "./User.js";
 const { Schema, model } = mongoose;
 
 const groupSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    unique:true
+  },
   password: String,
   people: [{ type: Schema.Types.ObjectId, ref: "User" }],
 });

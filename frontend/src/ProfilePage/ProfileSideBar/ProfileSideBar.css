@@ -50,8 +50,8 @@
 }
 
 .box {
-  padding: 7px;
-  width: 93px;
+  /* padding: 7px; */
+  width: 15rem;
   display: inline-block;
   border: 1px solid rgba(0, 0, 0, 0.25);
 }
@@ -80,8 +80,9 @@
 }
 
 .right-rounded {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  /* border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px; */
+  border-radius: 20px;
 }
 
 #full-name {

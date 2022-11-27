@@ -12,12 +12,15 @@ const loginUser = async (req, res) => {
   const { username, password } = req.body;
   try {
     const user = await User.login(username, password);
+    console.log(user)
     //create token
     const token = createToken(user._id);
+    
+    //send back a proper object
 
-    res.status(200).json({ username, token });
+    res.status(200).json({ user, token });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(401).send({ error: error.message });
   }
 };
 
@@ -29,7 +32,7 @@ const signupUser = async (req, res) => {
     //create token
     const token = createToken(user._id);
 
-    res.status(200).json({ first, last, username, token });
+    res.status(200).json({ user, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

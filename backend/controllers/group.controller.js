@@ -47,8 +47,6 @@ const createGroup = async (req, res) => {
     const savedgroup = await grouptoadd.save();
     //add group to users group array
     const groupid = savedgroup._id;
-    console.log(savedgroup);
-    console.log(groupid);
     const user = await User.updateOne(
       { _id: mongoose.Types.ObjectId(id) },
       { $push: { groups: groupid } }
@@ -64,19 +62,22 @@ const createGroup = async (req, res) => {
 const joinGroup = async (req, res) => {
   const id = req.user;
   const name = req.params.name;
+  const password = req.body.password;
   //check for valid user-id
   if (!mongoose.Types.ObjectId.isValid(id)) {
     res.status(404).send({ error: "userid is invalid" });
+    return
   }
   try {
     //add userid to group
     const grouptojoin = await Group.findOneAndUpdate(
-      { name: name },
+      { name: name, password: password},
       { $push: { people: id } }
     );
     //if group dne, send error
     if (!grouptojoin) {
-      res.status(404).send({ error: "no such groupname" });
+      res.status(404).send({ error: "no such groupname or wrong password" }).end();
+      return
     }
     //get group to find id
     const group = await Group.findOne({ name: name });
@@ -88,17 +89,17 @@ const joinGroup = async (req, res) => {
     );
     res.status(201).send(grouptojoin);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).send({ error: error.message });
   }
 };
 
 //deleting group
 const deleteGroup = async (req, res) => {
   const groupid = req.params.id;
-  console.log("Groupid", groupid);
   const id = req.user;
   if (!mongoose.Types.ObjectId.isValid(groupid)) {
     res.status(404).send({ error: "groupid is invalid" });
+    return
   }
   try {
     //remove group from user
@@ -116,11 +117,11 @@ const deleteGroup = async (req, res) => {
     }
     const user = await User.findByIdAndUpdate(
       { _id: id },
-      { $pull: { people: mongoose.Types.ObjectId(groupid) } }
+      { $pull: { groups: mongoose.Types.ObjectId(groupid) } }
     );
     res.status(201).send(removedgroup);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).send({ error: error.message });
   }
 };
 
