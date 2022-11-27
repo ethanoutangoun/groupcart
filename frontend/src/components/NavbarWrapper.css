@@ -23,6 +23,12 @@
     border-color: black;
 }
 
+.btn-warning {
+    color: black;
+    background-color: white;
+    border-color: black;
+}
+
 .btn-wrapper {
     margin-right: 5px;
 }
