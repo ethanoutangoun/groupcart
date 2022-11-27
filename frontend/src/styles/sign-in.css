@@ -3,16 +3,59 @@
 }
 
 #login-header {
+  text-align: center;
   font-family: "Satoshi", sans-serif;
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: 900;
+  font-size: 42px;
+  letter-spacing: -0.1px;
+  margin-bottom: 2px;
+}
+
+#login-question {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: black;
+  letter-spacing: -0.3px;
+}
+
+#login-register-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-register-prompt p {
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+.login-redirect {
+  display: inline-block;
+  margin-left: 7px;
+  
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.1px;
+  text-decoration: none;
+  color: black;
+}
+
+.login-redirect:hover {
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .form-parent {
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+}
+
+.form-child {
+  padding: 50px 50px;
+  width: 100%;
 }
 
 .header-block {
