@@ -21,7 +21,7 @@ const NavbarWrapper = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/profile-page">Carts</Nav.Link>
+            <Nav.Link href={ user ? "/profile-page" : "/sign-in"}>Carts</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         {
