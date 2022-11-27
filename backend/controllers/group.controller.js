@@ -26,6 +26,32 @@ const getGroup = async (req, res) => {
   }
 };
 
+//getting all users in a group
+const getGroupUsers = async(req, res) => {
+  const groupid = req.params.groupid
+  console.log('getgroup', groupid)
+  
+  //check if valid
+  if(!mongoose.Types.ObjectId.isValid(groupid)){
+    res.status(404).send({ error: "groupid is not valid" });
+  }
+  try{
+    Group.findById(mongoose.Types.ObjectId(groupid))
+    .populate({path: "people", model: "User"})
+    .exec(function (err, user){
+      if(err){
+        console.log(err);
+      } else {
+        console.log(user.people)
+        res.status(200).json(user.people)
+      }
+    })
+  } catch (error){
+    res.status(500).json({error: error.message}).send();
+  }
+
+}
+
 //creating group
 
 const createGroup = async (req, res) => {
@@ -127,6 +153,7 @@ const deleteGroup = async (req, res) => {
 
 export default {
   getGroup,
+  getGroupUsers,
   createGroup,
   joinGroup,
   deleteGroup,

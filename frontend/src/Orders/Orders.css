@@ -69,9 +69,8 @@ h2{
 }
 
 .selectRow{
+  align-items: baseline;
   
-  
-
 }
 
 .selectUser{
@@ -88,4 +87,6 @@ h2{
  
 }
 
-
+.user-title{
+  text-align: left;
+}

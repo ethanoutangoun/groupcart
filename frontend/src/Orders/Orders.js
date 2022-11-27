@@ -11,45 +11,79 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 import UserCart from './UserCart';
 import Form from './Form';
+import NavbarWrapper from '../components/NavbarWrapper';
 
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios'
+import { useLocation } from 'react-router-dom'
+import { useAuthContext } from '../hooks/useAuthContext';
 
 function Orders(){
+    //the groupid gets passed into the state of NavLink
+    let location = useLocation()
+    let groupid = location.state.groupid
+    let groupname = location.state.name
+    //getting user from authorization context
+    const { user } = useAuthContext();
+    console.log(user)
 
-    //Mock backend for the first cart
+    //get all-users from one group
+    useEffect(() => {
+        const getAllUsers = async() => {
+            const config = {
+                headers: { Authorization: `Bearer ${user.data.token}` }
+            }
+            await axios
+                .get(`http://localhost:5001/group/${groupid}`, config)
+                .then((response) => {
+                    setUsers(response.data)
+                    console.log(response.data)
+                })
+                .catch((error) => 
+                {
+                    console.log(error)
+                })
+        }
+        if(user && groupid) {
+            getAllUsers();
+        }
+    }, [user])
+
+    useEffect(() => {
+        const getAllItems = async() => {
+            const config = {
+                headers: { Authorization: `Bearer ${user.data.token}` },
+            }
+            await axios
+                .get(`http://localhost:5001/items/${groupid}`, config)
+                .then((response) => {
+                    setItems(response.data)
+                    console.log('items', response.data)
+                })
+                .catch((error) => 
+                {
+                    console.log(error)
+                })
+        }
+        if(user && groupid) {
+            getAllItems();
+        }
+    }, [user])
+
+
+
+
+    //Items State, will have id, freq, name
     const [items,setItems] = useState([
         {
-            item: 'Carrots',
-            quantity: 1,
-          },
-          {
-            item: 'Avocados',
-            quantity: 2,
-          },
-          {
-            item: 'Potatoes',
-            quantity: 3,
-          },
-          {
-            item: 'Steak',
-            quantity: 2,
-          },
-        ]);
+            item: 'fake',
+            quantity: 2
+        }
+    ]);
 
-
-    const users = [
-        {
-            name: "Ethan Outangoun"
-        },
-        {
-            name: "Masato Nandate"
-        },
-        {
-            name: "George Washington"
-        },
-
-    ];
+    //users is about to be every user and their name and id's
+    const [users, setUsers] =useState();
 
 
 
@@ -58,33 +92,51 @@ function Orders(){
         var index = 0;
 
         return (
+            <>
+            {user && (
+                <h1 className = "user-title"> {user.data.user.first + " " + user.data.user.last}</h1>
+            )}
+            </>
+            //didn't think it was too practical to be able to submit items for others
+            // <>
+            //     {/* {users && (
+            //         <Dropdown>
+            //         {/* {
+            //             users.map((user) => {
+            //                 return(
+            //                     <Dropdown.Toggle variant = "success" id = "dropdown-basic">
+            //                         {user.first + " " + user.last}
+            //                     </Dropdown.Toggle>
+            //                 )
+            //             })
+            //         } */}
+            //         <Dropdown.Toggle variant="success" id="dropdown-basic">
+            //         {users[index].first + " " + users[index].last}
+            //         </Dropdown.Toggle>
             
-    
-            
-          <Dropdown>
-            
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              {users[index].name}
-            </Dropdown.Toggle>
-      
-            <Dropdown.Menu>
-               
-              <Dropdown.Item href="#/action-1">Masato Nandate</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Name 3</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Name 4</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-    
+            //         <Dropdown.Menu>
+            //         {
+            //             users.map((user, index) => {
+            //                 let customhref = `#/action-${index}`
+            //                 return(
+            //                     <Dropdown.Item href= {customhref} >{user.first + " " + user.last}</Dropdown.Item>
+            //                 )
+            //             })
+            //         }
+            //         </Dropdown.Menu>
+            //     </Dropdown>
+            //     )}
+            // </>
         );
       }
 
 
 
 
-    function deleteQuantity(index)
+    async function deleteQuantity(id)
     {
-        const updated = items.map((item, i) => {
-            if (index === i){
+        const updated = items.map((item) => {
+            if (item._id === id){
 
                 if(item.quantity>0)
                     item.quantity-=1;
@@ -121,119 +173,106 @@ function Orders(){
 
     }
 
-    function removeOneItem (index)
+    async function removeOneItem (id)
     {
+        //setting config header
+        const config = {
+            headers: { Authorization: `Bearer ${user.data.token}` },
+        }
+        //DELETE call
+        await axios
+        .delete(`http://localhost:5001/items/${id}`, config)
+        .then(response=> {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        //locally deleting state
         const updated = items.filter((item, i) => {
-            return i !== index
+            return item._id !== id
         });
         setItems(updated);
     }
 
 
     //For form
-    function updateList(item) {
-        
-
+    async function updateList(item) {
         var newQty = parseInt(item.quantity)
-       
+        const newitem = {
+            item: item.item,
+            quantity: item.quantity,
+        }
+        const config = {
+            headers: { Authorization: `Bearer ${user.data.token}` }
+        }
+        //axios call to actually send data to the backend
+        await axios
+                .post(`http://localhost:5001/items/${groupid}`, newitem, config)
+                .then(response => {
+                    console.log(response)
+                    setItems([...items, response.data])
+                })
+                .then(error => {
+                    console.log(error)
+                })
         //Don't let list update with invalid quantity
-        if (isNaN(newQty)){
-            alert("not a valid integer")
-            
-        }
-        else{
-
-            item.quantity = newQty //Replace qty with an integer
-            setItems([...items, item]);
-        }
-
-        
+        // if (isNaN(newQty)){
+        //     alert("not a valid integer")
+        // }
+        // else{
+        //     item.quantity = newQty //Replace qty with an integer
+        //     setItems([...items, item]);
+        // }
       }
 
 
 
     return(
         <div className="page">
-            
-
-            <div className='header'>
-                <h1>GroupCart</h1>
-                
-                
-            </div>
-           
-
-            
-
+            <NavbarWrapper />
             <Container>
             <div className='groupName'>
-                        <h2> Room 307</h2>
-
+                <h2>{groupname}</h2>
             </div>
-            <div className='changeGroupBtn'>
+            {/* <div className='changeGroupBtn'>
                         <button >Change Group</button>
-            </div>
-            
+            </div> */}
                 <Row>
                     <Col sm={7}>
-
-                    
-                    
-
-
-
                     <div className='carts-container'>
-                        <UserCart cartItems = {items} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} />
-                       
+                        {/* <UserCart users = {users} cartItems = {items} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} /> */}
+                        {/* Being able to see everyone's items at once */}
+                        {user && users &&(
+                            users.map(user => {
+                                return(
+                                    <UserCart key = {user._id} items = {items} user = {user} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity}/>
+                                )
+                            })
+                        )}
                     </div>
-                    
                     </Col>
-
                     <Col sm={5}>
-                    
-                    
                         <div className='form-container'>
-
                             <div className='selectUser'>
                                 <Container>
                                 <Row className='selectRow'>
                                     <Col sm ={3}>
-                                    <h4></h4> Select User:
+                                    <h4></h4> User:
                                     </Col>
-                                    <Col>
+                                    <Col className='name-row'>
                                     <DropdownUsers/>
                                     </Col>
-                                    
-                                    
                                 </Row>
-
                                 </Container>
                              </div>
-
-
                             <Form handleSubmit = {updateList}/>
-
                         </div>
-                        
-                    
                     </Col>
-
                 </Row>
-               
             </Container>
-
-
-
-            
-        
-
         </div>
-
-
-
     )
-
-
 }
 
 export default Orders;
