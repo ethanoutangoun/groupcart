@@ -32,17 +32,11 @@ function SignUp() {
   };
 
   return (
-    <>
+    <div className="sign-page">
       <div className="form-parent">
-        <NavbarWrapper className="form-navbar" />
         <div className="form-child">
-          <h1 id="register-header">Sign Up</h1>
-          <div id="register-login-prompt">
-            <p id="register-question">Already have an account?</p>
-            <NavLink className="register-redirect" to="/sign-in">
-              Login ↗
-            </NavLink>
-          </div>
+          <h1 id="login-header">GroupCart 🛒</h1>
+          <h1 id="login-subheader">Sign up</h1>
           {/* This is all from react-bootstrap */}
           <Form>
             <Row className="mb-3">
@@ -91,14 +85,21 @@ function SignUp() {
                 type="submit"
                 disabled={isLoading}
                 onClick={(e) => handleSubmit(e)}
+                className="sign-btn"
               >
                 Sign Up
               </Button>
             </div>
           </Form>
+          <div id="login-register-prompt">
+            <p id="login-question">Already have an account?</p>
+            <NavLink className="register-redirect" to="/sign-in">
+              Login ↗
+            </NavLink>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
