@@ -35,8 +35,8 @@ function CartBody(props) {
             <td> <button onClick={() => props.deleteQuantity(index)}> - </button> </td>
             <td>{row.curAmt}</td>
             <td> <button onClick={() => props.addQuantity(index)}> + </button> </td>
-            <td> <button className='delbutton' onClick={() => props.removeItems(index)}> Buy </button> </td>
-            <td> <button className='delbutton' onClick={() => props.removeItems(index)}> BuyAll </button> </td>
+            <td> <button className='delbutton' onClick={() => props.buy(index)}> Buy </button> </td>
+            <td> <button className='delbutton' onClick={() => props.buyAll(index)}> BuyAll </button> </td>
           </tr>
         );
       });
@@ -52,7 +52,7 @@ function CartList(props) {
     return (
       <table>
         <CartHeader />
-        <CartBody cartItems = {props.cartItems}  removeItems = {props.removeItems} addQuantity = {props.addQuantity} deleteQuantity = {props.deleteQuantity}/>
+        <CartBody cartItems = {props.cartItems}  buy = {props.buy} buyAll = {props.buyAll} addQuantity = {props.addQuantity} deleteQuantity = {props.deleteQuantity}/>
       </table>
     );
 }
@@ -86,7 +86,7 @@ function BuyCart(props) {
 
 
         <div className = "CartTable">
-          <CartList cartItems = {props.cartItems}  removeItems = {props.removeItems}  addQuantity = {props.addQuantity}  deleteQuantity = {props.deleteQuantity} />
+          <CartList cartItems = {props.cartItems}  removeItems = {props.removeItems}  addQuantity = {props.addQuantity} deleteQuantity = {props.deleteQuantity}  buy = {props.buy} buyAll = {props.buyAll} />
       
       
       

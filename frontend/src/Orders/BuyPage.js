@@ -21,40 +21,40 @@ function BuyPage(){
      //Mock backend for the first cart
      const [items,setItems] = useState([
         {
+            
             item: 'Carrots',
             quantity: 1,
             curAmt: 0,
-            showItem: true
+            inCart: 0,
+       
           },
           {
             item: 'Avocados',
             quantity: 2,
             curAmt: 0,
-            showItem: true
+            inCart: 0,
+          
           },
           {
             item: 'Potatoes',
             quantity: 3,
             curAmt: 0,
-            showItem: true
+            inCart: 0,
+           
           },
           {
             item: 'Steak',
             quantity: 2,
             curAmt: 0,
-            showItem: true
+            inCart: 0,
+          
           },
         ]);
 
        
 
     //Mock backend for the items that are being bought
-    const [bItems, setBItems] = useState([
-        {
-            item: 'toothpaste',
-            quantity:1
-        }
-    ])
+    const [bItems, setBItems] = useState([])
     
 
     const users = [
@@ -142,10 +142,24 @@ function BuyPage(){
 
     }
 
+    function containsObject(obj, list) {
+        var i;
+        for (i = 0; i < list.length; i++) {
+            if (list[i] === obj) {
+                return true;
+            }
+        }
+    
+        return false;
+    }
+
+    
+
 
     function buyAll(index)
     {
         const temp = (items[index])
+        temp.inCart = temp.quantity
         const updated = items.filter((item, i) => {
             
             return i !== index
@@ -155,9 +169,42 @@ function BuyPage(){
         
     }
 
+
+    function buy(index)
+    {
+        const temp = (items[index])
+        temp.inCart = temp.curAmt
+        if (containsObject(temp,bItems) == false)
+        {
+            setBItems([...bItems, temp]);
+
+        }
+        else
+        {
+
+            //Deletes existing copy of item
+            const updated = bItems.filter((item) => {
+            
+                return item.item !== temp.item
+            });
+            setBItems(updated)
+            //Adds new item with updated quantity
+
+        }
+        
+
+
+        
+        
+
+    }
+
+
     function returnItem(index)
     {
         const temp = (bItems[index])
+        temp.curAmt = 0
+        temp.inCart = 0
         const updated = bItems.filter((item, i) => {
             
             return i !== index
@@ -166,6 +213,8 @@ function BuyPage(){
         setItems([...items, temp]);
         
     }
+
+   
 
 
 
@@ -256,7 +305,7 @@ function BuyPage(){
 
 
                     <div className='carts-container'>
-                        <BuyCart cartItems = {items} removeItems = {buyAll} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} />
+                        <BuyCart cartItems = {items} buy = {buy} buyAll = {buyAll} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} />
                        
                     </div>
                     
@@ -265,7 +314,7 @@ function BuyPage(){
                     <Col sm={5}>
                     
                         
-                    <BuyTable cartItems = {bItems} buyAll = {buyAll} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} returnItem = {returnItem} />
+                    <BuyTable cartItems = {bItems}   addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} returnItem = {returnItem} />
 
 
 
