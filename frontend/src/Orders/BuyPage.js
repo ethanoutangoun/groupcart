@@ -244,7 +244,11 @@ function BuyPage(){
             return i !== index
         });
         setBItems(updated);//set items in the left table to new set
-        setItems([...items, temp]);
+        if (containsObject(temp, items) == false)
+        {
+            setItems([...items, temp]);
+        }
+        
         
     }
 
