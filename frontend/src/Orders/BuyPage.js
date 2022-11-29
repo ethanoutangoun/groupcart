@@ -114,7 +114,7 @@ function BuyPage(){
                 return item
             }
         });
-      
+    
         setItems(updated);
 
     }
@@ -155,20 +155,23 @@ function BuyPage(){
         
     }
 
-
-
-    function removeOneItem (index)
+    function returnItem(index)
     {
-        const updated = items.filter((item, i) => {
+        const temp = (bItems[index])
+        const updated = bItems.filter((item, i) => {
+            
             return i !== index
         });
-
-        setItems(updated);
-        
-
-
+        setBItems(updated);//set items in the left table to new set
+        setItems([...items, temp]);
         
     }
+
+
+
+
+
+    
 
 
     //For form
@@ -262,7 +265,7 @@ function BuyPage(){
                     <Col sm={5}>
                     
                         
-                    <BuyTable cartItems = {bItems} buyAll = {buyAll} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} />
+                    <BuyTable cartItems = {bItems} buyAll = {buyAll} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} returnItem = {returnItem} />
 
 
 
