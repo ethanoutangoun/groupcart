@@ -8,8 +8,9 @@ import Col from 'react-bootstrap/Col';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 
-import BuyTable from './BuyTable';
+import BuyCart from './BuyCart';
 import Form from './Form';
+import BuyTable from './BuyTable';
 
 
 import { useState } from 'react';
@@ -22,26 +23,39 @@ function BuyPage(){
         {
             item: 'Carrots',
             quantity: 1,
-            curAmt: 0
+            curAmt: 0,
+            showItem: true
           },
           {
             item: 'Avocados',
             quantity: 2,
-            curAmt: 0
+            curAmt: 0,
+            showItem: true
           },
           {
             item: 'Potatoes',
             quantity: 3,
-            curAmt: 0
+            curAmt: 0,
+            showItem: true
           },
           {
             item: 'Steak',
             quantity: 2,
-            curAmt: 0
+            curAmt: 0,
+            showItem: true
           },
         ]);
 
        
+
+    //Mock backend for the items that are being bought
+    const [bItems, setBItems] = useState([
+        {
+            item: 'toothpaste',
+            quantity:1
+        }
+    ])
+    
 
     const users = [
         {
@@ -91,7 +105,7 @@ function BuyPage(){
         const updated = items.map((item, i) => {
             if (index === i){
 
-                if(item.quantity>0)
+                if(item.curAmt>0)
                     item.curAmt-=1;
                 return item
             }
@@ -110,8 +124,11 @@ function BuyPage(){
     {
         const updated = items.map((item, i) => {
             if (index === i){
-                item.curAmt+=1;
+
+                if (item.curAmt< item.quantity)
+                    item.curAmt+=1;
                 return item
+                
             }
             else
             {
@@ -122,16 +139,35 @@ function BuyPage(){
         setItems(updated);
 
        
-       
 
     }
+
+
+    function buyAll(index)
+    {
+        const temp = (items[index])
+        const updated = items.filter((item, i) => {
+            
+            return i !== index
+        });
+        setItems(updated);//set items in the left table to new set
+        setBItems([...bItems, temp]);
+        
+    }
+
+
 
     function removeOneItem (index)
     {
         const updated = items.filter((item, i) => {
             return i !== index
         });
+
         setItems(updated);
+        
+
+
+        
     }
 
 
@@ -217,7 +253,7 @@ function BuyPage(){
 
 
                     <div className='carts-container'>
-                        <BuyTable cartItems = {items} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} />
+                        <BuyCart cartItems = {items} removeItems = {buyAll} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} />
                        
                     </div>
                     
@@ -226,7 +262,7 @@ function BuyPage(){
                     <Col sm={5}>
                     
                         
-                    Add items here
+                    <BuyTable cartItems = {bItems} buyAll = {buyAll} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} />
 
 
 

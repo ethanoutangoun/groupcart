@@ -1,35 +1,26 @@
-//Element to show elements added to cart in current order
+//Element to show the list of items to be bought in buy mode
 
+//Cart element for each user
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
-import "./BuyTable.css"
+import "./BuyCart.css"
 
 
 
-const orderID = 1;
+const id = "Ethan Outangoun";
 
 
 function CartHeader(){
-    return (
-
-      
-
-        
+    return /*(
         <thead>
-        <tr>
-            <th>Order # {orderID}</th>
-        </tr>
           <tr>
             <th>Item</th>
-            <th>Cart</th>
             <th>Quantity</th>
-            <th> Return</th>
+            <th> del</th>
           </tr>
         </thead>
-
-       
-      );
+      );*/
 
 }
 
@@ -39,9 +30,13 @@ function CartBody(props) {
           <tr key={index}>
             <td>{row.item}</td>
 
-            <td> EO </td>
-            <td>{row.quantity}</td>
-            <td>x </td>
+            <td> Requested: {row.curAmt}/{row.quantity} </td>
+    
+            <td> <button onClick={() => props.deleteQuantity(index)}> - </button> </td>
+            <td>{row.curAmt}</td>
+            <td> <button onClick={() => props.addQuantity(index)}> + </button> </td>
+            <td> <button className='delbutton' onClick={() => props.removeItems(index)}> Buy </button> </td>
+            <td> <button className='delbutton' onClick={() => props.removeItems(index)}> BuyAll </button> </td>
           </tr>
         );
       });
@@ -72,11 +67,22 @@ function CartList(props) {
 
 
 
-function BuyTable(props) {
+function BuyCart(props) {
   const [open, setOpen] = useState(true);
 
   return (
-   
+    <>
+      <Button 
+        className='CartHeader'
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open}
+      >
+        <div className='CartName'>
+            {id}
+        </div>
+      </Button>
+      <Collapse in={open}>
 
 
         <div className = "CartTable">
@@ -89,7 +95,10 @@ function BuyTable(props) {
 
 
 
+
+      </Collapse>
+    </>
   );
 }
 
-export default BuyTable;
+export default BuyCart;
