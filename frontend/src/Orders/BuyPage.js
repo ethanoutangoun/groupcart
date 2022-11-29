@@ -105,7 +105,7 @@ function BuyPage(){
         const updated = items.map((item, i) => {
             if (index === i){
 
-                if(item.curAmt>0)
+                if(item.curAmt>0 && item.curAmt>item.inCart)
                     item.curAmt-=1;
                 return item
             }
@@ -173,27 +173,43 @@ function BuyPage(){
     function buy(index)
     {
         const temp = (items[index])
-        temp.inCart = temp.curAmt
+        
+
         if (containsObject(temp,bItems) == false)
         {
+            temp.inCart = temp.curAmt
             setBItems([...bItems, temp]);
+        
 
         }
         else
         {
 
-            //Deletes existing copy of item
-            const updated = bItems.filter((item) => {
-            
-                return item.item !== temp.item
-            });
-            setBItems(updated)
-            //Adds new item with updated quantity
 
-        }
+            
+            const updated = bItems.map((item, i) => {
+                if (item.item == temp.item){
+    
+                    item.inCart = temp.curAmt
+                    return item
+                    
+                }
+                else
+                {
+                    return item
+                }
+            });
+          
+            setBItems(updated);
+          
         
 
+        }
 
+        
+
+        
+        
         
         
 
