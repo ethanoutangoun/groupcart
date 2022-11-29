@@ -174,7 +174,23 @@ function BuyPage(){
     {
         const temp = (items[index])
         
+        if(temp.curAmt == temp.quantity)
+        {
+            const updated = items.filter((item, i) => {
+            
+                return i !== index
+            });
+            setItems(updated);//set items in the left table to new set
+            
+        }
 
+        if (temp.curAmt == 0)
+        {
+            return
+        }
+
+
+        var flag = false;
         if (containsObject(temp,bItems) == false)
         {
             temp.inCart = temp.curAmt
@@ -201,6 +217,8 @@ function BuyPage(){
             });
           
             setBItems(updated);
+
+           
           
         
 
