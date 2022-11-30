@@ -17,8 +17,17 @@ function CartHeader(){
 
         
         <thead>
+
+
+
         <tr>
             <th>Order # {orderID}</th>
+        </tr>
+
+        <tr>
+          <th>Item</th>
+          <th>Qty:</th>
+          <th>Return</th>
         </tr>
           
         </thead>
@@ -34,7 +43,6 @@ function CartBody(props) {
           <tr key={index}>
             <td>{row.item}</td>
 
-            <td> EO </td>
             <td>{row.inCart}</td>
             <td> <button className='delbutton' onClick={() => props.returnItem(index)}> O </button> </td>
           </tr>
