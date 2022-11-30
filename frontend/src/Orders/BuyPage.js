@@ -166,8 +166,12 @@ function BuyPage(){
         });
 
         setItems(updated);//remove item
-        setBItems([...bItems, temp]); //add item to left table
         
+        
+        if (containsObject(temp, bItems) == false)
+        {
+            setBItems([...bItems, temp]); //add item to left table
+        }
         
     }
 
@@ -192,7 +196,7 @@ function BuyPage(){
         }
 
 
-        var flag = false;
+        
         if (containsObject(temp,bItems) == false)
         {
             temp.inCart = temp.curAmt
