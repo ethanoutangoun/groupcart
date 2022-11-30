@@ -14,7 +14,11 @@ router.get("/items/:group", controller.getItems);
 //deleting items
 router.delete("/items/:id", controller.deleteItems);
 
+//editing items
+router.patch("/items/:id")
+
 //posting items
-router.post("items/:id/:group", controller.addItems);
+router.post("/items/:group", controller.addItems);
+
 
 export default router;

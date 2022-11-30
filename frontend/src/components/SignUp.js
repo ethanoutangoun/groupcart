@@ -6,6 +6,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import NavbarWrapper from './NavbarWrapper';
+import { Link, NavLink } from "react-router-dom";
 import "../styles/sign-up.css";
 import { useSignup } from "../hooks/useSignup";
 import { useNavigate } from "react-router-dom";
@@ -30,9 +32,11 @@ function SignUp() {
   };
 
   return (
-    <>
+    <div className="sign-page">
       <div className="form-parent">
         <div className="form-child">
+          <h1 id="login-header">GroupCart 🛒</h1>
+          <h1 id="login-subheader">Sign up</h1>
           {/* This is all from react-bootstrap */}
           <Form>
             <Row className="mb-3">
@@ -81,14 +85,21 @@ function SignUp() {
                 type="submit"
                 disabled={isLoading}
                 onClick={(e) => handleSubmit(e)}
+                className="sign-btn"
               >
                 Sign Up
               </Button>
             </div>
           </Form>
+          <div id="login-register-prompt">
+            <p id="login-question">Already have an account?</p>
+            <NavLink className="register-redirect" to="/sign-in">
+              Login ↗
+            </NavLink>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

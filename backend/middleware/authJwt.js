@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 export async function requireAuth(req, res, next) {
   const { authorization } = req.headers;
 
-  console.log('path', req.path)
 
   //if the path is /signup or /login go to next
   if(req.path == '/signup' || req.path == '/login'){
@@ -25,13 +24,11 @@ export async function requireAuth(req, res, next) {
     const { _id } = jwt.verify(token, process.env.SECRET);
     //attaching user id to the request object
     const test = await User.findById(_id);
-    console.log("middleware", test);
     req.user = test._id;
     //middleware needs a next() to go to the next function
     next();
   } catch (error) {
     //if the token is wrong, then the request will not be authorized
-    console.log(error);
     res.status(401).json({ error: "Request is not authorized" });
   }
 }
