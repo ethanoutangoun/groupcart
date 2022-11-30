@@ -20,12 +20,7 @@ function CartHeader(){
         <tr>
             <th>Order # {orderID}</th>
         </tr>
-          <tr>
-            <th>Item</th>
-            <th>Cart</th>
-            <th>Quantity</th>
-            <th> Return</th>
-          </tr>
+          
         </thead>
 
        
@@ -81,11 +76,8 @@ function BuyTable(props) {
 
         <div className = "CartTable">
           <CartList cartItems = {props.cartItems} returnItem = {props.returnItem} />
-      
-      
-      
-      
-       </div>
+
+        </div>
 
 
 

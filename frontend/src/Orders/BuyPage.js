@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Orders.css'
+
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -9,12 +9,11 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 
 import BuyCart from './BuyCart';
-import Form from './Form';
 import BuyTable from './BuyTable';
-
+import './BuyPage.css'
 
 import { useState } from 'react';
-
+//import './Orders.css'
 
 function BuyPage(){
 
@@ -56,47 +55,6 @@ function BuyPage(){
     //Mock backend for the items that are being bought
     const [bItems, setBItems] = useState([])
     
-
-    const users = [
-        {
-            name: "Ethan Outangoun"
-        },
-        {
-            name: "Masato Nandate"
-        },
-        {
-            name: "George Washington"
-        },
-
-    ];
-
-
-
-    function DropdownUsers() {
-
-        var index = 0; //For indexing into user group
-
-        return (
-            
-    
-            
-          <Dropdown>
-            
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              {users[index].name}
-            </Dropdown.Toggle>
-      
-            <Dropdown.Menu>
-               
-              <Dropdown.Item href="#/action-1">Masato Nandate</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Name 3</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Name 4</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-    
-        );
-      }
-
 
 
 
@@ -262,37 +220,6 @@ function BuyPage(){
    
 
 
-
-
-
-    
-
-
-    //For form
-    function updateList(item) {
-        
-
-        var newQty = parseInt(item.quantity)
-       
-        //Don't let list update with invalid quantity
-        if (isNaN(newQty)){
-            alert("not a valid integer")
-            
-        }
-        else{
-
-            item.quantity = newQty //Replace qty with an integer
-            setItems([...items, item]);
-        }
-
-        
-      }
-
-
-
-      
-
-
     return(
         <div className="page">
             
@@ -358,9 +285,9 @@ function BuyPage(){
 
                     <Col sm={5}>
                     
-                        
+                    <div className='buyTable'>
                     <BuyTable cartItems = {bItems}   addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} returnItem = {returnItem} />
-
+                    </div>
 
 
 
