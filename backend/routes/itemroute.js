@@ -1,5 +1,5 @@
 import Item from "../schemas/Item.js";
-import itemService from "../schemas/item-service.js";
+import itemService from "../services/item-service.js";
 import express from "express";
 import mongoose from "mongoose";
 import controller from "../controllers/item.controller.js";
@@ -15,7 +15,7 @@ router.get("/items/:group", controller.getItems);
 router.delete("/items/:id", controller.deleteItems);
 
 //editing items
-router.patch("/items/:id")
+router.patch("/items/:id", controller.updateItems)
 
 //posting items
 router.post("/items/:group", controller.addItems);

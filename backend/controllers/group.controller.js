@@ -1,28 +1,24 @@
 import Group from "../schemas/Group.js";
 import User from "../schemas/User.js";
+import groupService from "../services/group-service.js";
 import mongoose, { mongo, Schema } from "mongoose";
+import userService from "../services/user-service.js";
 
 //getting all groups user is in
 
-const getGroup = async (req, res) => {
+const getGroup = async(req, res) => {
   const id = req.user;
-  console.log(id);
+  console.log('req.user', id);
   //check if valid
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    res.status(404).send({ error: "userid is not valid" });
+    return res.status(404).send({ error: "userid is not valid" });
   }
-  try {
-    User.findById(id)
-      .populate({ path: "groups", model: "Group" })
-      .exec(function (err, user) {
-        if (err) {
-          console.log(err);
-        } else {
-          res.status(200).json(user.groups);
-        }
-      });
-  } catch (error) {
-    res.status(500).json({ error: error.message }).send();
+  let result = await groupService.findUserGroups(id)
+  console.log('getGroupcontroller', result)
+  if(result === undefined || result === null){
+    return res.status(404).send('User Groups not found.')
+  }else{
+    return res.send(JSON.stringify(result))
   }
 };
 
@@ -33,21 +29,14 @@ const getGroupUsers = async(req, res) => {
   
   //check if valid
   if(!mongoose.Types.ObjectId.isValid(groupid)){
-    res.status(404).send({ error: "groupid is not valid" });
+    return res.status(404).send({ error: "groupid is not valid" });
   }
-  try{
-    Group.findById(mongoose.Types.ObjectId(groupid))
-    .populate({path: "people", model: "User"})
-    .exec(function (err, user){
-      if(err){
-        console.log(err);
-      } else {
-        console.log(user.people)
-        res.status(200).json(user.people)
-      }
-    })
-  } catch (error){
-    res.status(500).json({error: error.message}).send();
+  let result = await groupService.findGroupUsers(groupid)
+  console.log('getGroupUserController', result)
+  if(result === undefined || result === null){
+    return res.status(404).send('Group Users not found.')
+  }else{
+    return res.send(JSON.stringify(result))
   }
 
 }
@@ -61,25 +50,24 @@ const createGroup = async (req, res) => {
 
   // check if valid
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    res.status(404).send({ error: "userid is not valid" });
+    return res.status(404).send({ error: "userid is not valid" });
   }
-  try {
-    //create the group
-    const grouptoadd = new Group({
-      name: req.body.name,
-      password: password,
-      people: [id],
-    });
-    const savedgroup = await grouptoadd.save();
-    //add group to users group array
-    const groupid = savedgroup._id;
-    const user = await User.updateOne(
-      { _id: mongoose.Types.ObjectId(id) },
-      { $push: { groups: groupid } }
-    );
-    res.status(200).json(savedgroup);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  //check if group already exists with same name
+  let responseone = await groupService.checkGroupExists(name)
+  if(responseone === true){
+    return res.status(402).send({error: "group exists already"})
+  }
+  //create a new group
+  let response = await groupService.createGroup(id, name, password)
+  console.log('createGroupController', response)
+
+  //deal with errors
+  if(response === undefined | response === null){
+    return res.status(404).send({error: "creating group error."})
+  }
+  else{
+    let jsonresponse = JSON.stringify(response)
+    return res.send(jsonresponse)
   }
 };
 
@@ -91,32 +79,32 @@ const joinGroup = async (req, res) => {
   const password = req.body.password;
   //check for valid user-id
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    res.status(404).send({ error: "userid is invalid" });
-    return
+    return res.status(404).send({ error: "userid is invalid" });
+
   }
-  try {
-    //add userid to group
-    const grouptojoin = await Group.findOneAndUpdate(
-      { name: name, password: password},
-      { $push: { people: id } }
-    );
-    //if group dne, send error
-    if (!grouptojoin) {
-      res.status(404).send({ error: "no such groupname or wrong password" }).end();
-      return
-    }
-    //get group to find id
-    const group = await Group.findOne({ name: name });
-    console.log(group);
-    //add groupid to the user
-    const user = await User.updateOne(
-      { _id: mongoose.Types.ObjectId(id) },
-      { $push: { groups: group._id } }
-    );
-    res.status(201).send(grouptojoin);
-  } catch (error) {
-    res.status(500).send({ error: error.message });
+  //check is group dne
+  if (groupService.checkGroupExists(name) === false){
+    return res.status(402).send({error: "group does not exist"})
   }
+  //check if user is already in group
+  if(groupService.checkUserInGroup(id, name)){
+    return res.status(402).send({error: "user already in group"})
+  }
+  //add user to group
+  let responseone = await groupService.addUsertoGroup(name, password, id)
+  console.log('responseone', responseone)
+  if(responseone === undefined | responseone === null){
+    return res.status(404).send({error: "could not add user to group"})
+  }
+  //get group to find id
+  const group = await Group.findOne({ name: name });
+  //add group to user
+  let responsetwo = await groupService.addGrouptoUser(id, group._id)
+  console.log('responsetwo', responsetwo)
+  if(responsetwo === undefined | responsetwo === null){
+    return res.status(404).send({error: "could not add group to user"})
+  }
+  return res.status(201).send(responseone);
 };
 
 //deleting group
@@ -124,31 +112,20 @@ const deleteGroup = async (req, res) => {
   const groupid = req.params.id;
   const id = req.user;
   if (!mongoose.Types.ObjectId.isValid(groupid)) {
-    res.status(404).send({ error: "groupid is invalid" });
-    return
+    return res.status(404).send({ error: "groupid is invalid" });
   }
-  try {
-    //remove group from user
-    const removedgroup = await Group.findByIdAndUpdate(
-      { _id: mongoose.Types.ObjectId(groupid) },
-      { $pull: { people: id } }
-    );
-    //if group dne send error
-    if (!removedgroup) {
-      res.send(404).send({ error: "no such groupid" });
-    }
-    console.log("peoplelength", removedgroup.people.length);
-    if (removedgroup.people.length <= 1) {
-      await Group.deleteOne({ _id: mongoose.Types.ObjectId(groupid) });
-    }
-    const user = await User.findByIdAndUpdate(
-      { _id: id },
-      { $pull: { groups: mongoose.Types.ObjectId(groupid) } }
-    );
-    res.status(201).send(removedgroup);
-  } catch (error) {
-    res.status(500).send({ error: error.message });
+  //remove user from group
+  const responseone = await groupService.removeUserFromGroup(groupid, id)
+  if(responseone === undefined | responseone === null){
+    return res.status(404).send({error: "could not remove user from group"})
   }
+
+  //remove group from user
+  const responsetwo = await groupService.removeGroupFromUser(groupid, id)
+  if(responsetwo === undefined | responsetwo === null){
+    return res.status(404).send({error: "could not remove group from user"})
+  }
+  return res.status(201).send(responseone);
 };
 
 export default {

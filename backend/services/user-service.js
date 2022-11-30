@@ -1,20 +1,20 @@
 import mongoose from "mongoose";
-import User from "./User.js";
+import User from "../schemas/User.js";
 
-async function createUser(body) {
-  try {
-    if (checkDuplicateUsername(body.username)) {
-      return false;
-    } else {
-      const usertoadd = new User(body);
-      const addresponse = await usertoadd.save();
-      return addresponse;
-    }
-  } catch (error) {
-    console.log(error);
-    return false;
-  }
-}
+// async function createUser(body) {
+//   try {
+//     if (checkDuplicateUsername(body.username)) {
+//       return false;
+//     } else {
+//       const usertoadd = new User(body);
+//       const addresponse = await usertoadd.save();
+//       return addresponse;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     return false;
+//   }
+// }
 
 // async function addGrouptoUser(groupid, userid){
 //   try{
@@ -46,5 +46,5 @@ async function checkDuplicateUsername(username) {
 }
 
 export default {
-  createUser,
+  checkDuplicateUsername
 };

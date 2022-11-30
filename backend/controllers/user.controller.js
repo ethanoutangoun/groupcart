@@ -1,4 +1,4 @@
-import userService from "../schemas/user-service.js";
+import userService from "../services/user-service.js";
 import User from "../schemas/User.js";
 import jwt from "jsonwebtoken";
 

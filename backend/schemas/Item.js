@@ -4,7 +4,7 @@ const { Schema, model } = mongoose;
 const itemSchema = new Schema(
   {
     item: String,
-    quantity: String,
+    quantity: Number,
     user: { type: mongoose.Types.ObjectId, ref: "User" },
     group: { type: mongoose.Types.ObjectId, ref: "Group" },
   }
