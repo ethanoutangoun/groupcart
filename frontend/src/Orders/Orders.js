@@ -24,18 +24,26 @@ function Orders(){
         {
             item: 'Carrots',
             quantity: 1,
+            curAmt: 0,
+            inCart: 0,
           },
           {
             item: 'Avocados',
             quantity: 2,
+            curAmt: 0,
+            inCart: 0,
           },
           {
             item: 'Potatoes',
             quantity: 3,
+            curAmt: 0,
+            inCart: 0,
           },
           {
             item: 'Steak',
             quantity: 2,
+            curAmt: 0,
+            inCart: 0,
           },
         ]);
 

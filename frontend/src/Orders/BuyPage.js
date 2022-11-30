@@ -164,8 +164,10 @@ function BuyPage(){
             
             return i !== index
         });
-        setItems(updated);//set items in the left table to new set
-        setBItems([...bItems, temp]);
+
+        setItems(updated);//remove item
+        setBItems([...bItems, temp]); //add item to left table
+        
         
     }
 
@@ -247,6 +249,7 @@ function BuyPage(){
         if (containsObject(temp, items) == false)
         {
             setItems([...items, temp]);
+
         }
         
         
