@@ -10,22 +10,26 @@
     align-items: center;
     justify-content: center;
     padding-top: 30px;
+    flex: 1;
+    background: #f0efeb;
 }
 
 .purpose-header {
     width: 85%;
     display: flex;
     flex-direction: column;
-    background-color: #E2E2F1;
+    background-color: #fafafa;
     padding: 20px 40px;
     padding-top: 30px;
     border-radius: 20px;
+    box-shadow: 6px 12px 60px rgba(0,0,0,0.3);
 }
 
 .purpose-header h1 {
     font-family: "Satoshi", sans-serif;
     font-size: 52px;
     font-weight: 900;
+    color: #242323;
 }
 
 .purpose-text {
@@ -33,7 +37,7 @@
     margin-top: 15px;
     font-size: 30px;
     font-weight: 500;
-    color: rgba(0, 0, 0, 0.8);
+    color: #3a3a3a;
 }
 
 .purpose-footer {
@@ -64,6 +68,7 @@
 .join-link {
     display: inline-block;
     margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .join-link:first-child {

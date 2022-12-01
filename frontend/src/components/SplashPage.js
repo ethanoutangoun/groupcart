@@ -22,7 +22,7 @@ const SplashPage = () => {
       <div class="app-block">
         <img className="block-img" src={cart}></img>
         <div class="app-block-slogan-wrapper">
-          <h2 className="main-title">Group Shopping Made <em>Easy</em>.</h2>
+          <h2 className="main-title">Group Shopping Made <em>Easy</em></h2>
         </div>
         <div className="block-links">
           <NavLink className="block-btn" to="/sign-in">
