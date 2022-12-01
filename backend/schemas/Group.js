@@ -5,7 +5,7 @@ const { Schema, model } = mongoose;
 const groupSchema = new Schema({
   name: {
     type: String,
-    unique:true
+    unique: true,
   },
   password: String,
   people: [{ type: Schema.Types.ObjectId, ref: "User" }],

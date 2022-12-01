@@ -5,12 +5,10 @@ import mongoose from "mongoose";
 export async function requireAuth(req, res, next) {
   const { authorization } = req.headers;
 
-
   //if the path is /signup or /login go to next
-  if(req.path == '/signup' || req.path == '/login'){
+  if (req.path == "/signup" || req.path == "/login") {
     next();
   }
-
 
   if (!authorization) {
     return res.status(401).json({ error: "Authorization Token Required" });

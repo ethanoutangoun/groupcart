@@ -12,10 +12,10 @@ const loginUser = async (req, res) => {
   const { username, password } = req.body;
   try {
     const user = await User.login(username, password);
-    console.log(user)
+    console.log(user);
     //create token
     const token = createToken(user._id);
-    
+
     //send back a proper object
 
     res.status(200).json({ user, token });

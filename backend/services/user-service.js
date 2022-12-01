@@ -46,5 +46,5 @@ async function checkDuplicateUsername(username) {
 }
 
 export default {
-  checkDuplicateUsername
+  checkDuplicateUsername,
 };

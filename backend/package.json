@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "jest": "jest --detectOpenHandles",
     "dev": "nodemon index.js",
-    "start": "node backend.js"
+    "start": "node backend.js",
+    "check": "prettier --check .",
+    "format": "prettier --write ."
   },
   "type": "module",
   "repository": {
@@ -30,7 +32,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.11.0",
     "mongodb-memory-server": "^8.10.1",
-    "mongoose": "^6.7.0"
+    "mongoose": "^6.7.0",
+    "prettier": "^2.8.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.19.6",
