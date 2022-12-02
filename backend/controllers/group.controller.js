@@ -8,13 +8,13 @@ import userService from "../services/user-service.js";
 
 const getGroup = async (req, res) => {
   const id = req.user;
-  console.log("req.user", id);
+  // console.log("req.user", id);
   //check if valid
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).send({ error: "userid is not valid" });
   }
   let result = await groupService.findUserGroups(id);
-  console.log("getGroupcontroller", result);
+  // console.log("getGroupcontroller", result);
   if (result === undefined || result === null) {
     return res.status(404).send("User Groups not found.");
   } else {
@@ -25,14 +25,14 @@ const getGroup = async (req, res) => {
 //getting all users in a group
 const getGroupUsers = async (req, res) => {
   const groupid = req.params.groupid;
-  console.log("getgroup", groupid);
+  // console.log("getgroup", groupid);
 
   //check if valid
   if (!mongoose.Types.ObjectId.isValid(groupid)) {
     return res.status(404).send({ error: "groupid is not valid" });
   }
   let result = await groupService.findGroupUsers(groupid);
-  console.log("getGroupUserController", result);
+  // console.log("getGroupUserController", result);
   if (result === undefined || result === null) {
     return res.status(404).send("Group Users not found.");
   } else {
@@ -61,7 +61,7 @@ const createGroup = async (req, res) => {
   }
   //create a new group
   let responsetwo = await groupService.createGroup(id, name, password);
-  console.log("createGroupController", responsetwo);
+  // console.log("createGroupController", responsetwo);
 
   //deal with errors
   if ((responsetwo === undefined) | (responsetwo === null)) {
@@ -70,7 +70,7 @@ const createGroup = async (req, res) => {
 
   //add group to user schema
   let responsethree = await groupService.addGrouptoUser(id, responsetwo._id)
-  console.log("create group controller: responsethree", responsethree)
+  // console.log("create group controller: responsethree", responsethree)
   if(responsethree === undefined | responsethree === null){
     return res.status(404).send({error: "adding group to user. "})
   }
@@ -88,16 +88,16 @@ const joinGroup = async (req, res) => {
     return res.status(404).send({ error: "userid is invalid" });
   }
   //check is group dne
-  if (groupService.checkGroupExists(name) === false) {
-    return res.status(402).send({ error: "group does not exist" });
+  if (await groupService.checkGroupExists(name) === false) {
+    return res.status(403).send({ error: "group does not exist" });
   }
   //check if user is already in group
-  if (groupService.checkUserInGroup(id, name)) {
+  if (await groupService.checkUserInGroup(id, name) === true) {
     return res.status(402).send({ error: "user already in group" });
   }
   //add user to group
   let responseone = await groupService.addUsertoGroup(name, password, id);
-  console.log("responseone", responseone);
+  // console.log("responseone", responseone);
   if ((responseone === undefined) | (responseone === null)) {
     return res.status(404).send({ error: "could not add user to group" });
   }
@@ -105,7 +105,7 @@ const joinGroup = async (req, res) => {
   const group = await Group.findOne({ name: name });
   //add group to user
   let responsetwo = await groupService.addGrouptoUser(id, group._id);
-  console.log("responsetwo", responsetwo);
+  // console.log("responsetwo", responsetwo);
   if ((responsetwo === undefined) | (responsetwo === null)) {
     return res.status(404).send({ error: "could not add group to user" });
   }

@@ -69,6 +69,7 @@ const Profile = () => {
         setGroupInfo([...groupInfo, response.data]);
       })
       .catch((error) => {
+        alert(error.response.data.error);
         console.log(error);
       });
   }
@@ -113,7 +114,7 @@ const Profile = () => {
                 className={"bar-button " + (isOverview ? "inactive" : "active")}
                 onClick={() => setOverview(false)}
               >
-                <h3>Order History</h3>
+                {/* <h3>Order History</h3> */}
               </div>
             </div>
             <div className="group-container">

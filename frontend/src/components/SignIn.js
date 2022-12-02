@@ -20,11 +20,15 @@ function SignIn() {
   const handleSubmit = async (e) => {
     //prevent default to prevent default refresh
     e.preventDefault();
-    console.log(username, password);
+    console.log("handling submit", username, password);
     //signup function is defined in directory hooks
-    await signin(username, password);
-    // this navigate returns user back to the home page
-    navigate("/");
+    const success = await signin(username, password);
+    console.log(success)
+    if(success == true){
+      navigate("/profile-page");
+    }else{
+      navigate("/sign-in")
+    }
   };
 
   return (
