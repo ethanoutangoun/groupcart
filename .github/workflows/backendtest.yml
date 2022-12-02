@@ -1,7 +1,7 @@
 name: Backend test
 on:
   push:
-    branches: [main]
+    branches: [main, signin/signupfix]
   pull_request:
     branches: [main]
 
