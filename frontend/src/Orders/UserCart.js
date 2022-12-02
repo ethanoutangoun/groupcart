@@ -28,9 +28,9 @@ function CartBody(props) {
           <tr key={row._id}>
             <td>{row.item}</td>
 
-            <td> <button onClick={() => props.deleteQuantity(row._id)}> - </button> </td>
+            <td> <button onClick={() => props.deleteQuantity(row._id, row.quantity)}> - </button> </td>
             <td>{row.quantity}</td>
-            <td> <button onClick={() => props.addQuantity(row._id)}> + </button> </td>
+            <td> <button onClick={() => props.addQuantity(row._id, row.quantity)}> + </button> </td>
           
             <td> <button className='delbutton' onClick={() => props.removeItems(row._id)}> Delete </button> </td>
           </tr>
