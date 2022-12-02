@@ -23,8 +23,8 @@ const NavbarWrapper = () => {
         <Navbar.Brand>GroupCart 🛒</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href={ user ? "/profile-page" : "/sign-in"}>Carts</Nav.Link>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to={ user ? "/profile-page" : "/sign-in"}>Carts</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         {
