@@ -55,4 +55,4 @@ jobs:
           app-name: 'GroupCart'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1520A545A0AD4EF399F2AD9BE2F0DA62 }}
-          package: .
+          package: backend

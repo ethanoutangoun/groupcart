@@ -24,7 +24,6 @@ dotenv.config();
 // const Db = dotenv.
 // console.log(Db)
 let URI = process.env.ATLAS_URI;
-console.log(URI);
 let dbconnection = mongoose.connect(URI);
 
 app.use(express.json());
