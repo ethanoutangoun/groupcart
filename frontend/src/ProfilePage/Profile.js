@@ -117,12 +117,12 @@ const Profile = () => {
               </div>
             </div>
             <div className="group-container">
-              <h2>GroupCarts</h2>
+              <h2 className="gc-subheader">GroupCarts</h2>
               <div className="list-container">
                 <Table groupData={groupInfo} removeGroup={removeOneGroup} />
               </div>
               <div className="find-container">
-                <h2>Find Group</h2>
+                <h2 className="gc-subheader">Find Group</h2>
                 <CreateForm handleSubmit={createGroup} handleJoin={joinGroup} />
               </div>
             </div>

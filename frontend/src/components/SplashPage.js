@@ -29,10 +29,10 @@ const SplashPage = () => {
           <h2 className="main-title">Group Shopping Made <em>Easy</em></h2>
         </div>
         <div className="block-links">
-          <NavLink className="block-btn" to="/sign-in">
+          <NavLink className="block-btn" to={ user ? "/profile-page" : "/sign-in"}>
             Check your carts
           </NavLink>
-          <NavLink className="block-btn" to="/sign-up">
+          <NavLink className="block-btn" to={ user ? "/profile-page" : "/sign-up"}>
             Create an account
           </NavLink>
           <NavLink className="block-btn" to="/learn-more">

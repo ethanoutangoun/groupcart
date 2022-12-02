@@ -8,8 +8,8 @@
 }
 
 thead th {
-  font-family: Inter;
-  font-weight: 600;
+  font-family: "Satoshi", sans-serif !important;
+  font-weight: 700;
   text-align: left;
   padding-right: 20px;
 }
@@ -22,7 +22,7 @@ tr .btn-delete {
   color: #000d73;
   background-color: #c9daff;
 
-  font-family: "Inter";
+  font-family: "Satoshi", sans-serif !important;
   font-size: 12px;
   font-weight: 500;
 
@@ -35,4 +35,12 @@ tr .btn-delete {
 
 tr .btn-delete:hover {
   opacity: 0.8;
+}
+
+.profile-thead tr {
+  border-top: 0px;
+}
+
+.profile-tr {
+  border-top: 2px solid rgba(0, 0, 0, 0.15);
 }
