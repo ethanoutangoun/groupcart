@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cookieSession from "cookie-session";
 import Item from "./schemas/Item.js";
-import itemService from "./schemas/item-service.js";
+import itemService from "./services/item-service.js";
 import itemroute from "./routes/itemroute.js";
 import userroute from "./routes/userroute.js";
 import grouproute from "./routes/grouproute.js";

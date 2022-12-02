@@ -18,6 +18,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 import { useAuthContext } from '../hooks/useAuthContext';
+import { excludedInputPropsForTextarea } from '@nextui-org/react';
 
 function Orders(){
     //the groupid gets passed into the state of NavLink
@@ -155,39 +156,116 @@ function Orders(){
 
 
 
-    async function deleteQuantity(id)
+    async function deleteQuantity(id, currvalue)
     {
-        const updated = items.map((item) => {
-            if (item._id === id){
+        //if there is more than 1 and delete quantity gets called
+        if(currvalue != "1")
+        {
+            //setting config header
+            const config = {
+                headers: { Authorization: `Bearer ${user.data.token}` },
+            }
+            const data = {
+                quantity: currvalue,
+                update: -1
+            }
+            //patch call
+            await axios
+            .patch(`http://localhost:5001/items/${id}`, data , config)
+            .then(response=> {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            //locally updating state
+            const updated = items.map((item) => {
+                if (item._id === id){
 
-                if(item.quantity>0)
-                    item.quantity-=1;
-                return item
-            }
-            else
-            {
-                return item
-            }
-        });
+                    if(item.quantity > 1)
+                        item.quantity-=1;
+                    return item
+                }
+                else
+                {
+                    return item
+                }
+            });
+            setItems(updated);
+        }
+        //if there is only one and delete quantity gets called, we just remove
+        else
+        {
+            removeOneItem(id)
+        }
+        // //setting config header
+        // const config = {
+        //     headers: { Authorization: `Bearer ${user.data.token}` },
+        // }
+        // const data = {
+        //     quantity: currvalue,
+        //     update: -1
+        // }
+        // //patch call
+        // await axios
+        // .patch(`http://localhost:5001/items/${id}`, data , config)
+        // .then(response=> {
+        //     console.log(response)
+        // })
+        // .catch(error => {
+        //     console.log(error)
+        // })
+        // //locally updating state
+        // const updated = items.map((item) => {
+        //     if (item._id === id){
+
+        //         if(item.quantity >= 1)
+        //             item.quantity-=1;
+        //         return item
+        //     }
+        //     else
+        //     {
+        //         return item
+        //     }
+        // });
       
-        setItems(updated);
 
     }
     
 
-    function addQuantity(index)
+    async function addQuantity(id, currvalue)
     {
-        const updated = items.map((item, i) => {
-            if (index === i){
+        //setting config header
+        const config = {
+            headers: { Authorization: `Bearer ${user.data.token}` },
+        }
+        const data = {
+            quantity: currvalue,
+            update: +1
+        }
+        //patch call
+        await axios
+        .patch(`http://localhost:5001/items/${id}`, data , config)
+        .then(response=> {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        //locally updating state
+        const updated = items.map((item) => {
+        if (item._id === id){
+
+            if(item.quantity>0)
                 item.quantity+=1;
-                return item
-            }
-            else
-            {
-                return item
-            }
+            return item
+        }
+        else
+        {
+            return item
+        }
         });
-      
+
         setItems(updated);
 
        
@@ -230,22 +308,14 @@ function Orders(){
         }
         //axios call to actually send data to the backend
         await axios
-                .post(`http://localhost:5001/items/${groupid}`, newitem, config)
-                .then(response => {
-                    console.log(response)
-                    setItems([...items, response.data])
-                })
-                .then(error => {
-                    console.log(error)
-                })
-        //Don't let list update with invalid quantity
-        // if (isNaN(newQty)){
-        //     alert("not a valid integer")
-        // }
-        // else{
-        //     item.quantity = newQty //Replace qty with an integer
-        //     setItems([...items, item]);
-        // }
+        .post(`http://localhost:5001/items/${groupid}`, newitem, config)
+        .then(response => {
+            console.log(response)
+            setItems([...items, response.data])
+        })
+        .then(error => {
+            console.log(error)
+        })
       }
 
 

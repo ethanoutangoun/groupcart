@@ -12,7 +12,7 @@ router.use(requireAuth);
 router.get("/group/user", controller.getGroup);
 
 //getting all users in group
-router.get("/group/:groupid", controller.getGroupUsers)
+router.get("/group/:groupid", controller.getGroupUsers);
 
 //create a group
 router.post("/group", controller.createGroup);
@@ -22,6 +22,5 @@ router.post("/group/join/:name", controller.joinGroup);
 
 //removing user from group
 router.delete("/group/:id", controller.deleteGroup);
-
 
 export default router;

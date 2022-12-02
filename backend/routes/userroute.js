@@ -1,4 +1,4 @@
-import userservice from "../schemas/user-service.js";
+import userservice from "../services/user-service.js";
 import express from "express";
 import mongoose from "mongoose";
 import controller from "../controllers/user.controller.js";
