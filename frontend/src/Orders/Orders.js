@@ -72,16 +72,38 @@ function Orders(){
     }, [user])
 
 
+    
 
-
-    //Items State, will have id, freq, name
+    //Mock backend for the first cart
     const [items,setItems] = useState([
         {
-            item: 'fake',
-            quantity: 2
-        }
-    ]);
+            item: 'Carrots',
+            quantity: 1,
+            curAmt: 0,
+            inCart: 0,
+          },
+          {
+            item: 'Avocados',
+            quantity: 2,
+            curAmt: 0,
+            inCart: 0,
+          },
+          {
+            item: 'Potatoes',
+            quantity: 3,
+            curAmt: 0,
+            inCart: 0,
+          },
+          {
+            item: 'Steak',
+            quantity: 2,
+            curAmt: 0,
+            inCart: 0,
+          },
+        ]);
 
+
+ 
     //users is about to be every user and their name and id's
     const [users, setUsers] =useState();
 
@@ -89,7 +111,7 @@ function Orders(){
 
     function DropdownUsers() {
 
-        var index = 0;
+        var index = 0; //For indexing into user group
 
         return (
             <>
@@ -226,6 +248,9 @@ function Orders(){
         // }
       }
 
+
+
+      
 
 
     return(
