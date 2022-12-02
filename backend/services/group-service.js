@@ -10,7 +10,6 @@ async function findUserGroups(userid) {
       path: "groups",
       model: "Group",
     });
-    console.log("findusergroups", user.groups);
     return user.groups;
   } catch (error) {
     console.log("findusergroups", error);
@@ -21,6 +20,9 @@ async function findUserGroups(userid) {
 //function that returns all users in a group
 async function findGroupUsers(groupid) {
   try {
+    if(groupid === undefined){
+      throw Error
+    }
     let group = await Group.findById(mongoose.Types.ObjectId(groupid)).populate(
       { path: "people", model: "User" }
     );
@@ -54,6 +56,9 @@ async function createGroup(userid, name, password) {
 
 async function checkGroupExists(name) {
   try {
+    if(name === undefined){
+      throw Error
+    }
     let duplicategroup = await Group.findOne({ name: name });
     if (duplicategroup !== null) {
       return true;
@@ -68,10 +73,14 @@ async function checkGroupExists(name) {
 
 async function checkUserInGroup(userid, groupname) {
   try {
+    if(userid === undefined | groupname === undefined){
+      throw Error
+    }
     let user = await User.findById(userid).populate({
       path: "groups",
       model: "Group",
     });
+    console.log(user, groupname)
     let duplicate = false;
     user.groups.forEach((group) => {
       if (group.name === groupname) {

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "jest": "jest --detectOpenHandles",
     "dev": "nodemon index.js",
-    "start": "node backend.js",
+    "start": "node index.js",
     "check": "prettier --check .",
     "format": "prettier --write ."
   },

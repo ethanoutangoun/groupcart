@@ -41,12 +41,12 @@
 .bar-button:hover {
   transition: 0.1s;
   color: #04a5ff;
-  background-color: rgba(215, 236, 255, 255);
+  /* background-color: rgba(215, 236, 255, 255); */
 }
 
 .active {
-  color: #04a5ff;
-  background-color: rgba(215, 236, 255, 255);
+  /* color: #04a5ff; */
+  /* background-color: rgba(215, 236, 255, 255); */
 }
 
 .inactive {

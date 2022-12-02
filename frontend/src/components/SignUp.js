@@ -26,9 +26,13 @@ function SignUp() {
     e.preventDefault();
     console.log(first, last, username, password);
     //signup function is defined in directory hooks
-    await signup(first, last, username, password);
+    const success = await signup(first, last, username, password);
     // this navigate returns user back to the home page
-    navigate("/");
+    if(success){
+      navigate("/profile-page");
+    }else{
+      navigate("/sign-up")
+    }
   };
 
   return (
