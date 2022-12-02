@@ -1,13 +1,12 @@
+/* eslint-disable */
+
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../styles/sign-in.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import NavbarWrapper from './NavbarWrapper';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSignin } from "../hooks/useSignin"
 
@@ -16,6 +15,14 @@ function SignIn() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
   const { signin, error, isLoading } = useSignin();
+
+  if (error) {
+    console.log(">>> Error found: " + error);
+  }
+  
+  if (isLoading) {
+    console.log(">>> isLoading status: " + isLoading);
+  }
 
   const handleSubmit = async (e) => {
     //prevent default to prevent default refresh

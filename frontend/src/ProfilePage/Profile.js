@@ -36,7 +36,6 @@ const Profile = () => {
 
   const [groupInfo, setGroupInfo] = useState([]);
   const [isOverview, setOverview] = useState(true);
-  const [userName, setUsername] = useState("");
 
   async function createGroup(group) {
     //adding group to backend

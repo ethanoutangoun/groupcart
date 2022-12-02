@@ -1,13 +1,13 @@
+/* eslint-disable */
+
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import NavbarWrapper from './NavbarWrapper';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../styles/sign-up.css";
 import { useSignup } from "../hooks/useSignup";
 import { useNavigate } from "react-router-dom";
@@ -19,6 +19,10 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const { signup, error, isLoading } = useSignup();
   const navigate = useNavigate();
+
+  if (error) {
+    console.log(">>> Error found: " + error);
+  }
 
   // function that actually submits the data to the backend
   const handleSubmit = async (e) => {

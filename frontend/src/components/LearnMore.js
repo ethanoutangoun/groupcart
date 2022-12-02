@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from "react";
 import "./learn-more.css";
 import { NavLink } from "react-router-dom";
