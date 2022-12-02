@@ -13,6 +13,10 @@ import itemroute from "./routes/itemroute.js";
 import userroute from "./routes/userroute.js";
 import grouproute from "./routes/grouproute.js";
 
+app.listen(process.env.PORT || port, () => {
+  console.log("REST API is listening.");
+});
+
 const app = express();
 
 dotenv.config();
