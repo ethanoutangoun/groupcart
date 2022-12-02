@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './NavbarWrapper.css';
@@ -29,12 +30,12 @@ const NavbarWrapper = () => {
         {
           !user &&
           <Nav>
-            <div className="btn-wrapper">
-              <Button variant="primary" href="/sign-in">Sign In</Button>
-            </div>
-            <div className="btn-wrapper">
+            <Link to="/sign-in" className="btn-wrapper">
+              <Button variant="primary">Sign In</Button>
+            </Link>
+            <Link to="/sign-up" className="btn-wrapper">
               <Button variant="info" href="/sign-up">Sign Up</Button>
-            </div>
+            </Link>
           </Nav>
         }
         {
