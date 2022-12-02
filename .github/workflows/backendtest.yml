@@ -1,30 +1,27 @@
 name: Backend test
 on:
   push:
-    branches: [main, signin/signupfix]
-  pull_request:
-    branches: [main]
-
-# defaults:
-#   run:
-#     working-directory: ../backend
+    branches:
+      - main
+      - sigin/signupfix
+  workflow_dispatch:
 
 jobs:
   build:
-    name: backend-test
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./backend/
-    
-    steps:
-      - name: backend-test
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-          cache-dependency-path: './backend/package-lock.json'
 
-      - run: npm ci # similar to npm install
-      - run: npm run build --if-present
-      - run: npm test
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18.x'
+
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run test
+          npm run build --if-present
+          npm run test --if-present
+        working-directory: backend
