@@ -6,6 +6,8 @@
   display: grid;
   grid-template-columns: 24em 1fr;
   height: 100%;
+  font-family: "Satoshi", sans-serif !important;
+  border-top: 2px solid rgba(0, 0, 0, 0.15);
 }
 
 .border-left {
@@ -74,8 +76,8 @@
 .list-container {
   padding: 1.5em;
   background: white;
-  border-radius: 0.8em;
-  border: 1px solid rgb(200, 200, 200);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
   margin-right: 4em;
 }
 
@@ -85,4 +87,11 @@
 
 .find-container {
   margin-top: 2em;
+}
+
+.gc-subheader {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 23px;
+  font-weight: 600;
 }

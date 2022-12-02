@@ -10,7 +10,7 @@ const ProfileSideBar = ({ user, grouplength }) => {
   return (
     <div className="page-container">
       <div className="profile-container">
-        <div className="image-container">E</div>
+        <div className="image-container">{fullName[0]}</div>
         <img
           src={require("../../icons/icons8-macos-maximize-90.png")}
           alt="change-profile-pic"

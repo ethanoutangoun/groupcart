@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom"
 
 function TableHeader() {
   return (
-    <thead>
+    <thead className="profile-thead">
       <tr>
         <th>Name</th>
         <th>Size</th>
@@ -19,7 +19,7 @@ function TableBody(props) {
   if (props.groupData.length > 0) {
     const rows = props.groupData.map((row, index) => {
       return (
-        <tr key={index}>
+        <tr className="profile-tr" key={index}>
           <td>
             <NavLink to = {{pathname: "/orders"}} state = {{groupid: row._id, name: row.name}} className = "order-style">
             {row.name} 
@@ -32,7 +32,7 @@ function TableBody(props) {
               className="btn-delete"
               onClick={() => props.removeGroup(row)}
             >
-              Delete ×
+              Delete
             </button>
           </td>
         </tr>
