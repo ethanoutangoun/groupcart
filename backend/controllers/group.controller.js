@@ -56,8 +56,8 @@ const createGroup = async (req, res) => {
   if (responseone === true) {
     return res.status(402).send({ error: "group exists already" });
   }
-  if(responseone === undefined){
-    return res.status(402).send({error: "name not defined"});
+  if (responseone === undefined) {
+    return res.status(402).send({ error: "name not defined" });
   }
   //create a new group
   let responsetwo = await groupService.createGroup(id, name, password);
@@ -69,12 +69,12 @@ const createGroup = async (req, res) => {
   }
 
   //add group to user schema
-  let responsethree = await groupService.addGrouptoUser(id, responsetwo._id)
+  let responsethree = await groupService.addGrouptoUser(id, responsetwo._id);
   // console.log("create group controller: responsethree", responsethree)
-  if(responsethree === undefined | responsethree === null){
-    return res.status(404).send({error: "adding group to user. "})
+  if ((responsethree === undefined) | (responsethree === null)) {
+    return res.status(404).send({ error: "adding group to user. " });
   }
-  return res.status(202).send(responsetwo)
+  return res.status(202).send(responsetwo);
 };
 
 //joining group
@@ -88,11 +88,11 @@ const joinGroup = async (req, res) => {
     return res.status(404).send({ error: "userid is invalid" });
   }
   //check is group dne
-  if (await groupService.checkGroupExists(name) === false) {
+  if ((await groupService.checkGroupExists(name)) === false) {
     return res.status(403).send({ error: "group does not exist" });
   }
   //check if user is already in group
-  if (await groupService.checkUserInGroup(id, name) === true) {
+  if ((await groupService.checkUserInGroup(id, name)) === true) {
     return res.status(402).send({ error: "user already in group" });
   }
   //add user to group

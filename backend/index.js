@@ -13,20 +13,19 @@ import itemroute from "./routes/itemroute.js";
 import userroute from "./routes/userroute.js";
 import grouproute from "./routes/grouproute.js";
 
+const app = express();
+
 app.listen(process.env.PORT || port, () => {
   console.log("REST API is listening.");
 });
-
-const app = express();
 
 dotenv.config();
 //geting URI
 // const Db = dotenv.
 // console.log(Db)
 let URI = process.env.ATLAS_URI;
-console.log(URI)
+console.log(URI);
 let dbconnection = mongoose.connect(URI);
-
 
 app.use(express.json());
 app.use(cors());
@@ -80,6 +79,6 @@ app.use("/", userroute);
 app.use("/", grouproute);
 app.use("/", itemroute);
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Example app listening at http://localhost:${port}`);
+// });

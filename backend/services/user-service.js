@@ -3,8 +3,8 @@ import User from "../schemas/User.js";
 
 async function checkDuplicateUsername(username) {
   try {
-    if(username === undefined){
-      throw Error
+    if (username === undefined) {
+      throw Error;
     }
     const prevuser = await User.findOne({
       username: username,

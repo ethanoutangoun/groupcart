@@ -3,8 +3,8 @@ import Item from "../schemas/Item.js";
 
 async function getItems(group) {
   try {
-    if(mongoose.Types.ObjectId.isValid(group) === false){
-      throw Error
+    if (mongoose.Types.ObjectId.isValid(group) === false) {
+      throw Error;
     }
     let result;
     result = await Item.find({ group: mongoose.Types.ObjectId(group) });
@@ -17,8 +17,13 @@ async function getItems(group) {
 
 async function addItems(item, quantity, group, id) {
   try {
-    if(item === undefined | quantity === undefined | group === undefined | id === undefined){
-      throw Error
+    if (
+      (item === undefined) |
+      (quantity === undefined) |
+      (group === undefined) |
+      (id === undefined)
+    ) {
+      throw Error;
     }
     const itemtoadd = new Item({
       item: item,
