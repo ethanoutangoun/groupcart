@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
+import Accordion from 'react-bootstrap/Accordion';
 import "./UserCart.css"
 
 
@@ -25,12 +26,16 @@ import "./UserCart.css"
 function CartBody(props) {
     const rows = props.cartItems.map((row, index) => {
         return (
-          <tr key={row._id}>
+          <tr className='cart-table' key={row._id}>
             <td>{row.item}</td>
-
-            <td> <button onClick={() => props.deleteQuantity(row._id, row.quantity)}> - </button> </td>
-            <td>{row.quantity}</td>
-            <td> <button onClick={() => props.addQuantity(row._id, row.quantity)}> + </button> </td>
+            <td className='inner-quantity-row'>
+              <tr>
+                <td> <button onClick={() => props.deleteQuantity(row._id, row.quantity)}> - </button> </td>
+                <td className='quantity-cell'>{row.quantity}</td>
+                <td> <button onClick={() => props.addQuantity(row._id, row.quantity)}> + </button> </td>
+              </tr>
+            </td>
+            
           
             <td> <button className='delbutton' onClick={() => props.removeItems(row._id)}> Delete </button> </td>
           </tr>
@@ -62,24 +67,40 @@ function UserCart(props) {
   console.log(items)
 
 
+  // return (
+  //   <>
+  //     <Button 
+  //       className='CartHeader'
+  //       onClick={() => setOpen(!open)}
+  //       aria-controls="example-collapse-text"
+  //       aria-expanded={open}
+  //     >
+  //       <div className='CartName'>
+  //           {id}
+  //       </div>
+  //     </Button>
+  //     <Collapse in={open}>
+  //       <div className = "CartTable">
+  //         <CartList cartItems = {items}  removeItems = {props.removeItems}  addQuantity = {props.addQuantity}  deleteQuantity = {props.deleteQuantity} />
+  //      </div>
+  //     </Collapse>
+  //   </>
+  // );
+  
   return (
-    <>
-      <Button 
-        className='CartHeader'
-        onClick={() => setOpen(!open)}
-        aria-controls="example-collapse-text"
-        aria-expanded={open}
-      >
-        <div className='CartName'>
-            {id}
-        </div>
-      </Button>
-      <Collapse in={open}>
-        <div className = "CartTable">
-          <CartList cartItems = {items}  removeItems = {props.removeItems}  addQuantity = {props.addQuantity}  deleteQuantity = {props.deleteQuantity} />
-       </div>
-      </Collapse>
-    </>
+    <Accordion>
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>{id}</Accordion.Header>
+        { 
+          items.length > 0 &&
+          <Accordion.Body>
+            <div className = "CartTable">
+              <CartList cartItems = {items}  removeItems = {props.removeItems}  addQuantity = {props.addQuantity}  deleteQuantity = {props.deleteQuantity} />
+            </div>
+          </Accordion.Body>
+        }
+      </Accordion.Item>
+    </Accordion>
   );
 }
 

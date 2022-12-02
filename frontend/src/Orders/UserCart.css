@@ -8,56 +8,99 @@ table{
 }
 
 tr{
-    border-top: 1px solid gray;
-    
-
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
   
-table, th, td {
+.CartName {
+    font-weight: 700;
+}
 
+table, th, td {
     padding: 1em;
     width:100%;
+    font-weight: 700;
 }
 
+.quantity-cell {
+    min-width: 50px;
+    max-width: 50px;
+    text-align: center;
+}
+
+.inner-quantity-row tr {
+    border: 0;
+}
+
+.accordion-button {
+    font-family: "Satoshi", sans-serif;
+    font-weight: 700;
+    color: #2f2e2e;
+}
+
+.accordion-button:focus {
+    box-shadow: 0;
+}
+
+.accordion-header button:focus {
+    box-shadow: 0;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #2f2e2e;
+    box-shadow: 0;
+}
 
 button{
-    
-    border: solid 1px gray;
+    /* border: solid 1px gray;
     border-radius: 1em;
     padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-right: 0.5em; */
+    color: #0d0d1c;
+    border-radius: 10px;
+    background-color: rgba(232,228,228, 0.9);
+    transition: 0.2s;
+    border: 0;
+    padding: 6.4px 16px;
+    font-weight: 500;
+    font-size: 13px;
 }
 
+button:hover {
+    color: #0d0d1c;
+    background-color: #e8e4e4;
+    background-color: rgba(201, 197, 197, 0.9);
+    transition: 0.2s;
+}
 
-.CartHeader
-{
+.cart-table td:first-of-type {
+    font-size: 18px;
+}
+
+.cart-table td {
+    font-size: 14px;
+}
+
+.CartHeader {
     background: white;
     width: 90%;
     color: black;
     font-size: 1.2rem;
     font-weight: 500;
     padding: 0.4em;
-
-    border: solid 1px gray;
-    
     border-radius: 0.3em 0.3em 0 0;
-    
-    
 }
 
 .CartHeader:hover
 {
     background: white;
     color: black;
-    border: solid 1px gray;
 }
 
 
 
 .CartTable{
-  border: solid 1px gray;
   border-radius: 0 0  0.8em 0.8em;
   border-top: none;
-  width: 90%;
+  width: 100%;
 }
 

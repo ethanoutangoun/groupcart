@@ -95,3 +95,9 @@
   font-size: 23px;
   font-weight: 600;
 }
+
+.list-container tr {
+  border-left: 0;
+  border-bottom: 0;
+  border-right: 0;
+}

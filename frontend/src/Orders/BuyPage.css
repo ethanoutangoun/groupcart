@@ -6,8 +6,8 @@
     height: 50px;
     width: 200px;
     border: none;
-  }
-  
-  button span {
-    display: none;
-  }
+}
+
+button span {
+  display: none;
+}

@@ -326,46 +326,48 @@ function Orders(){
     return(
         <div className="page">
             <NavbarWrapper />
-            <Container>
-            <div className='groupName'>
-                <h2>{groupname}</h2>
-            </div>
-            {/* <div className='changeGroupBtn'>
-                        <button >Change Group</button>
-            </div> */}
-                <Row>
-                    <Col sm={7}>
-                    <div className='carts-container'>
-                        {/* <UserCart users = {users} cartItems = {items} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} /> */}
-                        {/* Being able to see everyone's items at once */}
-                        {user && users &&(
-                            users.map(user => {
-                                return(
-                                    <UserCart key = {user._id} items = {items} user = {user} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity}/>
-                                )
-                            })
-                        )}
-                    </div>
-                    </Col>
-                    <Col sm={5}>
-                        <div className='form-container'>
-                            <div className='selectUser'>
-                                <Container>
-                                <Row className='selectRow'>
-                                    <Col sm ={3}>
-                                    <h4></h4> User:
-                                    </Col>
-                                    <Col className='name-row'>
-                                    <DropdownUsers/>
-                                    </Col>
-                                </Row>
-                                </Container>
-                             </div>
-                            <Form handleSubmit = {updateList}/>
+            <div className='order-content'>
+                <Container>
+                <div className='groupName'>
+                    <h2>{groupname}</h2>
+                </div>
+                {/* <div className='changeGroupBtn'>
+                            <button >Change Group</button>
+                </div> */}
+                    <Row>
+                        <Col sm={7}>
+                        <div className='carts-container'>
+                            {/* <UserCart users = {users} cartItems = {items} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity} /> */}
+                            {/* Being able to see everyone's items at once */}
+                            {user && users &&(
+                                users.map(user => {
+                                    return(
+                                        <UserCart key = {user._id} items = {items} user = {user} removeItems = {removeOneItem} addQuantity = {addQuantity} deleteQuantity = {deleteQuantity}/>
+                                    )
+                                })
+                            )}
                         </div>
-                    </Col>
-                </Row>
-            </Container>
+                        </Col>
+                        <Col sm={5}>
+                            <div className='form-container'>
+                                <div className='selectUser'>
+                                    <Container>
+                                    <Row className='selectRow'>
+                                        <Col sm ={3}>
+                                        <h4>User</h4>
+                                        </Col>
+                                        <Col className='name-row'>
+                                        <DropdownUsers/>
+                                        </Col>
+                                    </Row>
+                                    </Container>
+                                </div>
+                                <Form handleSubmit = {updateList}/>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
         </div>
     )
 }
