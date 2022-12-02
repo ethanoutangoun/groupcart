@@ -1,24 +1,21 @@
+/* eslint-disable */
+
 //Page for adding to order
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Orders.css'
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Dropdown from 'react-bootstrap/Dropdown';
-
 
 import UserCart from './UserCart';
 import Form from './Form';
 import NavbarWrapper from '../components/NavbarWrapper';
 
-
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 import { useAuthContext } from '../hooks/useAuthContext';
-import { excludedInputPropsForTextarea } from '@nextui-org/react';
 
 function Orders(){
     //the groupid gets passed into the state of NavLink
@@ -112,7 +109,7 @@ function Orders(){
 
     function DropdownUsers() {
 
-        var index = 0; //For indexing into user group
+        // var index = 0; //For indexing into user group
 
         return (
             <>
@@ -159,7 +156,7 @@ function Orders(){
     async function deleteQuantity(id, currvalue)
     {
         //if there is more than 1 and delete quantity gets called
-        if(currvalue != "1")
+        if(currvalue !== "1")
         {
             //setting config header
             const config = {
@@ -299,6 +296,9 @@ function Orders(){
     //For form
     async function updateList(item) {
         var newQty = parseInt(item.quantity)
+        if (newQty) {
+            console.log(">>> " + newQty);
+        }
         const newitem = {
             item: item.item,
             quantity: item.quantity,

@@ -1,7 +1,5 @@
 import React from "react";
 import "./ProfileSideBar.css";
-import { useAuthContext } from "../../hooks/useAuthContext";
-import { useState, useEffect } from "react";
 
 const ProfileSideBar = ({ user, grouplength }) => {
   let name = user.username;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
 import NavbarWrapper from './NavbarWrapper';
@@ -13,6 +13,10 @@ const SplashPage = () => {
   const { user } = useAuthContext();
   const { logout } = useLogout();
   console.log(user);
+  if (logout) {
+    console.log(">>> logout: " + logout);
+  }
+
   return (
     <div class="page">
       <div className="app-header-block">
@@ -20,7 +24,7 @@ const SplashPage = () => {
       </div>
 
       <div class="app-block">
-        <img className="block-img" src={cart}></img>
+        <img className="block-img" alt="header-img"  src={cart}></img>
         <div class="app-block-slogan-wrapper">
           <h2 className="main-title">Group Shopping Made <em>Easy</em></h2>
         </div>
@@ -42,17 +46,17 @@ const SplashPage = () => {
         <div className="instructions">
           <div className="bottom-card">
             <h3 className="bottom-card-header">Sign Up</h3>
-            <img className="card-img" src={signUp}></img>
+            <img className="card-img" alt="sign-up-img" src={signUp}></img>
           </div>
 
           <div className="bottom-card">
             <h3 className="bottom-card-header">Create a GroupCart</h3>
-            <img className="card-img" src={createCart}></img>
+            <img className="card-img" alt="create-img" src={createCart}></img>
           </div>
 
           <div className="bottom-card">
             <h3 className="bottom-card-header">Start Shopping</h3>
-            <img className="card-img" src={startShopping}></img>
+            <img className="card-img" alt="shop-img" src={startShopping}></img>
           </div>
         </div>
       </div>
