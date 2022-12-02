@@ -1,0 +1,27 @@
+name: Backend test
+on:
+  push:
+    branches:
+      - main
+      - signin/signupfix
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18.x'
+
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run test
+          npm run build --if-present
+          npm run test --if-present
+        working-directory: backend
