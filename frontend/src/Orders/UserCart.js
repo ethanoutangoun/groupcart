@@ -1,7 +1,8 @@
 //Cart element for each user
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Collapse from 'react-bootstrap/Collapse';
+// import React, { useState } from 'react';
+import React from 'react';
+// import Button from 'react-bootstrap/Button';
+// import Collapse from 'react-bootstrap/Collapse';
 import Accordion from 'react-bootstrap/Accordion';
 import "./UserCart.css"
 
@@ -59,7 +60,7 @@ function CartList(props) {
 }
 
 function UserCart(props) {
-  const [open, setOpen] = useState(true);
+  //  const [open, setOpen] = useState(true);
   console.log('usercart user', props.user)
   // putting last and first name together
   let id = props.user.first + " " + props.user.last
