@@ -3,6 +3,16 @@ import { useAuthContext } from "./useAuthContext";
 import axios from "axios";
 
 export const useSignin = () => {
+  //if in local development go to localhost
+  if(process.env.PORT){
+    var backendaddr = "https://groupcart.azurewebsites.net/";
+  }else{
+    var backendaddr = "http://localhost:5001"
+  }
+
+  console.log(backendaddr)
+
+
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
@@ -11,7 +21,7 @@ export const useSignin = () => {
     setIsLoading(true);
     setError(null);
     try{
-      const response = await axios.post("http://localhost:5001/login", {username: username, password: password})
+      const response = await axios.post(backendaddr + "/login", {username: username, password: password})
       localStorage.setItem("user", JSON.stringify(response))
       dispatch({type: "LOGIN", payload: response})
       return true

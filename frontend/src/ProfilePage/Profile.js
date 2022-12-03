@@ -8,6 +8,13 @@ import NavbarWrapper from "../components/NavbarWrapper";
 import "./Profile.css";
 
 const Profile = () => {
+    //if in local development go to localhost
+    if(process.env.PORT){
+      var backendaddr = "https://groupcart.azurewebsites.net/";
+    }else{
+      var backendaddr = "http://localhost:5001"
+    }
+
   //get auth context
   const { user } = useAuthContext();
   console.log('profile', user);
@@ -20,7 +27,7 @@ const Profile = () => {
         headers: { Authorization: `Bearer ${user.data.token}` },
       };
       await axios
-        .get("http://localhost:5001/group/user", config)
+        .get(backendaddr + "/group/user", config)
         .then((response) => {
           console.log(response.data);
           setGroupInfo(response.data);
@@ -44,7 +51,7 @@ const Profile = () => {
       headers: { Authorization: `Bearer ${user.data.token}` },
     };
     await axios
-      .post("http://localhost:5001/group", group, config)
+      .post(backendaddr + "/group", group, config)
       .then((response) => {
         console.log(response.data);
         setGroupInfo([...groupInfo, response.data]);
@@ -62,7 +69,7 @@ const Profile = () => {
     };
     console.log(config);
     await axios
-      .post(`http://localhost:5001/group/join/${group.name}`, group, config)
+      .post(backendaddr + `/group/join/${group.name}`, group, config)
       .then((response) => {
         console.log(response.data);
         setGroupInfo([...groupInfo, response.data]);
@@ -81,7 +88,7 @@ const Profile = () => {
     };
 
     await axios
-      .delete(`http://localhost:5001/group/${delgroup._id}`, config)
+      .delete(backendaddr + `/group/${delgroup._id}`, config)
       .then((response) => {
         console.log(response);
         const updatedList = groupInfo.filter((group, i) => {

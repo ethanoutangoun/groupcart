@@ -18,6 +18,14 @@ import { useLocation } from 'react-router-dom'
 import { useAuthContext } from '../hooks/useAuthContext';
 
 function Orders(){
+    //if in local development go to localhost
+    if(process.env.PORT){
+        var backendaddr = "https://groupcart.azurewebsites.net/";
+    }else{
+        var backendaddr = "http://localhost:5001"
+    }
+
+
     //the groupid gets passed into the state of NavLink
     let location = useLocation()
     let groupid = location.state.groupid
@@ -33,7 +41,7 @@ function Orders(){
                 headers: { Authorization: `Bearer ${user.data.token}` }
             }
             await axios
-                .get(`http://localhost:5001/group/${groupid}`, config)
+                .get(backendaddr + `/group/${groupid}`, config)
                 .then((response) => {
                     setUsers(response.data)
                     console.log(response.data)
@@ -54,7 +62,7 @@ function Orders(){
                 headers: { Authorization: `Bearer ${user.data.token}` },
             }
             await axios
-                .get(`http://localhost:5001/items/${groupid}`, config)
+                .get(backendaddr + `/items/${groupid}`, config)
                 .then((response) => {
                     setItems(response.data)
                     console.log('items', response.data)
@@ -168,7 +176,7 @@ function Orders(){
             }
             //patch call
             await axios
-            .patch(`http://localhost:5001/items/${id}`, data , config)
+            .patch(backendaddr + `/items/${id}`, data , config)
             .then(response=> {
                 console.log(response)
             })
@@ -242,7 +250,7 @@ function Orders(){
         }
         //patch call
         await axios
-        .patch(`http://localhost:5001/items/${id}`, data , config)
+        .patch(backendaddr + `/items/${id}`, data , config)
         .then(response=> {
             console.log(response)
         })
@@ -278,7 +286,7 @@ function Orders(){
         }
         //DELETE call
         await axios
-        .delete(`http://localhost:5001/items/${id}`, config)
+        .delete(backendaddr + `/items/${id}`, config)
         .then(response=> {
             console.log(response)
         })
@@ -308,7 +316,7 @@ function Orders(){
         }
         //axios call to actually send data to the backend
         await axios
-        .post(`http://localhost:5001/items/${groupid}`, newitem, config)
+        .post(backendaddr + `/items/${groupid}`, newitem, config)
         .then(response => {
             console.log(response)
             setItems([...items, response.data])
