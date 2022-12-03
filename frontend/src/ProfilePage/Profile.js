@@ -12,7 +12,7 @@ const Profile = () => {
     if(process.env.PORT){
       var backendaddr = "https://groupcart.azurewebsites.net/";
     }else{
-      var backendaddr = "http://localhost:5001"
+      backendaddr = "http://localhost:5001"
     }
 
   //get auth context

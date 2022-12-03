@@ -7,7 +7,7 @@ export const useSignin = () => {
   if(process.env.PORT){
     var backendaddr = "https://groupcart.azurewebsites.net/";
   }else{
-    var backendaddr = "http://localhost:5001"
+    backendaddr = "http://localhost:5001"
   }
 
   console.log(backendaddr)
