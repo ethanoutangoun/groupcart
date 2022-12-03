@@ -13,7 +13,7 @@
 }
 
 .main-title {
-  color: rgb(0,38,21);
+  color: rgb(0, 38, 21);
   font-family: "Satoshi", sans-serif;
   font-weight: 700;
   font-size: 35px;
@@ -107,7 +107,7 @@
   font-family: "Satoshi", sans-serif;
   font-weight: 700;
   font-size: 25px;
-  color: rgba(0, 0, 0, 0.80);
+  color: rgba(0, 0, 0, 0.8);
   margin-bottom: 0px;
   letter-spacing: -1px;
 }
@@ -150,7 +150,7 @@
   font-size: 13px;
   text-decoration: none;
   text-align: center;
-  line-height: 27px;;
+  line-height: 27px;
   color: white;
   transition: 0.2s;
   letter-spacing: -0.1px;
@@ -161,7 +161,7 @@
 }
 
 .block-btn:hover {
-  background-color: hsl(220,calc(var(--saturation-factor, 1)*7.7%),10%);
+  background-color: hsl(220, calc(var(--saturation-factor, 1) * 7.7%), 10%);
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   color: white;
   transition: 0.2s;

@@ -4,7 +4,7 @@ import "./ProfileSideBar.css";
 const ProfileSideBar = ({ user, grouplength }) => {
   let name = user.username;
   // console.log(name);
-  console.log('profileside', user)
+  console.log("profileside", user);
   let fullName = `${user.user.first} ${user.user.last}`;
 
   return (

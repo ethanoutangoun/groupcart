@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Raleway:wght@200;300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Raleway:wght@500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Raleway:wght@200;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Raleway:wght@500;600;700&display=swap");
 
 body {
   font-family: "Satoshi", sans-serif;
@@ -8,48 +8,48 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-h1{
-    color: black;
-    font-family: "Satoshi", sans-serif !important;
-    font-weight: 300;
-    font-size: 20px;
+h1 {
+  color: black;
+  font-family: "Satoshi", sans-serif !important;
+  font-weight: 300;
+  font-size: 20px;
 }
 
-h2{
-    font-size: 1.2em;
+h2 {
+  font-size: 1.2em;
 }
 
 .order-content {
   border-top: 2px solid rgba(0, 0, 0, 0.15);
 }
 
-.header{
-    padding: 0.4em;
-    background: white;
-    padding-top: 1em;
-  
-    text-align: center;
-   
-    border-bottom: 1.5px solid rgb(200,200,200) ;
+.header {
+  padding: 0.4em;
+  background: white;
+  padding-top: 1em;
+
+  text-align: center;
+
+  border-bottom: 1.5px solid rgb(200, 200, 200);
 }
 
-.groupName{
+.groupName {
   padding-top: 1em;
   padding-bottom: 7px;
 }
 
-.groupName h2{
+.groupName h2 {
   color: rgb(0, 32, 18);
   font-size: 32px;
   text-align: left;
   font-weight: 700;
 }
 
-.changeGroupBtn button{
+.changeGroupBtn button {
   border: none;
   color: gray;
   background: white;
@@ -59,7 +59,7 @@ h2{
   padding-bottom: 1.3em;
 }
 
-.selectRow{
+.selectRow {
   align-items: baseline;
 }
 
@@ -74,21 +74,19 @@ h2{
   text-align: right;
 }
 
-.selectUser{
-  
+.selectUser {
 }
 
-.form-container{
+.form-container {
   font-weight: 550;
   padding: 1em;
   padding-top: 1.5em;
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 1.5em;
   border-radius: 10px;
-  
 }
 
-.selector-container button{
+.selector-container button {
   text-align: left;
   color: gray;
   font-weight: 500;
@@ -98,16 +96,16 @@ h2{
   background: none;
 }
 
-.selector-container{
+.selector-container {
   padding-bottom: 0.1em;
   margin-left: 1em;
-  margin-right: 1em; 
+  margin-right: 1em;
 }
 
 .order-content input[type="button"] {
   color: #0d0d1c;
   border-radius: 10px;
-  background-color: rgba(232,228,228, 0.9);
+  background-color: rgba(232, 228, 228, 0.9);
   transition: 0.2s;
 }
 

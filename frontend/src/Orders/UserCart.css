@@ -1,113 +1,108 @@
-
-
-table{
-    font-size: 1rem;
-    font-weight: 500;
-    
-    
+table {
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 tr {
-    border-top: 2px solid rgba(0, 0, 0, 0.15)
-}
-  
-.CartName {
-    font-weight: 700;
+  border-top: 2px solid rgba(0, 0, 0, 0.15);
 }
 
-table, th, td {
-    padding: 1em;
-    width:100%;
-    font-weight: 700;
+.CartName {
+  font-weight: 700;
+}
+
+table,
+th,
+td {
+  padding: 1em;
+  width: 100%;
+  font-weight: 700;
 }
 
 .quantity-cell {
-    min-width: 50px;
-    max-width: 50px;
-    text-align: center;
+  min-width: 50px;
+  max-width: 50px;
+  text-align: center;
 }
 
 .inner-quantity-row tr {
-    border: 0;
+  border: 0;
 }
 
 .accordion-button {
-    font-family: "Satoshi", sans-serif;
-    font-weight: 700;
-    color: #2f2e2e;
+  font-family: "Satoshi", sans-serif;
+  font-weight: 700;
+  color: #2f2e2e;
 }
 
 .accordion-button:focus {
-    box-shadow: 0;
+  box-shadow: 0;
 }
 
 .accordion-header button:focus {
-    box-shadow: 0;
+  box-shadow: 0;
 }
 
 .accordion-button:not(.collapsed) {
-    color: #2f2e2e;
-    box-shadow: 0;
+  color: #2f2e2e;
+  box-shadow: 0;
 }
 
-button{
-    /* border: solid 1px gray;
+button {
+  /* border: solid 1px gray;
     border-radius: 1em;
     padding-left: 0.5em;
     padding-right: 0.5em; */
-    color: #0d0d1c;
-    border-radius: 10px;
-    background-color: rgba(232,228,228, 0.9);
-    transition: 0.2s;
-    border: 0;
-    padding: 6.4px 16px;
-    font-weight: 500;
-    font-size: 13px;
+  color: #0d0d1c;
+  border-radius: 10px;
+  background-color: rgba(232, 228, 228, 0.9);
+  transition: 0.2s;
+  border: 0;
+  padding: 6.4px 16px;
+  font-weight: 500;
+  font-size: 13px;
 }
 
 button:hover {
-    color: #0d0d1c;
-    background-color: #e8e4e4;
-    background-color: rgba(201, 197, 197, 0.9);
-    transition: 0.2s;
+  color: #0d0d1c;
+  background-color: #e8e4e4;
+  background-color: rgba(201, 197, 197, 0.9);
+  transition: 0.2s;
 }
 
 .cart-table td:first-of-type {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .cart-table td {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .CartHeader {
-    background: white;
-    width: 90%;
-    color: black;
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: 0.4em;
-    border-radius: 0.3em 0.3em 0 0;
+  background: white;
+  width: 90%;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.4em;
+  border-radius: 0.3em 0.3em 0 0;
 }
 
-.CartHeader:hover
-{
-    background: white;
-    color: black;
+.CartHeader:hover {
+  background: white;
+  color: black;
 }
 
-
-
-.CartTable{
-  border-radius: 0 0  0.8em 0.8em;
+.CartTable {
+  border-radius: 0 0 0.8em 0.8em;
   border-top: none;
   width: 100%;
 }
 
-.CartTable .cart-table:first-of-type{
-    border-top: 0;
+.CartTable .cart-table:first-of-type {
+  border-top: 0;
 }
 
 .cart-table {
-    border-top: 2px solid rgba(0, 0, 0, 0.15);
+  border-top: 2px solid rgba(0, 0, 0, 0.15);
 }

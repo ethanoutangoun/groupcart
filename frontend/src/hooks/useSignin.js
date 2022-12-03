@@ -4,15 +4,14 @@ import axios from "axios";
 
 export const useSignin = () => {
   //if in local development go to localhost
-  console.log(process.env.NODE_ENV)
-  if(process.env.NODE_ENV !== 'development'){
+  console.log(process.env.NODE_ENV);
+  if (process.env.NODE_ENV !== "development") {
     var backendaddr = "https://groupcart.azurewebsites.net/";
-  }else{
-    backendaddr = "http://localhost:5001"
+  } else {
+    backendaddr = "http://localhost:5001";
   }
 
-  console.log(backendaddr)
-
+  console.log(backendaddr);
 
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
@@ -21,15 +20,17 @@ export const useSignin = () => {
   const signin = async (username, password) => {
     setIsLoading(true);
     setError(null);
-    try{
-      const response = await axios.post(backendaddr + "/login", {username: username, password: password})
-      localStorage.setItem("user", JSON.stringify(response))
-      dispatch({type: "LOGIN", payload: response})
-      return true
-
-    }catch(error){
-      alert(error.response.data.error)
-      return false
+    try {
+      const response = await axios.post(backendaddr + "/login", {
+        username: username,
+        password: password,
+      });
+      localStorage.setItem("user", JSON.stringify(response));
+      dispatch({ type: "LOGIN", payload: response });
+      return true;
+    } catch (error) {
+      alert(error.response.data.error);
+      return false;
     }
 
     // await axios
