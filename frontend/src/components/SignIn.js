@@ -8,18 +8,18 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useSignin } from "../hooks/useSignin"
+import { useSignin } from "../hooks/useSignin";
 
 function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { signin, error, isLoading } = useSignin();
 
   if (error) {
     console.log(">>> Error found: " + error);
   }
-  
+
   if (isLoading) {
     console.log(">>> isLoading status: " + isLoading);
   }
@@ -30,11 +30,11 @@ function SignIn() {
     console.log("handling submit", username, password);
     //signup function is defined in directory hooks
     const success = await signin(username, password);
-    console.log(success)
-    if(success == true){
+    console.log(success);
+    if (success == true) {
       navigate("/profile-page");
-    }else{
-      navigate("/sign-in")
+    } else {
+      navigate("/sign-in");
     }
   };
 
@@ -69,7 +69,9 @@ function SignIn() {
               <Button
                 variant="success"
                 type="submit"
-                onClick={(e)=>{handleSubmit(e)}}
+                onClick={(e) => {
+                  handleSubmit(e);
+                }}
                 className="sign-btn"
               >
                 Sign In
@@ -86,6 +88,6 @@ function SignIn() {
       </div>
     </div>
   );
-};
+}
 
 export default SignIn;

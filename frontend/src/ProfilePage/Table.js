@@ -1,6 +1,6 @@
 import React from "react";
 import "./Table.css";
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 function TableHeader() {
   return (
@@ -21,8 +21,12 @@ function TableBody(props) {
       return (
         <tr className="profile-tr" key={index}>
           <td>
-            <NavLink to = {{pathname: "/orders"}} state = {{groupid: row._id, name: row.name}} className = "order-style">
-            {row.name} 
+            <NavLink
+              to={{ pathname: "/orders" }}
+              state={{ groupid: row._id, name: row.name }}
+              className="order-style"
+            >
+              {row.name}
             </NavLink>
           </td>
           <td>{row.people.length}</td>

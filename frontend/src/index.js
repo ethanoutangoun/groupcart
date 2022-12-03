@@ -12,11 +12,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthContextProvider>
     <BrowserRouter>
-      <App/>
+      <App />
     </BrowserRouter>
   </AuthContextProvider>
 );
-  //<BrowserRouter>
-    // <LearnMore />
-  //</BrowserRouter>
+//<BrowserRouter>
+// <LearnMore />
+//</BrowserRouter>
 // );

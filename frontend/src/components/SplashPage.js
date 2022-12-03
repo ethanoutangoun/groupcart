@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
-import NavbarWrapper from './NavbarWrapper';
+import NavbarWrapper from "./NavbarWrapper";
 import "../styles/splash-page.css";
 import cart from "../images/store_9-min.jpg";
 import signUp from "../images/create-cart.png";
@@ -24,15 +24,23 @@ const SplashPage = () => {
       </div>
 
       <div class="app-block">
-        <img className="block-img" alt="header-img"  src={cart}></img>
+        <img className="block-img" alt="header-img" src={cart}></img>
         <div class="app-block-slogan-wrapper">
-          <h2 className="main-title">Group Shopping Made <em>Easy</em></h2>
+          <h2 className="main-title">
+            Group Shopping Made <em>Easy</em>
+          </h2>
         </div>
         <div className="block-links">
-          <NavLink className="block-btn" to={ user ? "/profile-page" : "/sign-in"}>
+          <NavLink
+            className="block-btn"
+            to={user ? "/profile-page" : "/sign-in"}
+          >
             Check your carts
           </NavLink>
-          <NavLink className="block-btn" to={ user ? "/profile-page" : "/sign-up"}>
+          <NavLink
+            className="block-btn"
+            to={user ? "/profile-page" : "/sign-up"}
+          >
             Create an account
           </NavLink>
           <NavLink className="block-btn" to="/learn-more">

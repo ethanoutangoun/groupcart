@@ -32,10 +32,10 @@ function SignUp() {
     //signup function is defined in directory hooks
     const success = await signup(first, last, username, password);
     // this navigate returns user back to the home page
-    if(success){
+    if (success) {
       navigate("/profile-page");
-    }else{
-      navigate("/sign-up")
+    } else {
+      navigate("/sign-up");
     }
   };
 
