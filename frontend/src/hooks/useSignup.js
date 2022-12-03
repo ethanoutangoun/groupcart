@@ -4,7 +4,8 @@ import axios from "axios";
 
 export const useSignup = () => {
     //if in local development go to localhost
-    if(process.env.PORT){
+    console.log(process.env.NODE_ENV)
+    if(process.env.NODE_ENV !== 'development'){
       var backendaddr = "https://groupcart.azurewebsites.net/";
     }else{
       backendaddr = "http://localhost:5001"
