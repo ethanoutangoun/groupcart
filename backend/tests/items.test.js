@@ -40,9 +40,6 @@ beforeAll(async () => {
   usertwoid = responsetwo._id;
   beforegroupid = responsethree._id;
 
-  // userModel = conn.model("User", User);
-
-  // userServices.setConnection(conn);
 });
 
 afterAll(async () => {
