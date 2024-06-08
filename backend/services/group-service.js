@@ -41,12 +41,6 @@ async function createGroup(userid, name, password) {
       people: [userid],
     });
     const savedgroup = await grouptoadd.save();
-    // const groupid = savedgroup._id;
-    // const user = await User.updateOne(
-    //   { _id: mongoose.Types.ObjectId(userid) },
-    //   { $push: { groups: groupid } }
-    // )
-    // const user = await addGrouptoUser(userid, groupid);
     return savedgroup;
   } catch (error) {
     console.log("creategroup error", error);
