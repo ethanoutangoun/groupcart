@@ -1,7 +1,4 @@
-// const express = require('express');
-// const cors = require('cors');
 const port = 5001;
-
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -20,25 +17,11 @@ app.listen(process.env.PORT || port, () => {
 });
 
 dotenv.config();
-//geting URI
-// const Db = dotenv.
-// console.log(Db)
 let URI = process.env.ATLAS_URI;
 let dbconnection = mongoose.connect(URI);
 
 app.use(express.json());
 app.use(cors());
-
-//cookie session stores the session data on the client within a cookie without requiring database/resources
-//on server side
-// app.use(
-//   cookieSession({
-//     name: "userlogin-session",
-//     //keys: ['key1', 'key2'],
-//     secret: "COOKIE_SECRET",
-//     httpOnly: true
-//   })
-// )
 
 //bogus items to check work
 let items = [
@@ -78,6 +61,3 @@ app.use("/", userroute);
 app.use("/", grouproute);
 app.use("/", itemroute);
 
-// app.listen(port, () => {
-//   console.log(`Example app listening at http://localhost:${port}`);
-// });
