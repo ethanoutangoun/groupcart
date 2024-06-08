@@ -23,7 +23,6 @@ export async function requireAuth(req, res, next) {
     //attaching user id to the request object
     const test = await User.findById(_id);
     req.user = test._id;
-    //middleware needs a next() to go to the next function
     next();
   } catch (error) {
     //if the token is wrong, then the request will not be authorized
