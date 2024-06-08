@@ -51,10 +51,6 @@ beforeAll(async () => {
   beforegroupid = responsethree._id;
 
   await groupservice.addGrouptoUser(usertwoid, beforegroupid);
-
-  // userModel = conn.model("User", User);
-
-  // userServices.setConnection(conn);
 });
 
 afterAll(async () => {
